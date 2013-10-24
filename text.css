@@ -1,0 +1,89 @@
+body {
+  font: 13px/1.5 "Helvetica Neue", Arial, "Liberation Sans", FreeSans, sans-serif;
+}
+p {
+  border: 1px solid #666;
+  overflow: hidden;
+  padding: 10px 0px;
+  text-align: center;
+}
+
+#logo{
+    height : 70px;
+    background-image : url("image/readmelogo.png");
+    margin-top : 13px;
+    margin-right : 325px;
+
+}
+
+#login{
+    height : 70px;
+    margin-top: 13px;
+    padding-bottom: 0px;
+    margin-bottom:5px;
+    
+}
+
+form#loginya{
+    margin-top : 42px;
+    padding-left : 9px;
+}
+
+#navi, #footer{
+
+    border : 1px solid black;
+    height : 35px;
+    padding : auto;
+    margin-right: 233px;
+    border-radius : 5px;
+    background-color : rgb(3,77,164);
+}
+
+#footer1{
+    color : rgb(200,200,200);
+    padding-top : 10px;
+    padding-left : 10px;
+    padding-bottom : 0px;
+    margin : 0px;
+    border : none;
+}
+a{
+color : rgb(200,200,200);
+text-decoration : none;
+}
+
+a:hover{
+color : white;
+text-decoration : underline;
+}
+p.menu{
+    height : 10px;
+    margin : 0px;
+    color : yellow;
+    border : none;
+}
+#pojok{
+    margin-right : 232px;
+}
+
+#searchblock{
+border : 1px solid black;
+background-color: white;
+margin : 0px;
+margin-top : 4px;
+height : 25px;
+width : 225px;
+padding : auto;
+}
+
+#kategori{
+height : 347px;
+border : 1px solid black;
+}
+.produk{
+    height : 354px;
+    margin-top : 0px;
+}
+#adv_search{
+    margin-bottom: 5px;
+}
