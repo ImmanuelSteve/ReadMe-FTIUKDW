@@ -1,0 +1,20 @@
+/*p {
+  border: 1px solid #666;
+  overflow: hidden;
+  padding: 10px 0px;
+  text-align: center;
+}*/
+
+#kategori{
+  height : 347px;
+  border : 1px solid black;
+}
+
+#adv_search{
+  margin-bottom: 5px;
+}
+
+.produk{
+  height : 354px;
+  margin-top : 0px;
+}
