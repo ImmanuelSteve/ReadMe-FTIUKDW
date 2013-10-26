@@ -1,0 +1,41 @@
+#contentarea{
+    background-color: white;
+    padding: 10px;
+    width: 930px;
+}
+
+#content .grid_6{
+	height: 300px;
+	width: 225px;
+	margin-top: 5px;
+}
+
+.img_promo {
+	height: 300px;
+	width: 225px;
+	border-radius: 5px;
+}
+
+#content .grid_18{
+	height: 300px;
+	width: 680px;
+	margin-top: 5px;
+	border-radius: 5px;
+}
+
+#content .info_promo_name {
+	color: rgb(111,111,111);
+	font-size: 12pt;
+	font-weight: bold;
+	text-decoration: none;	
+}
+
+#content .info_promo_name:hover{
+	color: rgb(233,70,22);
+}
+
+#content .info_promo span {
+	color: rgb(111,111,111);
+	font-size: 10pt;	
+}
+
