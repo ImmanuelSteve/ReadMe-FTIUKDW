@@ -1,0 +1,56 @@
+body{
+    font: 13px/1.5 "Helvetica Neue", Arial, "Liberation Sans", FreeSans, sans-serif;
+    background-color: rgb(238,238,238);
+}
+#login{
+    height: 50px;
+    padding-top: 35px;
+}
+
+#formlogin{
+    float: right;
+    padding-right: 5px;
+}
+
+a{
+    color: blue;
+}
+
+#header_nav,#copyright{
+    background-color: rgb(3,77,164);
+    border-radius: 5px;
+    padding-bottom: 10px;
+}
+#nav{
+    list-style-type: none;
+}
+
+.navi{
+    float: left;
+    color:rgb(218,218,218);
+    text-decoration: none;
+    margin-right: 30px;
+}
+
+.navi:hover{
+    color : white;
+    text-decoration : underline;
+}
+
+#formsearch{
+    float: right;
+    padding-right: 10px;
+}
+
+#copyright{
+    padding-bottom: 0px;
+}
+
+#copyrighttext{
+    padding-left:40px;
+    color:rgb(218,218,218);
+}
+#copyrighttext:hover{
+    color:white;
+}
+
