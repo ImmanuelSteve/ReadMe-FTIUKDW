@@ -9,9 +9,9 @@
   <p>Website e-commerce smart phone</p>
   <h2>About : </h2>
   <ol>
-    <li>FANDI WIRAWAN / 22084470</li>
-    <li>DANNY AGUSWAHYUDI / 71110031</li>
-    <li>STEVEN RENALDO ANTONY / 71110054</li>
+    <li>FANDI WIRAWAN / 22084470 --> user : fandi4470</li>
+    <li>DANNY AGUSWAHYUDI / 71110031 --> user id : Nydan</li>
+    <li>STEVEN RENALDO ANTONY / 71110054 --> user id : ImmanuelSteve</li>
   </ol>
   <br/>
   <p style="color: #FF0000;"> coba</p>
