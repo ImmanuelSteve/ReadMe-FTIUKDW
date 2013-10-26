@@ -1,5 +1,5 @@
 #contentarea{
-    height: 550px;
+    height: 540px;
     background-color: white;
 }
 
@@ -16,6 +16,10 @@
     padding-bottom: 5px;
 }
 
+#buatakun{
+    color: rgb(3,77,164);  
+}
+
 ul{
     list-style-type: none;
 }
@@ -26,8 +30,10 @@ ul{
 }
 
 #formdaftar{
-    height: 240px;
-    background-color: rgb(238,238,238); 
+    height: 250px;
+    background-color: rgb(238,238,238);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 #buttondaftar,h3{
