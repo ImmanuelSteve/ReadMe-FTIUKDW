@@ -1,0 +1,25 @@
+#contentarea{
+    background-color: white;
+}
+
+#iklanutama{
+    height : 383px;
+    margin-bottom: 1px;
+}
+
+#textproduk{
+    padding-top: 20px;
+    font-weight : bold;
+}
+
+.produkunggulan{
+  height : 165px;
+  margin-top : 15px;
+  margin-bottom: 1px;
+  margin-left: 50px;
+  margin-right: 25px;
+}
+
+.textprodukunggulan{
+  text-align : center;
+}
