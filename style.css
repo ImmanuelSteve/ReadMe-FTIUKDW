@@ -21,8 +21,8 @@ a{
     border-radius: 5px;
     padding-bottom: 10px;
 }
-#nav{
-    list-style-type: none;
+#nav {
+    list-style: none outside none;
 }
 
 .navi{
@@ -30,11 +30,16 @@ a{
     color:rgb(218,218,218);
     text-decoration: none;
     margin-right: 30px;
+    font-size: 1.2em;
+    border-radius: 300px 300px 300px 300px;
+    background-clip: border-box;
+    padding: 5px 15px;
 }
 
 .navi:hover{
     color : white;
-    text-decoration : underline;
+    text-shadow: 0.5px 0.5px 0.5px rgb(34, 34, 34);
+    background:rgba(255,255,255,0.2);
 }
 
 #formsearch{
