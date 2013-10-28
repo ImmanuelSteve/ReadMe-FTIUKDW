@@ -1,0 +1,189 @@
+#contentarea{
+    background-color: white;
+}
+
+
+/* Kolom kiri */
+/* Cart */
+#cart{
+    background-color:rgb(228,229,231);
+    width : 215px;
+    border : 1px solid rgb(178,179,181);
+    height:40px;
+    padding:5px;
+    margin : 5px 0px;
+}
+#cart_img{
+    float:left;
+    width : 35px;
+}
+
+#cart_info{
+    width : 140px;
+}
+
+/* Kategori */
+.grid_6 #kategori{
+    background-color:rgb(228,229,231);
+    height : 445px;
+    border : 1px solid rgb(178,179,181);
+    width : 215px;
+    margin: 0 0 5px 0;
+    padding : 10px 5px 5px 5px;
+}
+
+.judul, .merk, .merk a{
+    padding : 2px 0 2px 0;
+    background-color : rgb(200,200,201);
+    margin : 2px 0 2px 0;
+    text-decoration : none;
+    color : black;
+}
+
+.judul{
+    background-color : rgb(3,77,164);
+    color : white;
+    padding-left : 50px;
+}
+
+.merk a{
+    margin :0px;
+    padding-left : 50px;
+    display : block;
+}
+.merk a:hover{
+    background-color : rgb(3,77,164);
+    color : white;
+}
+
+
+/*Advance search*/
+#adv_search{
+    width:680px;
+    height:50px;
+    margin-top: 5px;
+    padding:0 5px 0 5px;
+    border:1px solid white;
+    background-color: rgb(228,229,231);
+    float:right;
+}
+
+#page_address{
+    margin : 15px 0 0 15px;
+    float : left;
+    font-size : 10pt;
+}
+
+#adv_search_command{
+    float : right;
+    padding : 0px;
+    margin : 0 2px 0 0;
+}
+
+#kriteria, #sort{
+    margin : 2px 0 2px 0;
+    float : right;
+    background-color : grey;
+    text-align: center;
+    border-radius : 5px;
+}
+
+#adv_search a{
+    display : block;
+    text-align : center;
+    text-decoration: none;
+    color : black;
+}
+
+#adv_search a:hover{
+    color : white;
+    background-color : black;
+    border-radius : 5px;
+}
+
+
+
+/*Produk */
+#produk{
+    height : 450px;
+    width : 690px;
+    margin-top: 5px;
+    overflow-y :scroll;
+    overflow-x : hidden;
+    float: right;
+}
+
+.grid_6_item{
+    width: 200px;
+    margin: 2px 8px 10px 0;
+    padding : 15px 14px 5px 0;
+    float:left;
+}
+
+.produk_image{
+    height : 198px;
+    width : 198px;
+    border : 1px solid rgb(204,204,204);
+}
+
+h3{
+    text-align : center;
+    margin:1px;
+    color: rgb(3,77,164);
+}
+
+.ratting{
+    margin-left:24px;
+}
+
+.harga{
+    font-family : arial black;
+}
+
+span.availability{
+    color: #FFF;
+    background-color: #488c40;
+    padding: 2px;
+    float: right;
+    margin: 0 2px;
+    font-size: 0.9em;
+}
+
+.command{
+    width:150px;
+    height:45px;
+}
+
+.detail, .beli{
+    text-decoration:none;
+    text-decoration: none;
+    float: left;
+    margin: 5px 2px 0 0;
+    text-transform: capitalize;
+    padding : 4px;
+    color: #FFF;
+    background-color: #378203;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    opacity: 0.9;
+}
+
+.beli{
+    background-color:#001e5e;
+}
+
+.detail:hover{
+    background-color: rgb(100,180,6);
+}
+
+.beli:hover{
+    background-color: rgb(0,60,188);
+}
+
+hr{
+    margin :0px;
+}
+
+#footer
+    margin-top : 5px;
