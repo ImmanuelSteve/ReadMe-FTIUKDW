@@ -88,14 +88,14 @@
     float : right;
 }
 
-#adv_search a{
+#adv_search #kriteria a, #adv_search #sort a{
     text-align : center;
     text-decoration: none;
     color : black;
     display : block;
 }
 
-#adv_search a:hover{
+#adv_search #kriteria a:hover, #adv_search #sort a:hover{
     background-color : black;
     border-radius : 5px;
     color : white;
@@ -115,8 +115,9 @@
 
 .grid_6_item{
     width: 200px;
-    margin: 2px 8px 10px 0;
-    padding : 15px 14px 5px 0;
+    height: 370px;
+    margin: 0px 8px 10px 0;
+    padding : 0 14px 5px 0;
     float:left;
 }
 
@@ -126,6 +127,9 @@
     border : 1px solid rgb(204,204,204);
 }
 
+.produk_keterangan{
+    padding : 0 5px;
+}
 h3{
     text-align : center;
     margin:1px;
@@ -137,7 +141,10 @@ h3{
 }
 
 .harga{
-    font-family : arial black;
+    font-family : arial;
+    font-size: 10pt;
+    font-weight: bold;
+    color : rgb(224,0,0);
 }
 
 span.availability{
@@ -146,7 +153,7 @@ span.availability{
     padding: 2px;
     float: right;
     margin: 0 2px;
-    font-size: 0.9em;
+    font-size: 8pt;
 }
 
 .command{
@@ -167,6 +174,7 @@ span.availability{
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     opacity: 0.9;
+    font-size : 8.5pt;
 }
 
 .beli{
