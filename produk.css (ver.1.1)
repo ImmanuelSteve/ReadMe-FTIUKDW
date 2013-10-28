@@ -6,16 +6,16 @@
 /* Kolom kiri */
 /* Cart */
 #cart{
-    background-color:rgb(228,229,231);
     width : 215px;
-    border : 1px solid rgb(178,179,181);
     height:40px;
-    padding:5px;
+    background-color:rgb(228,229,231);
+    border : 1px solid rgb(178,179,181);
     margin : 5px 0px;
+    padding:5px;
 }
 #cart_img{
-    float:left;
     width : 35px;
+    float:left;
 }
 
 #cart_info{
@@ -24,19 +24,19 @@
 
 /* Kategori */
 .grid_6 #kategori{
-    background-color:rgb(228,229,231);
-    height : 445px;
-    border : 1px solid rgb(178,179,181);
     width : 215px;
+    height : 445px;
+    background-color:rgb(228,229,231);
+    border : 1px solid rgb(178,179,181);
     margin: 0 0 5px 0;
     padding : 10px 5px 5px 5px;
 }
 
 .judul, .merk, .merk a{
-    padding : 2px 0 2px 0;
     background-color : rgb(200,200,201);
-    margin : 2px 0 2px 0;
     text-decoration : none;
+    margin : 2px 0 2px 0;
+    padding : 2px 0 2px 0;
     color : black;
 }
 
@@ -61,44 +61,44 @@
 #adv_search{
     width:680px;
     height:50px;
-    margin-top: 5px;
-    padding:0 5px 0 5px;
     border:1px solid white;
     background-color: rgb(228,229,231);
+    margin-top: 5px;
+    padding:0 5px 0 5px;
     float:right;
 }
 
 #page_address{
+    font-size : 10pt;
     margin : 15px 0 0 15px;
     float : left;
-    font-size : 10pt;
 }
 
 #adv_search_command{
-    float : right;
-    padding : 0px;
     margin : 0 2px 0 0;
+    padding : 0px;
+    float : right;
 }
 
 #kriteria, #sort{
+    background-color : grey;
+    border-radius : 5px;
+    text-align: center;
     margin : 2px 0 2px 0;
     float : right;
-    background-color : grey;
-    text-align: center;
-    border-radius : 5px;
 }
 
 #adv_search a{
-    display : block;
     text-align : center;
     text-decoration: none;
     color : black;
+    display : block;
 }
 
 #adv_search a:hover{
-    color : white;
     background-color : black;
     border-radius : 5px;
+    color : white;
 }
 
 
