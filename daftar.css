@@ -2,4 +2,41 @@
     height: 540px;
     background-color: white;
 }
+#contentarea .grid_18{
+    margin-left: 120px;
+}
+
+#contentarea .grid_5{
+    height: 20px;
+    padding-top: 2px;
+}
+#contentarea .grid_11{
+    height: 20px;
+    padding-bottom: 5px;
+}
+
+#buatakun{
+    color: rgb(3,77,164);  
+}
+
+ul{
+    list-style-type: none;
+}
+
+#informasiumum{
+    background-color: rgb(3,77,164);
+    color: rgb(218,218,218);
+}
+
+#formdaftar{
+    height: 250px;
+    background-color: rgb(238,238,238);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#buttondaftar,h3{
+    margin-top: 10px;
+    margin-left: 45px;
+}
 
