@@ -7,19 +7,36 @@
     margin-bottom: 1px;
 }
 
-#textproduk{
-    padding-top: 20px;
+#dotslider{
+    height: 25px;
+    background-color: rgb(3,77,164);
+}
+
+.textproduk{
+    padding-top: 5px;
+    padding-left: 25px;
     font-weight : bold;
 }
 
-.produkunggulan{
+.kumpulanproduk{
+    margin-left: 35px;
+}
+
+.produk{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.gambarproduk{
   height : 165px;
   margin-top : 15px;
   margin-bottom: 1px;
-  margin-left: 50px;
+  margin-left: 30px;
   margin-right: 25px;
 }
 
-.textprodukunggulan{
+.textdetailproduk{
   text-align : center;
 }
+
+
