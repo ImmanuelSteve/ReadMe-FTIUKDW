@@ -9,18 +9,18 @@
 </head>
 
 <body>
-    <!-- header begin -->
+      <!-- header begin -->
     <div id="header">
         <div class="container_24">
             <div class="grid_4">
-                 <img src="images/readmeshoplogo.png" height="100" width="110"/>
+                <img src="images/readmeshoplogo.png" height="100" width="110"/>
             </div>
             <div id="login" class="grid_20">
                 <form id="formlogin">
                     <input type="text" name="username" placeholder="nama pengguna">
                     <input type="password" name="password" placeholder="kata sandi">
-                    <button class="buttonsubmit" type="submit">Masuk</button>
-                    <br/>Belum punya akun <a href="daftar.html">daftar disini</a>
+                    <input id="buttonlogin" type="submit" value="Masuk">
+                     <br/>Belum punya akun <a href="daftar.html">daftar disini</a>
                 </form>
             </div>
             
@@ -30,13 +30,25 @@
                 <ul id="nav">
                     <li><a class="navi" href="index.php">Beranda</a> </li>
                     <li><a class="navi" href="produk.html">Produk </a></li>
-                    <li><a class="navi" href="promosi.html">Promosi </a></li>
+                    <li><a class="navi" href="promosi.php">Promosi </a></li>
                     <li><a class="navi" href="tentangkami.html">Tentang kami </a></li>
                 </ul>
-                <form id="formsearch">
-                    <input type="text" name="pencarian" placeholder="Pencarian">
-                    <button class"buttonsubmit" type="submit">Cari</button>
-                </form>
+                <div id="formsearch" class="grid_6">
+                    <form accept-charset="utf-8" method="post" action="index.php">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input id="textsearch" type="search" required x-moz-errormessage="Inputan jangan kosong !" size="24" value="" name="search" placeholder="pencarian"></input>
+                                </td>
+                                <td>
+                                    <input id="buttonsearch" type="submit" style="cursor:pointer;" value="" name=""></input>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </form>
+                </div>
             </div>
             
             <div class="clear"></div>
