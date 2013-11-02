@@ -110,8 +110,9 @@
                         $result = mysqli_query($koneksi,$sql);
                         echo "<div class='grid_18' id='produk'>";
                          while($data = mysqli_fetch_assoc($result)){
+                            $gambar = $data['gambar'];
                             echo "<div class='grid_6_item'>";
-                            echo "<div class='produk_image'><img src=".$data['gambar']."/></div>";
+                            echo "<div class='produk_image'><img src='$gambar'/></div>";
                             echo "<h3>".$data['nama']."</h3>";
                             echo "<div clas='ratting'>";
                             for($i=0; $i<$data['ratting'] ; $i++){
