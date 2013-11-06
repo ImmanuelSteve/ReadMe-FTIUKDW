@@ -143,7 +143,7 @@
     </div>
     <!-- content end -->
 
-   <!-- footer begin -->
+    <!-- footer begin -->
     <div id="footer">
         <div class="container_24">
             <div class="grid_24" id="footerarea">
