@@ -18,7 +18,7 @@
                 <img src="images/readmeshoplogo.png" height="100" width="110"/>
             </div>
             <div id="login" class="grid_20">
-                <form id="formlogin">
+                <form id="formlogin" class="right">
                     <input type="text" name="username" placeholder="nama pengguna">
                     <input type="password" name="password" placeholder="kata sandi">
                     <input id="buttonlogin" type="submit" value="Masuk">
@@ -79,7 +79,7 @@
             <div class="clear"></div>
             <div class="grid_24" id="dotslider"></div>
             <div class="clear"></div>
-            <div id="contentarea" class="grid_24">
+            <div class="grid_24" id="contentarea" >
                 <div class="grid_23">
                      <h3 class ="textproduk">
                         PRODUK UNGGULAN
@@ -92,8 +92,10 @@
                         $result = mysqli_query($koneksi,$sql);
                          while($data = mysqli_fetch_assoc($result)){
                             $gambar = $data['gambar'];
-                            echo"<div class='grid_5 produk'><a href=index.php?id=".$data['id']."><img class='gambarproduk' src='$gambar'/></a><hr/>";
-                            echo"<p class='textdetailproduk'>".$data['nama']."<br>Rp. ".$data['hargaString'].",00</p>";
+                            echo"<div class='grid_5 produk'>";
+                            echo"<div class='grid_5 divgambarproduk'><a href=index.php?id=".$data['id']."><img class='gambarproduk' src='$gambar'/></a></div>";
+                            echo"<div class='grid_5 detailproduk'><p class='textnamaproduk center'>".$data['nama']."</p>";
+                            echo"<p class='texthargaproduk center'>Rp. ".$data['hargaString'].",00</p></div>";
                             echo"</div>";
                         }
                         mysqli_close($koneksi);
@@ -111,8 +113,10 @@
                         $result = mysqli_query($koneksi,$sql);
                          while($data = mysqli_fetch_assoc($result)){
                             $gambar = $data['gambar'];
-                            echo"<div class='grid_5 produk'><a href=index.php?id=".$data['id']."><img class='gambarproduk' src='$gambar'/></a><hr/>";
-                            echo"<p class='textdetailproduk'>".$data['nama']."<br>Rp. ".$data['hargaString'].",00</p>";
+                            echo"<div class='grid_5 produk'>";
+                            echo"<div class='grid_5 divgambarproduk'><a href=index.php?id=".$data['id']."><img class='gambarproduk' src='$gambar'/></a></div>";
+                            echo"<div class='grid_5 detailproduk'><p class='textnamaproduk center'>".$data['nama']."</p>";
+                            echo"<p class='texthargaproduk center'>Rp. ".$data['hargaString'].",00</p></div>";
                             echo"</div>";
                         }
                         mysqli_close($koneksi);
@@ -129,8 +133,64 @@
     <!-- footer begin -->
     <div id="footer">
         <div class="container_24">
+            <div class="grid_24" id="footerarea">
+                <div class="grid_4 footerleft">
+		    <p class="textfootertitle center">Merek Kami</p>
+		    <ul class="center">
+			<li><a class="textfooterinfo" href="#">Apple</a></li>
+                        <li><a class="textfooterinfo" href="#">BlackBerry</a></li>
+                        <li><a class="textfooterinfo" href="#">HTC</a></li>
+                        <li><a class="textfooterinfo" href="#">Huawei</a></li>
+                        <li><a class="textfooterinfo" href="#">Lenovo</a></li>
+                        <li><a class="textfooterinfo" href="#">LG</a></li>
+                        <li><a class="textfooterinfo" href="#">Nokia</a></li>
+                        <li><a class="textfooterinfo" href="#">Samsung</a></li>
+                        <li><a class="textfooterinfo" href="#">Sony</a></li>
+                        <li><a class="textfooterinfo" href="#">ZTE</a></li>
+                    </ul>
+		</div>
+                <div class="grid_4">
+		    <p class="textfootertitle center">Link</p>
+		    <ul class="center">
+			<li><a class="textfooterinfo" href="produk.php">Produk</a></li>
+                        <li><a class="textfooterinfo" href="#">Produk Baru</a></li>
+                        <li><a class="textfooterinfo" href="#">Produk Terlaris</a></li>
+                        <li><a class="textfooterinfo" href="promosi.php">Promosi</a></li>
+                    </ul>
+		</div>
+                <div class="grid_4">
+		    <p class="textfootertitle center">Gabung Yuk</p>
+		    <ul class="center">
+			<li><a class="textfooterinfo textfooterbig" href="www.facebook.com">Facebook</a></li>
+                        <li><a class="textfooterinfo textfooterbig" href="www.instagram.com">Instagram</a></li>
+                        <li><a class="textfooterinfo textfooterbig" href="www.twitter.com">Twitter</a></li>
+                    </ul>
+		</div>
+                 <div class="grid_6">
+		    <p class="textfootertitle center">HOTLINE</p>
+		    <ul class="center">
+			<li class="texthotline textfooterbig">Contact us :</li>
+                        <li class="texthotline textfooterbig">+62 81 234 567 89</li>
+                         <li class="texthotline">Untuk informasi lebih lanjut</li>
+                    </ul>
+		</div>
+                 <div class="grid_5">
+		    <p class="textfootertitle center">Jasa Pengiriman</p>
+		    <ul class="center">
+			<li><a class="textfooterinfo" href="www.jne.co.id">
+                            <img src="images/JNE.png">
+                        </a></li>
+                        <li><a class="textfooterinfo" href="www.posindonesia.co.id">
+                            <img src="images/POS.jpg">
+                        </a></li>
+                        <li><a class="textfooterinfo" href="www.tiki-online.com">
+                            <img src="images/TIKI.png">
+                        </a></li>
+                    </ul>
+		</div>
+            </div>
             <div class="grid_24" id="copyright">
-                <p id="copyrighttext">
+                <p id="copyrighttext" class="center">
                     Copyright @2013 ReadmeShop All Right Reserved
                 </p>
             </div>
