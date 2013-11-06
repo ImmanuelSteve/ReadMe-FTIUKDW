@@ -143,7 +143,7 @@
     </div>
     <!-- content end -->
 
-    <!-- footer begin -->
+   <!-- footer begin -->
     <div id="footer">
         <div class="container_24">
             <div class="grid_24" id="footerarea">
@@ -174,9 +174,9 @@
                 <div class="grid_4">
 		    <p class="textfootertitle center">Gabung Yuk</p>
 		    <ul class="center">
-			<li><a class="textfooterinfo textfooterbig" href="www.facebook.com">Facebook</a></li>
-                        <li><a class="textfooterinfo textfooterbig" href="www.instagram.com">Instagram</a></li>
-                        <li><a class="textfooterinfo textfooterbig" href="www.twitter.com">Twitter</a></li>
+			<li><a class="textfooterinfo textfooterbig" href="http://www.facebook.com" target="blank">Facebook</a></li>
+                        <li><a class="textfooterinfo textfooterbig" href="http://www.instagram.com" target="blank">Instagram</a></li>
+                        <li><a class="textfooterinfo textfooterbig" href="http://www.twitter.com" target="blank">Twitter</a></li>
                     </ul>
 		</div>
                  <div class="grid_6">
@@ -190,13 +190,13 @@
                  <div class="grid_5">
 		    <p class="textfootertitle center">Jasa Pengiriman</p>
 		    <ul class="center">
-			<li><a class="textfooterinfo" href="www.jne.co.id">
+			<li><a class="textfooterinfo" href="http://www.jne.co.id" target="blank">
                             <img src="images/JNE.png">
                         </a></li>
-                        <li><a class="textfooterinfo" href="www.posindonesia.co.id">
+                        <li><a class="textfooterinfo" href="http://www.posindonesia.co.id" target="blank">
                             <img src="images/POS.jpg">
                         </a></li>
-                        <li><a class="textfooterinfo" href="www.tiki-online.com">
+                        <li><a class="textfooterinfo" href="http://www.tiki-online.com" target="blank">
                             <img src="images/TIKI.png">
                         </a></li>
                     </ul>
