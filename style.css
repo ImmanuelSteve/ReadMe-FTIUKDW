@@ -17,6 +17,18 @@ ul{
     float: right;
 }
 
+.nodecor {
+    text-decoration: none;
+}
+
+.noleft {
+    margin-left: 0px;
+}
+
+.noright {
+    margin-right: 0px;
+}
+
 #login{
     height: 50px;
     padding-top: 35px;
