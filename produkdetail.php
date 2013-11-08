@@ -24,6 +24,7 @@
     <link rel="icon" type="image/png" href="images/icon-readmeshop.png" />
     <link rel="stylesheet" href="css/960_24_col.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/produk.css" />
     <link rel="stylesheet" href="css/produkdetail.css" />
     <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
     <script type="text/javascript" src="js/menu-produk.js"></script>
@@ -82,7 +83,7 @@
     <div id="content">
         <div class="container_24">
             <div id="contentarea" class="grid_24">
-                <div class="grid_6" id="kategori">
+                <div class="grid_6 noleft" id="kategori">
                     <div class="grid_6 judulkategori">
                         <p><a href="#">Merek</a></p>
                     </div>
