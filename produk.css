@@ -1,150 +1,54 @@
-#contentarea{
-    background-color: white;
+.merek {
+    background-color: rgb(3,77,164);
+    border-radius:5px;
+    display: block;
+    height: 30px;
+    margin-top: 10px;
+    overflow: auto;
+    padding-top: 10px;
 }
 
-
-/* Kolom kiri */
-/* Cart */
-#cart{
-    width : 215px;
-    height:40px;
-    background-color:rgb(228,229,231);
-    border : 1px solid rgb(178,179,181);
-    margin : 5px 0px;
-    padding:5px;
-}
-#cart_img{
-    width : 35px;
-    float:left;
-}
-
-#cart_info{
-    width : 140px;
-}
-
-/* Kategori */
-.grid_6 #kategori{
-    width : 215px;
-    height : 445px;
-    background-color:rgb(228,229,231);
-    border : 1px solid rgb(178,179,181);
-    margin: 0 0 5px 0;
-    padding : 10px 5px 5px 5px;
-}
-
-.judul, .merk, .merk a{
-    background-color : rgb(200,200,201);
-    text-decoration : none;
-    margin : 2px 0 2px 0;
-    padding : 2px 0 2px 0;
-    color : black;
-}
-
-.judul{
-    background-color : rgb(3,77,164);
-    color : white;
-    padding-left : 50px;
-}
-
-.merk a{
-    margin :0px;
-    padding-left : 50px;
-    display : block;
-}
-.merk a:hover{
-    background-color : rgb(3,77,164);
-    color : white;
-}
-
-
-/*Advance search*/
-#adv_search{
-    width:680px;
-    height:50px;
-    border:1px solid white;
-    background-color: rgb(228,229,231);
+.list_merek{
+    background-color: rgb(90,147,213);
+    border-radius:5px;
+    height: 30px;
     margin-top: 5px;
-    padding:0 5px 0 5px;
-    float:right;
+    padding-top: 10px;
 }
 
-#page_address{
-    font-size : 10pt;
-    margin : 15px 0 0 15px;
-    float : left;
-}
-
-#adv_search_command{
-    margin : 0 2px 0 0;
-    padding : 0px;
-    float : right;
-}
-
-#kriteria, #sort{
-    background-color : grey;
-    border-radius : 5px;
-    text-align: center;
-    margin : 2px 0 2px 0;
-    float : right;
-}
-
-#adv_search #kriteria a, #adv_search #sort a{
-    text-align : center;
-    text-decoration: none;
-    color : black;
-    display : block;
-}
-
-#adv_search #kriteria a:hover, #adv_search #sort a:hover{
-    background-color : black;
-    border-radius : 5px;
-    color : white;
-}
-
-
-
-/*Produk */
-#produk{
-    height : 450px;
-    width : 690px;
-    margin-top: 5px;
+#produk {
+    float: right;
+    height : 650px;
+    margin : 0px 0px 0px 15px;
     overflow-y :scroll;
     overflow-x : hidden;
-    float: right;
+    padding: 0px 0px 0px 0px;
 }
 
-.grid_6_item{
+#produk_item {
     width: 200px;
     height: 370px;
-    margin: 0px 8px 10px 0;
-    padding : 0 14px 5px 0;
+    margin: 0px;
+    padding: 10px 5px 5px;
     float:left;
-}
-
-.produk_image{
-    height : 198px;
-    width : 198px;
-    border : 1px solid rgb(204,204,204);
 }
 
 .produk_keterangan{
     padding : 0 5px;
 }
-h3{
-    text-align : center;
+
+h3 {
     margin:1px;
     color: rgb(3,77,164);
+    margin-top: 4px;
 }
 
-.ratting{
-    margin-left:24px;
-}
-
-.harga{
+span#harga{
     font-family : arial;
     font-size: 10pt;
     font-weight: bold;
     color : rgb(224,0,0);
+    margin-top: 2px;
 }
 
 span.availability{
@@ -154,29 +58,32 @@ span.availability{
     float: right;
     margin: 0 2px;
     font-size: 8pt;
+    margin-top: 2px;
 }
 
-.command{
-    width:150px;
-    height:45px;
+.produk_image {
+    background-color: white;
+    border : 1px solid rgb(204,204,204);
 }
 
-.detail, .beli{
-    text-decoration:none;
-    text-decoration: none;
-    float: left;
-    margin: 5px 2px 0 0;
+.ratting {
+    margin-top: 4px;
+}
+
+.produk_menu {
+    padding: 4px 6px 4px 6px;
     text-transform: capitalize;
-    padding : 4px;
     color: #FFF;
-    background-color: #378203;
     border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
+    border-radius: 3px;
     opacity: 0.9;
     font-size : 8.5pt;
+    margin-top: 4px;
 }
 
+.detail {
+    background-color: #378203;
+}
 .beli{
     background-color:#001e5e;
 }
@@ -189,9 +96,7 @@ span.availability{
     background-color: rgb(0,60,188);
 }
 
-hr{
-    margin :0px;
+.command{
+    width:150px;
+    height:45px;
 }
-
-#footer
-    margin-top : 5px;
