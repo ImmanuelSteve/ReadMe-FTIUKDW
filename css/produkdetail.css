@@ -1,37 +1,3 @@
-#contentarea{
-    background-color: white;
-    padding-bottom: 40px;
-}
-
-#kategori{
-    padding : 0px;
-}
-
-.judulkategori{
-    margin-left: 0px;
-    margin-top: 10px;
-    height: 50px;
-    background-color:rgb(3,74,164);
-}
-
-.judulkategori a{
-    text-decoration: none;
-    color : rgb(238,238,238);
-    padding-left: 20px;
-    font-size: 18px;
-}
-
-.isikategori{
-    margin-left: 0px;
-    background-color: rgb(218,218,218);
-}
-
-.isikategori a{
-    text-decoration: none;
-    color: black;
-    padding-left: 20px;
-}
-
 #namaproduk, #statusproduk,#hargaproduk{
     font-size: 20px;
     font-weight: bolder;
