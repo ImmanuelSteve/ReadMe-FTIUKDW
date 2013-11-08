@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2013 at 06:49 AM
--- Server version: 5.5.32
--- PHP Version: 5.4.19
+-- Generation Time: Nov 08, 2013 at 07:35 PM
+-- Server version: 5.6.11
+-- PHP Version: 5.5.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -21,6 +21,66 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `readmesh_readmeshop` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `readmesh_readmeshop`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detail`
+--
+
+CREATE TABLE IF NOT EXISTS `detail` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Jaringan_Data` varchar(100) NOT NULL,
+  `Jaringan_Telepon` varchar(100) NOT NULL,
+  `Processor` varchar(100) NOT NULL,
+  `RAM` varchar(100) NOT NULL,
+  `GPU` varchar(100) NOT NULL,
+  `Storage` varchar(100) NOT NULL,
+  `OS` varchar(100) NOT NULL,
+  `Display` varchar(100) NOT NULL,
+  `Batery` varchar(100) NOT NULL,
+  `Camera` varchar(100) NOT NULL,
+  `Fitur_Tambahan` varchar(500) NOT NULL,
+  `Tanggal_Release` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `detail`
+--
+
+INSERT INTO `detail` (`Id`, `Jaringan_Data`, `Jaringan_Telepon`, `Processor`, `RAM`, `GPU`, `Storage`, `OS`, `Display`, `Batery`, `Camera`, `Fitur_Tambahan`, `Tanggal_Release`) VALUES
+(1, '4G(LTE Cat 4 150/50Mbps)', 'Quad band(850/900/1800/1900 MHz)', 'LTE(2.3 GHz Quad-Core Processor), 3G(1.9GHz Octa Core Processor(A15 1.9GHz+A7 1.3GHz)', '3 GB', 'Mali-400MP4', '32/64 GB memori internal + slot microSD(hingga 64GB) ', 'Android 4.3(Jelly Bean)', '5.7 inch(144.3mm) Full HD Super AMOLED (1920 x 1080 piksel)', 'Standar baterai, Li-ion 3.200 mAh', 'Kamera utama/belakang(13 Mpx), kamera depan(2 Mpx), dual kamera/dual rekaman/dual panggilan video', 'S Pen dengan fitur yang dioptimalisasi, Bluetooth v4.0(LE), Gesture, Accelerometer, Geo-magnetic, Gyroscope, RGB', '2013-11-09 01:30:45');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pengiriman`
+--
+
+CREATE TABLE IF NOT EXISTS `pengiriman` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Nama` varchar(100) NOT NULL,
+  `Kota_Tujuan` varchar(100) NOT NULL,
+  `Harga` int(11) NOT NULL,
+  `Harga_String` varchar(50) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `pengiriman`
+--
+
+INSERT INTO `pengiriman` (`Id`, `Nama`, `Kota_Tujuan`, `Harga`, `Harga_String`) VALUES
+(1, 'JNE', 'Kebumen', 19000, '19.000'),
+(2, 'Tiki', 'Kebumen', 28000, '28.000'),
+(3, 'Pos Indonesia', 'Kebumen', 19900, '19.900'),
+(4, 'JNE', 'Yogyakarta', 7000, '7.000'),
+(5, 'Tiki', 'Yogyakarta', 9000, '9.000'),
+(6, 'Pos Indonesia', 'Yogyakarta', 16500, '16.500'),
+(7, 'JNE', 'Cilacap', 20000, '20.000'),
+(8, 'Tiki', 'Cilacap', 12000, '12.000'),
+(9, 'Pos Indonesia', 'Cilacap', 19800, '19.800');
 
 -- --------------------------------------------------------
 
@@ -82,6 +142,25 @@ INSERT INTO `promo` (`id`, `judul`, `berlaku`, `gambar`, `deskripsi`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `transaksi`
+--
+
+CREATE TABLE IF NOT EXISTS `transaksi` (
+  `Id_Transaksi` int(11) NOT NULL AUTO_INCREMENT,
+  `Id_Customer` int(11) NOT NULL,
+  `Id_Barang` int(11) NOT NULL,
+  `Id_Pengiriman` int(11) NOT NULL,
+  `Total_Harga_Barang` int(11) NOT NULL,
+  `Biaya_Kirim` int(11) NOT NULL,
+  `Discount` int(11) NOT NULL,
+  `Total_Harga_Dibayarkan` int(11) NOT NULL,
+  `Tanggal_Transaksi` int(11) NOT NULL,
+  PRIMARY KEY (`Id_Transaksi`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -96,14 +175,17 @@ CREATE TABLE IF NOT EXISTS `user` (
   `kota` varchar(50) NOT NULL,
   `telepon` int(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `panggilan`, `nama depan`, `nama belakang`, `email`, `password`, `alamat`, `kota`, `telepon`) VALUES
-(1, '', 'admin', '', '', 'admin', '', '', 0);
+(1, '', 'admin', '', '', 'admin', '', '', 0),
+(2, 'mr', 'Fandi', 'Wirawan', 'fandi.wirawan@gmail.com', '123456789', 'Karanganyar, Kebumen', 'Kebumen', 2147483647),
+(3, 'mr', 'Danny', 'Aguswahyudi', 'danny.cute.abies@gigomail.com', 'akucantik', 'gang nanas, Yogyakarta', 'Yogyakarta', 2147483647),
+(4, 'mr', 'Steven Renaldo', 'Antony', 'steven.renaldo.antony@sadakomail.com', 'akumiripsadako', 'TPU gunung meletus, Cilacap', 'Cilacap', 2147483647);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
