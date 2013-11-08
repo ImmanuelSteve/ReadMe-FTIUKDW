@@ -3,11 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <title>Produk - ReadMe shop</title>
+    <link rel="icon" type="image/png" href="images/icon-readmeshop.png" />
     <link rel="stylesheet" href="css/960_24_col.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/produk.css" />
     <script language="JavaScript" type="text/javascript" src="js/jquery-2.0.3.js"></script>
     <script language="JavaScript" type="text/javascript" src="js/produk.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/menu-produk.js"></script>
 </head>
 
 <body>
@@ -61,34 +63,59 @@
     
     <!-- content begin -->
     <div id="content">
-        <div class="container_24" >           
-                <!-- Kolom kiri-->
-                <div class="grid_6">                
-                    <dl>
-                        <dt class="merek center"><a class="nodecor" href="#">Merek</a></dt>
-                        <dd class="noleft center">
-                            <ul>
-                                <li class="list_merek"> <a class="nodecor" href="#">Sony</a> </li>
-                                <li class="list_merek"> <a class="nodecor" href="#">Samsung</a> </li>
-                                <li class="list_merek"> <a class="nodecor" href="#">Apple</a> </li>
-                                <li class="list_merek"> <a class="nodecor" href="#">HTC</a> </li>
-                                <li class="list_merek"> <a class="nodecor" href="#">Oppo</a> </li>
-                                <li class="list_merek"> <a class="nodecor" href="#">Lenovo</a> </li>
-                            </ul>
-                        </dd>
-                    </dl>
-                </div>                      
-
+        <div class="container_24">
+            <div id="contentarea" class="grid_24">
+                <div class="grid_6 noleft" id="kategori">
+                    <div class="grid_6 judulkategori">
+                        <p><a href="#">Merek</a></p>
+                    </div>
+                    <div class="grid_6 isikategori">
+                        <ul>
+                            <li><a href="#">Apple</a></li>
+                            <li><a href="#">BlackBerry</a></li>
+                            <li><a href="#">HTC</a></li>
+                            <li><a href="#">Huawei</a></li>
+                            <li><a href="#">Lenovo</a></li>
+                            <li><a href="#">LG</a></li>
+                            <li><a href="#">Nokia</a></li>
+                            <li><a href="#">Samsung</a></li>
+                            <li><a href="#">Sony</a></li>
+                            <li><a href="#">ZTE</a></li>
+                        </ul>
+                    </div>
+                    <div class="grid_6 judulkategori">
+                        <p><a href="#">Harga</a></p>
+                    </div>
+                    <div class="grid_6 isikategori">
+                        <ul>
+                            <li><a href="#">di bawah 1 juta</a></li>
+                            <li><a href="#">1 juta sampai 2 juta</a></li>
+                            <li><a href="#">2 juta sampai 3 juta</a></li>
+                            <li><a href="#">3 juta sampai 4 juta</a></li>
+                            <li><a href="#">di atas 4 juta</a></li>
+                        </ul>
+                    </div>
+                     <div class="grid_6 judulkategori">
+                        <p><a href="#">Tipe Simcard</a></p>
+                    </div>
+                    <div class="grid_6 isikategori">
+                        <ul>
+                            <li><a href="#">GSM</a></li>
+                            <li><a href="#">CDMA Phone</a></li>
+                            <li><a href="#">Dual Simcard</a></li>
+                        </ul>
+                    </div>
+                </div>
                 <!-- Kolom Kanan -->
                 <?php
                         require("koneksi.php");
                         $sql = "SELECT id,nama,hargaString,gambar,stok,ratting FROM produk";
                         $result = mysqli_query($koneksi,$sql);
-                        echo "<div class='grid_18'><div id='produk'>";
+                        echo "<div class='grid_18 right noright'><div id='produk'>";
                          while($data = mysqli_fetch_assoc($result)){
                             $gambar = $data['gambar'];
                             echo "<div id='produk_item'>";
-                            echo "<div class='produk_image center'><img src='$gambar'/></div>";
+                            echo "<div class='produk_image center'><a href=produkdetail.php?id=".$data['id']."><img src='$gambar'/></a></div>";
                             echo "<h3 class='center'>".$data['nama']."</h3>";
                             echo "<div class='ratting '>";
                             for($i=0; $i<$data['ratting'] ; $i++){
@@ -105,7 +132,7 @@
                                 }
                             echo "<div class='clear'></div>";
                             echo "<div class='command'>
-                                <a class='detail nodecor produk_menu' href='produk_detail.html'>Detail</a>
+                                <a class='detail nodecor produk_menu' href=produkdetail.php?id=".$data['id'].">Detail</a>
                                 <a class='beli nodecor produk_menu' href='#'>Beli</a>
                                 </div>";
                             echo "</div><hr/></div>";
