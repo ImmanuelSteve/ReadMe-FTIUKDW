@@ -16,6 +16,10 @@
     padding-top: 10px;
 }
 
+.list_merek a, .merek a{
+    display: block;
+}
+
 #produk {
     float: right;
     height : 650px;
