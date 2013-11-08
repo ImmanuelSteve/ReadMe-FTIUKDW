@@ -1,32 +1,54 @@
-.merek {
-    background-color: rgb(3,77,164);
-    border-radius:5px;
-    display: block;
-    height: 30px;
+#contentarea{
+    background-color: white;
+    padding-bottom: 40px;
+}
+
+#kategori{
+    padding : 0px;
+    float: left;
+    background-color: white;
+}
+
+.judulkategori{
+    margin-left: 0px;
     margin-top: 10px;
-    overflow: auto;
-    padding-top: 10px;
+    height: 50px;
+    background-color:rgb(3,74,164);
 }
 
-.list_merek{
-    background-color: rgb(90,147,213);
-    border-radius:5px;
-    height: 30px;
-    margin-top: 5px;
-    padding-top: 10px;
-}
-
-.list_merek a, .merek a{
+.judulkategori a{
+    text-decoration: none;
+    color : rgb(238,238,238);
+    padding-left: 20px;
+    font-size: 18px;
     display: block;
+}
+
+.isikategori{
+    margin-left: 0px;
+    background-color: rgb(218,218,218);
+}
+
+.isikategori a{
+    text-decoration: none;
+    color: black;
+    padding-left: 20px;
+    display: block;
+}
+
+.isikategori a:hover{
+    background-color: rgb(69,154,250);
+    font-weight: bold;
 }
 
 #produk {
     float: right;
-    height : 650px;
-    margin : 0px 0px 0px 15px;
+    height : 560px;
+    margin : 10px 0px 0px 15px;
     overflow-y :scroll;
     overflow-x : hidden;
-    padding: 0px 0px 0px 0px;
+    padding: 0px;
+    background-color: white;
 }
 
 #produk_item {
