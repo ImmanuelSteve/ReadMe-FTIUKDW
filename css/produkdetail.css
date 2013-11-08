@@ -1,0 +1,127 @@
+#contentarea{
+    background-color: white;
+    padding-bottom: 40px;
+}
+
+#kategori{
+    padding : 0px;
+}
+
+.judulkategori{
+    margin-left: 0px;
+    margin-top: 10px;
+    height: 50px;
+    background-color:rgb(3,74,164);
+}
+
+.judulkategori a{
+    text-decoration: none;
+    color : rgb(238,238,238);
+    padding-left: 20px;
+    font-size: 18px;
+}
+
+.isikategori{
+    margin-left: 0px;
+    background-color: rgb(218,218,218);
+}
+
+.isikategori a{
+    text-decoration: none;
+    color: black;
+    padding-left: 20px;
+}
+
+#namaproduk, #statusproduk,#hargaproduk{
+    font-size: 20px;
+    font-weight: bolder;
+    padding-left: 10px;
+}
+
+#namaproduk{
+    font-size: 30px;
+}
+
+#gambarproduk{
+    border: 1px solid rgb(3,4,164);
+}
+
+#detailproduk1{
+    margin-left: 20px;
+    margin-right: 0px;
+}
+
+#detailproduk2{
+    margin-left: 0px;
+    margin-top: 130px;
+    margin-bottom: 30px;
+    background-color: rgb(218,218,218);
+}
+
+#formbeli{
+    margin-left: 10px;
+}
+
+
+#buttonbeli{
+    display: block;
+    margin-left: 50px;
+    background: rgb(3,74,164);
+    box-shadow: 0px 1px 3px 0px rgba(92, 195, 244, 0.8) inset;
+    color: white;
+    height: 35px;
+    width: 100px;
+    font-weight: bold;
+    border: 2px solid rgb(5, 52, 150);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#mid{
+    margin-top: 10px;
+}
+
+#tabs{
+    overflow: hidden;
+    margin: 0px;
+}
+#tabs li{
+    float: left;
+    margin:0px;
+}
+#tabs a{
+    text-decoration: none;
+    padding: 8px 15px;
+    float: left;
+    color: black;
+    border:2px solid rgb(3,74,164);
+    border-bottom: none;
+}
+
+/*ketika dihover*/
+#tabs a:hover,
+#tabs a:hover::after,
+#tabs a:focus,
+#tabs a:focus::after{
+    background-color:rgb(3,74,164);
+    font-weight: bold;
+    color: #fff;
+}
+
+/*untuk terpilih salah satu tab aktif*/
+#tabs #current a,
+#tabs #current a:after{
+    background-color:rgb(3,74,164);
+    font-weight: bold;
+    color: #fff;
+}
+
+#isiTab{
+    background: #fff;
+    padding: 2em;
+    height: 220px;
+    border: 2px solid rgb(3,74,164);  
+}
+
+
+

@@ -1,26 +1,6 @@
 #contentarea{
     background-color: white;
-    padding-bottom : 10px;
-}
-
-#iklanutama{
-    height : 383px;
-    margin-bottom: 1px;
-}
-
-#dotslider{
-    height: 25px;
-    background-color: rgb(3,77,164);
-}
-
-.textproduk{
-    padding-top: 5px;
-    padding-left: 28px;
-    font-weight : bold;
-}
-
-.kumpulanproduk{
-    margin-left: 30px;
+    padding-bottom: 40px;
 }
 
 .produk{
@@ -49,6 +29,7 @@
     margin-top: 0px;
     color:rgb(242,101,78);
 }
+
 
 
 
