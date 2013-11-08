@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>ReadMe shop</title>
+    <link rel="icon" type="image/png" href="images/icon-readmeshop.png" />
     <link rel="stylesheet" href="css/960_24_col.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/beranda.css" />
@@ -36,12 +37,12 @@
                     <li><a class="navi" href="tentangkami.html">Tentang kami </a></li>
                 </ul>
                 <div id="formsearch" class="grid_6">
-                    <form accept-charset="utf-8" method="post" action="index.php">
+                    <form accept-charset="utf-8" method="post" action="cari.php">
                     <table>
                         <tbody>
                             <tr>
                                 <td>
-                                    <input id="textsearch" type="search" required x-moz-errormessage="Inputan jangan kosong !" size="24" value="" name="search" placeholder="pencarian"></input>
+                                    <input id="textsearch" type="search" required x-moz-errormessage="Inputan jangan kosong !" size="24" value="" name="search" placeholder="cari produk"></input>
                                 </td>
                                 <td>
                                     <input id="buttonsearch" type="submit" style="cursor:pointer;" value="" name=""></input>
@@ -93,8 +94,8 @@
                          while($data = mysqli_fetch_assoc($result)){
                             $gambar = $data['gambar'];
                             echo"<div class='grid_5 produk'>";
-                            echo"<div class='grid_5 divgambarproduk'><a href=index.php?id=".$data['id']."><img class='gambarproduk' src='$gambar'/></a></div>";
-                            echo"<div class='grid_5 detailproduk'><p class='textnamaproduk center'>".$data['nama']."</p>";
+                            echo"<div class='grid_5 divgambarproduk'><a href=produkdetail.php?id=".$data['id']."><img class='gambarproduk' src='$gambar'/></a></div>";
+                            echo"<div class='grid_5'><p class='textnamaproduk center'>".$data['nama']."</p>";
                             echo"<p class='texthargaproduk center'>Rp. ".$data['hargaString'].",00</p></div>";
                             echo"</div>";
                         }
@@ -114,8 +115,8 @@
                          while($data = mysqli_fetch_assoc($result)){
                             $gambar = $data['gambar'];
                             echo"<div class='grid_5 produk'>";
-                            echo"<div class='grid_5 divgambarproduk'><a href=index.php?id=".$data['id']."><img class='gambarproduk' src='$gambar'/></a></div>";
-                            echo"<div class='grid_5 detailproduk'><p class='textnamaproduk center'>".$data['nama']."</p>";
+                            echo"<div class='grid_5 divgambarproduk'><a href=produkdetail.php?id=".$data['id']."><img class='gambarproduk' src='$gambar'/></a></div>";
+                            echo"<div class='grid_5'><p class='textnamaproduk center'>".$data['nama']."</p>";
                             echo"<p class='texthargaproduk center'>Rp. ".$data['hargaString'].",00</p></div>";
                             echo"</div>";
                         }
@@ -123,8 +124,7 @@
                     ?>
                 </div>
                    
-                <div class="clear"></div>
-                
+                <div class="clear"></div>    
             </div>
         </div>
     </div>
@@ -136,7 +136,7 @@
             <div class="grid_24" id="footerarea">
                 <div class="grid_4 footerleft">
 		    <p class="textfootertitle center">Merek Kami</p>
-		    <ul class="center">
+		    <ul class="center hover">
 			<li><a class="textfooterinfo" href="#">Apple</a></li>
                         <li><a class="textfooterinfo" href="#">BlackBerry</a></li>
                         <li><a class="textfooterinfo" href="#">HTC</a></li>
@@ -151,7 +151,7 @@
 		</div>
                 <div class="grid_4">
 		    <p class="textfootertitle center">Link</p>
-		    <ul class="center">
+		    <ul class="center hover">
 			<li><a class="textfooterinfo" href="produk.php">Produk</a></li>
                         <li><a class="textfooterinfo" href="#">Produk Baru</a></li>
                         <li><a class="textfooterinfo" href="#">Produk Terlaris</a></li>
@@ -160,7 +160,7 @@
 		</div>
                 <div class="grid_4">
 		    <p class="textfootertitle center">Gabung Yuk</p>
-		    <ul class="center">
+		    <ul class="center hover">
 			<li><a class="textfooterinfo textfooterbig" href="http://www.facebook.com" target="blank">Facebook</a></li>
                         <li><a class="textfooterinfo textfooterbig" href="http://www.instagram.com" target="blank">Instagram</a></li>
                         <li><a class="textfooterinfo textfooterbig" href="http://www.twitter.com" target="blank">Twitter</a></li>
@@ -176,7 +176,7 @@
 		</div>
                  <div class="grid_5">
 		    <p class="textfootertitle center">Jasa Pengiriman</p>
-		    <ul class="center">
+		    <ul class="center hover">
 			<li><a class="textfooterinfo" href="http://www.jne.co.id" target="blank">
                             <img src="images/JNE.png">
                         </a></li>

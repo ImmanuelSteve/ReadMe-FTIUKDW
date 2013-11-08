@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.5
+-- version 4.0.4.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Nov 05, 2013 at 09:25 PM
--- Server version: 5.5.32-cll
--- PHP Version: 5.3.17
+-- Host: 127.0.0.1
+-- Generation Time: Nov 05, 2013 at 06:49 AM
+-- Server version: 5.5.32
+-- PHP Version: 5.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `readmesh_readmeshop`
 --
+CREATE DATABASE IF NOT EXISTS `readmesh_readmeshop` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `readmesh_readmeshop`;
 
 -- --------------------------------------------------------
 
@@ -106,4 +108,3 @@ INSERT INTO `user` (`id`, `panggilan`, `nama depan`, `nama belakang`, `email`, `
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
