@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>ReadMe shop</title>
+    <title>Produk - ReadMe shop</title>
     <link rel="icon" type="image/png" href="images/icon-readmeshop.png" />
     <link rel="stylesheet" href="css/960_24_col.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/beranda.css" />
-    <link href="css/js-image-slider.css" rel="stylesheet" type="text/css" />
-    <script src="js/js-image-slider.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/produk.css" />
+    <script language="JavaScript" type="text/javascript" src="js/jquery-2.0.3.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/produk.js"></script>
 </head>
 
 <body>
-    <!-- header begin -->
+     <!-- header begin -->
     <div id="header">
         <div class="container_24">
             <div class="grid_4">
@@ -63,81 +63,111 @@
     <!-- content begin -->
     <div id="content">
         <div class="container_24">
-            <div class="grid_24" id= "iklanutama">
-                <div id="sliderFrame">
-                    <div id="slider">
-                        <a href="promosi.html" target="_blank">
-                            <img src="images/iklan-utama-1.jpg" alt="Selamat datang di ReadMe shop" />
-                        </a>
-                        <img src="images/iklan-utama-2.jpg" alt="" />
-                        <img src="images/iklan-utama-3.jpg" alt="" />
-                        <img src="images/iklan-utama-4.jpg" alt="" />
-                        <img src="images/iklan-utama-5.jpg" />
+            <div id="contentarea" class="grid_24">
+                <div class="grid_6 noleft" id="kategori">
+                    <div class="grid_6 judulkategori">
+                        <p><a href="#">Merek</a></p>
                     </div>
-                 </div>
-            </div>
-            
-            <div class="clear"></div>
-            <div class="grid_24" id="dotslider"></div>
-            <div class="clear"></div>
-            <div class="grid_24" id="contentarea" >
-                <div class="grid_23">
-                     <h3 class ="textproduk">
-                        PRODUK UNGGULAN
-                    </h3>
+                    <div class="grid_6 isikategori">
+                        <ul>
+                            <li><a href="#">Apple</a></li>
+                            <li><a href="#">BlackBerry</a></li>
+                            <li><a href="#">HTC</a></li>
+                            <li><a href="#">Huawei</a></li>
+                            <li><a href="#">Lenovo</a></li>
+                            <li><a href="#">LG</a></li>
+                            <li><a href="#">Nokia</a></li>
+                            <li><a href="#">Samsung</a></li>
+                            <li><a href="#">Sony</a></li>
+                            <li><a href="#">ZTE</a></li>
+                        </ul>
+                    </div>
+                    <div class="grid_6 judulkategori">
+                        <p><a href="#">Harga</a></p>
+                    </div>
+                    <div class="grid_6 isikategori">
+                        <ul>
+                            <li><a href="#">di bawah 1 juta</a></li>
+                            <li><a href="#">1 juta sampai 2 juta</a></li>
+                            <li><a href="#">2 juta sampai 3 juta</a></li>
+                            <li><a href="#">3 juta sampai 4 juta</a></li>
+                            <li><a href="#">di atas 4 juta</a></li>
+                        </ul>
+                    </div>
+                     <div class="grid_6 judulkategori">
+                        <p><a href="#">Tipe Simcard</a></p>
+                    </div>
+                    <div class="grid_6 isikategori">
+                        <ul>
+                            <li><a href="#">GSM</a></li>
+                            <li><a href="#">CDMA Phone</a></li>
+                            <li><a href="#">Dual Simcard</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="grid_23 kumpulanproduk">
-                    <?php
-                        require("koneksi.php");
-                        $sql = "SELECT id,nama,hargaString,gambar FROM produk WHERE status='unggulan'";
-                        $result = mysqli_query($koneksi,$sql);
+                <!-- Kolom Kanan -->
+                <div class="grid_18 right noright"><div id="produk">
+                <div>
+                    <h1>Hasil Pencarian</h2>
+                </div>
+                 <?php
+                     require("koneksi.php");
+                     if(isset($_POST['search'])){
+                         $cari = $_POST['search'];
+                         
+                         //non case sensitive
+                         strtoupper($cari);
+                         strip_tags($cari);
+                         trim($cari);
+                         $sql = "SELECT * FROM produk WHERE upper(nama) LIKE'%$cari%'";
+                         $result = mysqli_query($koneksi,$sql);
+                         $cek=mysqli_num_rows($result);
+                         if($cek > 0){
                          while($data = mysqli_fetch_assoc($result)){
                             $gambar = $data['gambar'];
-                            echo"<div class='grid_5 produk'>";
-                            echo"<div class='grid_5 divgambarproduk'><a href=produkdetail.php?id=".$data['id']."><img class='gambarproduk' src='$gambar'/></a></div>";
-                            echo"<div class='grid_5'><p class='textnamaproduk center'>".$data['nama']."</p>";
-                            echo"<p class='texthargaproduk center'>Rp. ".$data['hargaString'].",00</p></div>";
-                            echo"</div>";
+                            echo "<div id='produk_item'>";
+                            echo "<div class='produk_image center'><a href=produkdetail.php?id=".$data['id']."><img src='$gambar'/></a></div>";
+                            echo "<h3 class='center'>".$data['nama']."</h3>";
+                            echo "<div class='ratting '>";
+                            for($i=0; $i<$data['nilai'] ; $i++){
+                                echo "<img src='images/star.jpg' width=30px height=30px/>";
+                            }
+                            echo "</div>";
+                            echo "<div class='produk_keterangan'>";
+                            echo "<span id='harga'>Rp ".$data['hargaString']."</span>";
+                            if($data['stok'] > 0){
+                                echo "<span class='availability'>Tersedia</span>";    
+                            }
+                            else {
+                                echo "<span class='availability'>Tidak Tersedia</span>";
+                                }
+                            echo "<div class='clear'></div>";
+                            echo "<div class='command'>
+                                <a class='detail nodecor produk_menu' href=produkdetail.php?id=".$data['id'].">Detail</a>
+                                <a class='beli nodecor produk_menu' href='#'>Beli</a>
+                                </div>";
+                            echo "</div><hr/></div>";
                         }
-                        mysqli_close($koneksi);
-                    ?>
+                         }
+                         else{
+                             echo"<div id='textnotfound'>Data tidak ditemukan</div>";
+                         }
+                     }
+                     mysqli_close($koneksi);
+                 ?>
                 </div>
-                <div class="grid_23">
-                     <h3 class ="textproduk">
-                        PRODUK BARU
-                    </h3>
-                </div>
-                <div class="grid_23 kumpulanproduk">
-                    <?php
-                        require("koneksi.php");
-                        $sql = "SELECT id,nama,hargaString,gambar FROM produk WHERE status='baru'";
-                        $result = mysqli_query($koneksi,$sql);
-                         while($data = mysqli_fetch_assoc($result)){
-                            $gambar = $data['gambar'];
-                            echo"<div class='grid_5 produk'>";
-                            echo"<div class='grid_5 divgambarproduk'><a href=produkdetail.php?id=".$data['id']."><img class='gambarproduk' src='$gambar'/></a></div>";
-                            echo"<div class='grid_5'><p class='textnamaproduk center'>".$data['nama']."</p>";
-                            echo"<p class='texthargaproduk center'>Rp. ".$data['hargaString'].",00</p></div>";
-                            echo"</div>";
-                        }
-                        mysqli_close($koneksi);
-                    ?>
-                </div>
-                   
-                <div class="clear"></div>    
-            </div>
         </div>
     </div>
     <!-- content end -->
 
     <!-- footer begin -->
-    <div id="footer">
+     <div id="footer">
         <div class="container_24">
             <div class="grid_24" id="footerarea">
                 <div class="grid_4 footerleft">
-		    <p class="textfootertitle center">Merek Kami</p>
-		    <ul class="center hover">
-			<li><a class="textfooterinfo" href="#">Apple</a></li>
+            <p class="textfootertitle center">Merek Kami</p>
+            <ul class="center">
+            <li><a class="textfooterinfo" href="#">Apple</a></li>
                         <li><a class="textfooterinfo" href="#">BlackBerry</a></li>
                         <li><a class="textfooterinfo" href="#">HTC</a></li>
                         <li><a class="textfooterinfo" href="#">Huawei</a></li>
@@ -148,36 +178,36 @@
                         <li><a class="textfooterinfo" href="#">Sony</a></li>
                         <li><a class="textfooterinfo" href="#">ZTE</a></li>
                     </ul>
-		</div>
+        </div>
                 <div class="grid_4">
-		    <p class="textfootertitle center">Link</p>
-		    <ul class="center hover">
-			<li><a class="textfooterinfo" href="produk.php">Produk</a></li>
+            <p class="textfootertitle center">Link</p>
+            <ul class="center">
+            <li><a class="textfooterinfo" href="produk.php">Produk</a></li>
                         <li><a class="textfooterinfo" href="#">Produk Baru</a></li>
                         <li><a class="textfooterinfo" href="#">Produk Terlaris</a></li>
                         <li><a class="textfooterinfo" href="promosi.php">Promosi</a></li>
                     </ul>
-		</div>
+        </div>
                 <div class="grid_4">
-		    <p class="textfootertitle center">Gabung Yuk</p>
-		    <ul class="center hover">
-			<li><a class="textfooterinfo textfooterbig" href="http://www.facebook.com" target="blank">Facebook</a></li>
+            <p class="textfootertitle center">Gabung Yuk</p>
+            <ul class="center">
+            <li><a class="textfooterinfo textfooterbig" href="http://www.facebook.com" target="blank">Facebook</a></li>
                         <li><a class="textfooterinfo textfooterbig" href="http://www.instagram.com" target="blank">Instagram</a></li>
                         <li><a class="textfooterinfo textfooterbig" href="http://www.twitter.com" target="blank">Twitter</a></li>
                     </ul>
-		</div>
+        </div>
                  <div class="grid_6">
-		    <p class="textfootertitle center">HOTLINE</p>
-		    <ul class="center">
-			<li class="texthotline textfooterbig">Contact us :</li>
+            <p class="textfootertitle center">HOTLINE</p>
+            <ul class="center">
+            <li class="texthotline textfooterbig">Contact us :</li>
                         <li class="texthotline textfooterbig">+62 81 234 567 89</li>
                          <li class="texthotline">Untuk informasi lebih lanjut</li>
                     </ul>
-		</div>
+        </div>
                  <div class="grid_5">
-		    <p class="textfootertitle center">Jasa Pengiriman</p>
-		    <ul class="center hover">
-			<li><a class="textfooterinfo" href="http://www.jne.co.id" target="blank">
+            <p class="textfootertitle center">Jasa Pengiriman</p>
+            <ul class="center">
+            <li><a class="textfooterinfo" href="http://www.jne.co.id" target="blank">
                             <img src="images/JNE.png">
                         </a></li>
                         <li><a class="textfooterinfo" href="http://www.posindonesia.co.id" target="blank">
@@ -187,7 +217,7 @@
                             <img src="images/TIKI.png">
                         </a></li>
                     </ul>
-		</div>
+        </div>
             </div>
             <div class="grid_24" id="copyright">
                 <p id="copyrighttext" class="center">
