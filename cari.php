@@ -129,7 +129,7 @@
                             echo "<div class='produk_image center'><a href=produkdetail.php?id=".$data['id']."><img src='$gambar'/></a></div>";
                             echo "<h3 class='center'>".$data['nama']."</h3>";
                             echo "<div class='ratting '>";
-                            for($i=0; $i<$data['ratting'] ; $i++){
+                            for($i=0; $i<$data['nilai'] ; $i++){
                                 echo "<img src='images/star.jpg' width=30px height=30px/>";
                             }
                             echo "</div>";
