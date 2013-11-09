@@ -57,11 +57,16 @@
 }
 #tabs a{
     text-decoration: none;
-    padding: 8px 15px;
+    padding: 8px 20px;
     float: left;
     color: black;
     border:2px solid rgb(3,74,164);
     border-bottom: none;
+}
+
+.tabbutton {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 /*ketika dihover*/
@@ -80,6 +85,7 @@
     background-color:rgb(3,74,164);
     font-weight: bold;
     color: #fff;
+    border-bottom: 0px;
 }
 
 #isiTab{
@@ -87,6 +93,9 @@
     padding: 2em;
     height: 220px;
     border: 2px solid rgb(3,74,164);  
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 

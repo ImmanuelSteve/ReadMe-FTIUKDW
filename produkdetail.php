@@ -174,9 +174,9 @@
                 <div class="grid_6"><p></p></div>
                 <div class="grid_17" id="mid">
                     <ul id="tabs">
-                            <li> <a name="tab1" href="#" > Spesifikasi </a></li>
-                            <li> <a name="tab2" href="#" > Review </a></li>
-                            <li> <a name="tab3" href="#" > Komentar </a></li>
+                            <li > <a class="tabbutton" name="tab1" > Spesifikasi </a></li>
+                            <li > <a class="tabbutton" name="tab2" > Review </a></li>
+                            <li > <a class="tabbutton" name="tab3" > Komentar </a></li>
                     </ul>
                     <div id="isiTab"> 
                         <div id="tab1">Spesifikasi di sini</div>
