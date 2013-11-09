@@ -153,6 +153,20 @@ a{
     color:white;
 }
 
+#penyapa {
+    font-variant: small-caps;
+    font-size: 15px;
+    float: left;
+    margin-right: 15px; 
+}
+
+.ava {
+    margin-right: 10px;
+}
+
+.logout {
+    margin-top: 5px;
+}
 
 ::-webkit-scrollbar{
     width:12px;

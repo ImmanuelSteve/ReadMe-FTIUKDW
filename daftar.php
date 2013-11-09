@@ -3,33 +3,22 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>ReadMe shop</title>
-    <link rel="icon" type="image/png" href="images/icon-readmeshop.png" />
+    <title>Daftar - ReadMe shop</title>
+   <link rel="icon" type="image/png" href="images/icon-readmeshop.png" />
     <link rel="stylesheet" href="css/960_24_col.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/beranda.css" />
-    <link href="css/js-image-slider.css" rel="stylesheet" type="text/css" />
-    <script src="js/js-image-slider.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/daftar.css" />
 </head>
 
 <body>
-    <!-- header begin -->
+     <!-- header begin -->
     <div id="header">
         <div class="container_24">
             <div class="grid_4">
                 <img src="images/readmeshoplogo.png" height="100" width="110"/>
             </div>
             <?php include ("koneksi.php");
-                if (!empty($_SESSION['user'])) {
-                    echo "<div id='login' class='grid_20'>";
-                    echo "<form id='formlogin' class='right' action='logout.php' method='post'>";
-                    echo "<img class='ava left' src='images/avatar.jpg' width: '64px' height='64px'>";
-                    echo "<span id='penyapa'>Selamat Datang, <br/><a href='#'>".$_SESSION['user']."</a></span></br>";
-                    echo "<input class='right logout' id='buttonlogin' type='submit' value='Keluar'>";
-                    echo "</form></div>";
-                    echo "<div class='clear'></div>";
-                }
-                else if (isset($_POST['username']) && isset($_POST['password'])) {
+                if (isset($_POST['username']) && isset($_POST['password'])) {
                     $username = $_POST['username'];
                     $password = $_POST['password'];
                     $query_string = "SELECT email,password FROM pengguna WHERE email='".$username."'AND password='".$password."'";
@@ -37,17 +26,11 @@
                     $found = mysqli_num_rows($result);
                     if ($found > 0 ) {                        
                         $_SESSION['user'] = $username;
-                        echo "<div id='login' class='grid_20'>";
-                        echo "<form id='formlogin' class='right' action='logout.php' method='post'>";
-                        echo "<img class='ava left' src='images/avatar.jpg' width: '64px' height='64px'>";
-                        echo "<span id='penyapa'>Selamat Datang, <br/><a href='#'>".$username."</a></span></br>";
-                        echo "<input class='right logout' id='buttonlogin' type='submit' value='Keluar'>";
-                        echo "</form></div>";
-                        echo "<div class='clear'></div>";
+                        header('location:index.php');
                     }
                     else {
                         echo "<div id='login' class='grid_20'>";
-                        echo "<form id='formlogin' class='right' action='index.php' method='post'>";
+                        echo "<form id='formlogin' class='right' action='daftar.php' method='post'>";
                         echo "<input type='text' name='username' placeholder='nama pengguna'>";
                         echo "<input type='password' name='password' placeholder='kata sandi'>";
                         echo "<input id='buttonlogin' type='submit' value='Masuk'>";
@@ -59,7 +42,7 @@
                 }
                 else {
                     echo "<div id='login' class='grid_20'>";
-                    echo "<form id='formlogin' class='right' action='index.php' method='post'>";
+                    echo "<form id='formlogin' class='right' action='daftar.php' method='post'>";
                     echo "<input type='text' name='username' placeholder='nama pengguna'>";
                     echo "<input type='password' name='password' placeholder='kata sandi'>";
                     echo "<input id='buttonlogin' type='submit' value='Masuk'>";
@@ -69,6 +52,8 @@
                 }
                 mysqli_close($koneksi);
              ?>
+            
+            <div class="clear"></div>
             
             <div class="grid_24" id="header_nav">
                 <ul id="nav">
@@ -104,80 +89,97 @@
     <!-- content begin -->
     <div id="content">
         <div class="container_24">
-            <div class="grid_24" id= "iklanutama">
-                <div id="sliderFrame">
-                    <div id="slider">
-                        <a href="promosi.html" target="_blank">
-                            <img src="images/iklan-utama-1.jpg" alt="Selamat datang di ReadMe shop" />
-                        </a>
-                        <img src="images/iklan-utama-2.jpg" alt="" />
-                        <img src="images/iklan-utama-3.jpg" alt="" />
-                        <img src="images/iklan-utama-4.jpg" alt="" />
-                        <img src="images/iklan-utama-5.jpg" />
+            <div id="contentarea" class="grid_24">
+                <div class="grid_18">
+                    <h1 id="buatakun">Buat akun Anda</h1>
+                </div>
+                <div class="clear"></div>
+                <form>
+                    <div class="grid_18" id="informasiumum">
+                        <h3>INFORMASI UMUM</h3>
+                     </div>
+                    <div class="clear"></div>
+                    <div class="grid_18" id="formdaftar">
+                        <ul>
+                            <li>
+                                    <label class="grid_5">Panggilan</label>
+                                    <div class="grid_11">
+                                        <input id="id_gender1" type="radio" value="1" name="id_gender"></input>
+                                        <label> Mr. </label>
+                                        <input id="id_gender2" type="radio" value="2" name="id_gender"></input>
+                                        <label> Ms. </label>
+                                        <input id="id_gender3" type="radio" value="3" name="id_gender"></input>
+                                        <label> Miss </label>
+                                    </div>
+                            </li>
+                            <li>
+                                    <label class="grid_5">Nama Depan*</label>
+                                    <div class="grid_11">
+                                        <input type="text" value="" name=""></input>
+                                    </div>
+                            </li>
+                            <li>
+                                    <label class="grid_5">Nama Belakang*</label>
+                                    <div class="grid_11">
+                                        <input type="text" value="" name=""></input>
+                                    </div>
+                            </li>
+                            <li>
+                                    <label class="grid_5">Email*</label>
+                                    <div class="grid_11">
+                                        <input type="text" value="" name=""></input>
+                                    </div>
+                            </li>
+                            <li>
+                                    <label class="grid_5">Kata Sandi*</label>
+                                    <div class="grid_11">
+                                        <input type="password" value="" name=""></input>
+                                    </div>
+                            </li>
+                            <li>
+                                    <label class="grid_5">Ulangi Kata Sandi*</label>
+                                    <div class="grid_11">
+                                        <input type="password" value="" name=""></input>
+                                    </div>
+                            </li>
+                            <li>
+                                    <label class="grid_5">Alamat*</label>
+                                    <div class="grid_11">
+                                        <input type="text" value="" name=""></input>
+                                    </div>
+                            </li>
+                            <li>
+                                    <label class="grid_5">Kota*</label>
+                                    <div class="grid_11">
+                                        <input type="text" value="" name=""></input>
+                                    </div>
+                            </li>
+                            <li>
+                                    <label class="grid_5">Telepon*</label>
+                                    <div class="grid_11">
+                                        <input type="text" value="" name=""></input>
+                                    </div>
+                            </li>
+                        </ul>
                     </div>
-                 </div>
-            </div>
-            
-            <div class="clear"></div>
-            <div class="grid_24" id="dotslider"></div>
-            <div class="clear"></div>
-            <div class="grid_24" id="contentarea" >
-                <div class="grid_23">
-                     <h3 class ="textproduk">
-                        PRODUK UNGGULAN
-                    </h3>
-                </div>
-                <div class="grid_23 kumpulanproduk">
-                    <?php
-                        require("koneksi.php");
-                        $sql = "SELECT id,nama,hargaString,gambar FROM produk WHERE status='unggulan'";
-                        $result = mysqli_query($koneksi,$sql);
-                         while($data = mysqli_fetch_assoc($result)){
-                            $gambar = $data['gambar'];
-                            echo"<div class='grid_5 produk'>";
-                            echo"<div class='grid_5 divgambarproduk'><a href=produkdetail.php?id=".$data['id']."><img class='gambarproduk' src='$gambar'/></a></div>";
-                            echo"<div class='grid_5'><p class='textnamaproduk center'>".$data['nama']."</p>";
-                            echo"<p class='texthargaproduk center'>Rp. ".$data['hargaString'].",00</p></div>";
-                            echo"</div>";
-                        }
-                        mysqli_close($koneksi);
-                    ?>
-                </div>
-                <div class="grid_23">
-                     <h3 class ="textproduk">
-                        PRODUK BARU
-                    </h3>
-                </div>
-                <div class="grid_23 kumpulanproduk">
-                    <?php
-                        require("koneksi.php");
-                        $sql = "SELECT id,nama,hargaString,gambar FROM produk WHERE status='baru'";
-                        $result = mysqli_query($koneksi,$sql);
-                         while($data = mysqli_fetch_assoc($result)){
-                            $gambar = $data['gambar'];
-                            echo"<div class='grid_5 produk'>";
-                            echo"<div class='grid_5 divgambarproduk'><a href=produkdetail.php?id=".$data['id']."><img class='gambarproduk' src='$gambar'/></a></div>";
-                            echo"<div class='grid_5'><p class='textnamaproduk center'>".$data['nama']."</p>";
-                            echo"<p class='texthargaproduk center'>Rp. ".$data['hargaString'].",00</p></div>";
-                            echo"</div>";
-                        }
-                        mysqli_close($koneksi);
-                    ?>
-                </div>
-                   
-                <div class="clear"></div>    
+                    <div class="clear"></div>
+                    <div class="grid_18">
+                        <button type="submit" id="buttondaftar">Daftar!</button>
+						*Harus diisi
+                    </div>
+                </form>
             </div>
         </div>
     </div>
     <!-- content end -->
 
-    <!-- footer begin -->
+   <!-- footer begin -->
     <div id="footer">
         <div class="container_24">
             <div class="grid_24" id="footerarea">
                 <div class="grid_4 footerleft">
 		    <p class="textfootertitle center">Merek Kami</p>
-		    <ul class="center hover">
+		    <ul class="center">
 			<li><a class="textfooterinfo" href="#">Apple</a></li>
                         <li><a class="textfooterinfo" href="#">BlackBerry</a></li>
                         <li><a class="textfooterinfo" href="#">HTC</a></li>
@@ -192,7 +194,7 @@
 		</div>
                 <div class="grid_4">
 		    <p class="textfootertitle center">Link</p>
-		    <ul class="center hover">
+		    <ul class="center">
 			<li><a class="textfooterinfo" href="produk.php">Produk</a></li>
                         <li><a class="textfooterinfo" href="#">Produk Baru</a></li>
                         <li><a class="textfooterinfo" href="#">Produk Terlaris</a></li>
@@ -201,7 +203,7 @@
 		</div>
                 <div class="grid_4">
 		    <p class="textfootertitle center">Gabung Yuk</p>
-		    <ul class="center hover">
+		    <ul class="center">
 			<li><a class="textfooterinfo textfooterbig" href="http://www.facebook.com" target="blank">Facebook</a></li>
                         <li><a class="textfooterinfo textfooterbig" href="http://www.instagram.com" target="blank">Instagram</a></li>
                         <li><a class="textfooterinfo textfooterbig" href="http://www.twitter.com" target="blank">Twitter</a></li>
@@ -217,7 +219,7 @@
 		</div>
                  <div class="grid_5">
 		    <p class="textfootertitle center">Jasa Pengiriman</p>
-		    <ul class="center hover">
+		    <ul class="center">
 			<li><a class="textfooterinfo" href="http://www.jne.co.id" target="blank">
                             <img src="images/JNE.png">
                         </a></li>
@@ -241,6 +243,6 @@
         </div>
     </div>
     <!-- footer end -->
-
 </body>
+
 </html>

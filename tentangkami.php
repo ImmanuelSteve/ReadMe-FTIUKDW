@@ -3,18 +3,31 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>ReadMe shop</title>
+    <title>Tentang kami - ReadMe shop</title>
     <link rel="icon" type="image/png" href="images/icon-readmeshop.png" />
     <link rel="stylesheet" href="css/960_24_col.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/beranda.css" />
-    <link href="css/js-image-slider.css" rel="stylesheet" type="text/css" />
-    <script src="js/js-image-slider.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/tentangkami.css" />
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7qKpuybHDGaPKLaoqQbmAF3-mEGsj9JY&sensor=true">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(-7.786062, 110.378721),
+          zoom: 18,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 </head>
 
 <body>
     <!-- header begin -->
-    <div id="header">
+   <div id="header">
         <div class="container_24">
             <div class="grid_4">
                 <img src="images/readmeshoplogo.png" height="100" width="110"/>
@@ -35,7 +48,7 @@
                     $query_string = "SELECT email,password FROM pengguna WHERE email='".$username."'AND password='".$password."'";
                     $result = mysqli_query($koneksi,$query_string) or die(mysqli_error($koneksi));
                     $found = mysqli_num_rows($result);
-                    if ($found > 0 ) {                        
+                    if ($found > 0) {                        
                         $_SESSION['user'] = $username;
                         echo "<div id='login' class='grid_20'>";
                         echo "<form id='formlogin' class='right' action='logout.php' method='post'>";
@@ -47,7 +60,7 @@
                     }
                     else {
                         echo "<div id='login' class='grid_20'>";
-                        echo "<form id='formlogin' class='right' action='index.php' method='post'>";
+                        echo "<form id='formlogin' class='right' action='tentangkami.php' method='post'>";
                         echo "<input type='text' name='username' placeholder='nama pengguna'>";
                         echo "<input type='password' name='password' placeholder='kata sandi'>";
                         echo "<input id='buttonlogin' type='submit' value='Masuk'>";
@@ -59,7 +72,7 @@
                 }
                 else {
                     echo "<div id='login' class='grid_20'>";
-                    echo "<form id='formlogin' class='right' action='index.php' method='post'>";
+                    echo "<form id='formlogin' class='right' action='tentangkami.php' method='post'>";
                     echo "<input type='text' name='username' placeholder='nama pengguna'>";
                     echo "<input type='password' name='password' placeholder='kata sandi'>";
                     echo "<input id='buttonlogin' type='submit' value='Masuk'>";
@@ -73,7 +86,7 @@
             <div class="grid_24" id="header_nav">
                 <ul id="nav">
                     <li><a class="navi" href="index.php">Beranda</a> </li>
-                    <li><a class="navi" href="produk.php">Produk </a></li>
+                    <li><a class="navi" href="produk.php">Produk</a></li>
                     <li><a class="navi" href="promosi.php">Promosi </a></li>
                     <li><a class="navi" href="tentangkami.php">Tentang kami </a></li>
                 </ul>
@@ -104,68 +117,20 @@
     <!-- content begin -->
     <div id="content">
         <div class="container_24">
-            <div class="grid_24" id= "iklanutama">
-                <div id="sliderFrame">
-                    <div id="slider">
-                        <a href="promosi.html" target="_blank">
-                            <img src="images/iklan-utama-1.jpg" alt="Selamat datang di ReadMe shop" />
-                        </a>
-                        <img src="images/iklan-utama-2.jpg" alt="" />
-                        <img src="images/iklan-utama-3.jpg" alt="" />
-                        <img src="images/iklan-utama-4.jpg" alt="" />
-                        <img src="images/iklan-utama-5.jpg" />
-                    </div>
-                 </div>
-            </div>
-            
-            <div class="clear"></div>
-            <div class="grid_24" id="dotslider"></div>
-            <div class="clear"></div>
-            <div class="grid_24" id="contentarea" >
-                <div class="grid_23">
-                     <h3 class ="textproduk">
-                        PRODUK UNGGULAN
-                    </h3>
+            <div id="contentarea" class="grid_24">
+                <div class="grid_22 prefix_1">
+                    <div id="map-canvas"/></div>
                 </div>
-                <div class="grid_23 kumpulanproduk">
-                    <?php
-                        require("koneksi.php");
-                        $sql = "SELECT id,nama,hargaString,gambar FROM produk WHERE status='unggulan'";
-                        $result = mysqli_query($koneksi,$sql);
-                         while($data = mysqli_fetch_assoc($result)){
-                            $gambar = $data['gambar'];
-                            echo"<div class='grid_5 produk'>";
-                            echo"<div class='grid_5 divgambarproduk'><a href=produkdetail.php?id=".$data['id']."><img class='gambarproduk' src='$gambar'/></a></div>";
-                            echo"<div class='grid_5'><p class='textnamaproduk center'>".$data['nama']."</p>";
-                            echo"<p class='texthargaproduk center'>Rp. ".$data['hargaString'].",00</p></div>";
-                            echo"</div>";
-                        }
-                        mysqli_close($koneksi);
-                    ?>
+
+                <div class="clear"></div>
+
+                <div id="kontak" class="grid_22 prefix_1">
+                    <span class="judul">Kontak Kami</span><br>
+                    <span class="sub">Alamat kantor :</span><br>
+                    <span class="isi">Jl. Dr. Wahidin Sudirohusono no 5-25 Yogyakarta </span><br>
+                    <span class="sub">Nomor Telepon :</span><br>
+                    <span class="isi">+62 81 234 567 89</span>
                 </div>
-                <div class="grid_23">
-                     <h3 class ="textproduk">
-                        PRODUK BARU
-                    </h3>
-                </div>
-                <div class="grid_23 kumpulanproduk">
-                    <?php
-                        require("koneksi.php");
-                        $sql = "SELECT id,nama,hargaString,gambar FROM produk WHERE status='baru'";
-                        $result = mysqli_query($koneksi,$sql);
-                         while($data = mysqli_fetch_assoc($result)){
-                            $gambar = $data['gambar'];
-                            echo"<div class='grid_5 produk'>";
-                            echo"<div class='grid_5 divgambarproduk'><a href=produkdetail.php?id=".$data['id']."><img class='gambarproduk' src='$gambar'/></a></div>";
-                            echo"<div class='grid_5'><p class='textnamaproduk center'>".$data['nama']."</p>";
-                            echo"<p class='texthargaproduk center'>Rp. ".$data['hargaString'].",00</p></div>";
-                            echo"</div>";
-                        }
-                        mysqli_close($koneksi);
-                    ?>
-                </div>
-                   
-                <div class="clear"></div>    
             </div>
         </div>
     </div>
@@ -177,7 +142,7 @@
             <div class="grid_24" id="footerarea">
                 <div class="grid_4 footerleft">
 		    <p class="textfootertitle center">Merek Kami</p>
-		    <ul class="center hover">
+		    <ul class="center">
 			<li><a class="textfooterinfo" href="#">Apple</a></li>
                         <li><a class="textfooterinfo" href="#">BlackBerry</a></li>
                         <li><a class="textfooterinfo" href="#">HTC</a></li>
@@ -192,7 +157,7 @@
 		</div>
                 <div class="grid_4">
 		    <p class="textfootertitle center">Link</p>
-		    <ul class="center hover">
+		    <ul class="center">
 			<li><a class="textfooterinfo" href="produk.php">Produk</a></li>
                         <li><a class="textfooterinfo" href="#">Produk Baru</a></li>
                         <li><a class="textfooterinfo" href="#">Produk Terlaris</a></li>
@@ -201,7 +166,7 @@
 		</div>
                 <div class="grid_4">
 		    <p class="textfootertitle center">Gabung Yuk</p>
-		    <ul class="center hover">
+		    <ul class="center">
 			<li><a class="textfooterinfo textfooterbig" href="http://www.facebook.com" target="blank">Facebook</a></li>
                         <li><a class="textfooterinfo textfooterbig" href="http://www.instagram.com" target="blank">Instagram</a></li>
                         <li><a class="textfooterinfo textfooterbig" href="http://www.twitter.com" target="blank">Twitter</a></li>
@@ -217,7 +182,7 @@
 		</div>
                  <div class="grid_5">
 		    <p class="textfootertitle center">Jasa Pengiriman</p>
-		    <ul class="center hover">
+		    <ul class="center">
 			<li><a class="textfooterinfo" href="http://www.jne.co.id" target="blank">
                             <img src="images/JNE.png">
                         </a></li>
