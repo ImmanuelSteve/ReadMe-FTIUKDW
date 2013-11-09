@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/produk.css" />
     <script language="JavaScript" type="text/javascript" src="js/jquery-2.0.3.js"></script>
     <script language="JavaScript" type="text/javascript" src="js/produk.js"></script>
-    <script language="JavaScript" type="text/javascript" src="js/menu-produk.js"></script>
 </head>
 
 <body>

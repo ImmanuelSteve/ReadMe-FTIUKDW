@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="css/produk.css" />
     <link rel="stylesheet" href="css/produkdetail.css" />
     <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
-    <script type="text/javascript" src="js/menu-produk.js"></script>
+    <script type="text/javascript" src="js/produk.js"></script>
 </head>
 
 <body>

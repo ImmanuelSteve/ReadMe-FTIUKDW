@@ -42,7 +42,6 @@
 }
 
 #produk {
-    float: right;
     height : 560px;
     margin : 10px 0px 0px 15px;
     overflow-y :scroll;
@@ -63,7 +62,7 @@
     padding : 0 5px;
 }
 
-h3 {
+h3,h1 {
     margin:1px;
     color: rgb(3,77,164);
     margin-top: 4px;
@@ -125,4 +124,9 @@ span.availability{
 .command{
     width:150px;
     height:45px;
+}
+
+#textnotfound{
+    margin-top: 10px;
+    margin-left: 2px;
 }
