@@ -175,11 +175,13 @@
                 <div class="grid_17" id="mid">
                     <ul id="tabs">
                             <li > <a class="tabbutton" name="tab1" > Spesifikasi </a></li>
-                            <li > <a class="tabbutton" name="tab2" > Ulasan </a></li>
+                            <li > <a class="tabbutton" name="tab2" > Review </a></li>
+                            <li > <a class="tabbutton" name="tab3" > Komentar </a></li>
                     </ul>
                     <div id="isiTab"> 
                         <div id="tab1">Spesifikasi di sini</div>
-                        <div id="tab2">Belum ada ulasan</div>
+                        <div id="tab2">Belum ada review</div>
+                        <div id="tab3">Belum ada komentar</div>
                     </div>
                 </div>
             </div>
