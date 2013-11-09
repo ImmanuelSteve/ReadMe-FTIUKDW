@@ -3,12 +3,12 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2013 at 07:29 AM
+-- Generation Time: Nov 09, 2013 at 08:27 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+07:00";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -90,6 +90,7 @@ INSERT INTO `pengiriman` (`Id`, `Nama`, `Kota_Tujuan`, `Harga`, `Harga_String`) 
 
 CREATE TABLE IF NOT EXISTS `produk` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `merek` varchar(50) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `harga` int(11) NOT NULL,
   `hargaString` varchar(100) NOT NULL,
@@ -105,15 +106,15 @@ CREATE TABLE IF NOT EXISTS `produk` (
 -- Dumping data for table `produk`
 --
 
-INSERT INTO `produk` (`id`, `nama`, `harga`, `hargaString`, `gambar`, `stok`, `status`, `ratting`) VALUES
-(1, 'Samsung Note 3', 8880000, '8.880.000', 'images/samsung-galaxy-note-3.jpg', 5, 'baru', 4),
-(2, 'Lenovo K900', 4499000, '4.449.000', 'images/lenovo-k900.jpg', 2, 'baru', 4),
-(3, 'Sony Xperia Z Ultra', 7499000, '7.499.000', 'images/sony-xperia-z-ultra.jpg', 1, 'unggulan', 5),
-(4, 'HTC One', 7300000, '7.300.000', 'images/htc-one.jpg', 3, 'unggulan', 4),
-(5, 'iPhone 5', 9000000, '9.000.000', 'images/apple-iphone-5.jpg', 2, 'unggulan', 4),
-(6, 'LG G2', 6799000, '6.799.000', 'images/lg-g2.jpg', 3, 'unggulan', 5),
-(7, 'Samsung Galaxy Tab 3 8.0', 4499000, '4.499.000', 'images/samsung-galaxy-tab-3-80.jpg', 2, 'unggulan', 3),
-(8, 'Huawei Ascend Mate', 3999000, '3.999.000', 'images/huawei-ascend-mate.jpg', 4, 'unggulan', 2);
+INSERT INTO `produk` (`id`, `merek`, `nama`, `harga`, `hargaString`, `gambar`, `stok`, `status`, `ratting`) VALUES
+(1, '', 'Samsung Note 3', 8880000, '8.880.000', 'images/samsung-galaxy-note-3.jpg', 5, 'baru', 4),
+(2, '', 'Lenovo K900', 4499000, '4.449.000', 'images/lenovo-k900.jpg', 2, 'baru', 4),
+(3, '', 'Sony Xperia Z Ultra', 7499000, '7.499.000', 'images/sony-xperia-z-ultra.jpg', 1, 'unggulan', 5),
+(4, '', 'HTC One', 7300000, '7.300.000', 'images/htc-one.jpg', 3, 'unggulan', 4),
+(5, '', 'iPhone 5', 9000000, '9.000.000', 'images/apple-iphone-5.jpg', 2, 'unggulan', 4),
+(6, '', 'LG G2', 6799000, '6.799.000', 'images/lg-g2.jpg', 3, 'unggulan', 5),
+(7, '', 'Samsung Galaxy Tab 3 8.0', 4499000, '4.499.000', 'images/samsung-galaxy-tab-3-80.jpg', 2, 'unggulan', 3),
+(8, '', 'Huawei Ascend Mate', 3999000, '3.999.000', 'images/huawei-ascend-mate.jpg', 4, 'unggulan', 2);
 
 -- --------------------------------------------------------
 
