@@ -67,7 +67,7 @@
                 <div id="sliderFrame">
                     <div id="slider">
                         <a href="promosi.html" target="_blank">
-                            <img src="images/iklan-utama-1.jpg" alt="Welcome to ReadMe Shop" />
+                            <img src="images/iklan-utama-1.jpg" alt="Selamat datang di ReadMe shop" />
                         </a>
                         <img src="images/iklan-utama-2.jpg" alt="" />
                         <img src="images/iklan-utama-3.jpg" alt="" />
