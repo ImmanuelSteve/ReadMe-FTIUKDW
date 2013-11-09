@@ -3,12 +3,12 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2013 at 07:35 PM
--- Server version: 5.6.11
--- PHP Version: 5.5.3
+-- Generation Time: Nov 09, 2013 at 07:29 AM
+-- Server version: 5.5.32
+-- PHP Version: 5.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET time_zone = "+07:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -30,18 +30,18 @@ USE `readmesh_readmeshop`;
 
 CREATE TABLE IF NOT EXISTS `detail` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Jaringan_Data` varchar(100) NOT NULL,
-  `Jaringan_Telepon` varchar(100) NOT NULL,
-  `Processor` varchar(100) NOT NULL,
-  `RAM` varchar(100) NOT NULL,
-  `GPU` varchar(100) NOT NULL,
-  `Storage` varchar(100) NOT NULL,
-  `OS` varchar(100) NOT NULL,
-  `Display` varchar(100) NOT NULL,
-  `Batery` varchar(100) NOT NULL,
-  `Camera` varchar(100) NOT NULL,
-  `Fitur_Tambahan` varchar(500) NOT NULL,
-  `Tanggal_Release` datetime DEFAULT CURRENT_TIMESTAMP,
+  `Tipe_SimCard` varchar(10) NOT NULL,
+  `Jaringan_Data` varchar(200) NOT NULL,
+  `Jaringan_Telepon` varchar(200) NOT NULL,
+  `Processor` varchar(500) NOT NULL,
+  `RAM` varchar(500) NOT NULL,
+  `Storage` varchar(500) NOT NULL,
+  `GPU` varchar(500) NOT NULL,
+  `Display` varchar(500) NOT NULL,
+  `Camera` varchar(500) NOT NULL,
+  `Batery` varchar(200) NOT NULL,
+  `Fitur_Tambahan` varchar(1000) NOT NULL,
+  `Tanggal_Release` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
@@ -49,8 +49,8 @@ CREATE TABLE IF NOT EXISTS `detail` (
 -- Dumping data for table `detail`
 --
 
-INSERT INTO `detail` (`Id`, `Jaringan_Data`, `Jaringan_Telepon`, `Processor`, `RAM`, `GPU`, `Storage`, `OS`, `Display`, `Batery`, `Camera`, `Fitur_Tambahan`, `Tanggal_Release`) VALUES
-(1, '4G(LTE Cat 4 150/50Mbps)', 'Quad band(850/900/1800/1900 MHz)', 'LTE(2.3 GHz Quad-Core Processor), 3G(1.9GHz Octa Core Processor(A15 1.9GHz+A7 1.3GHz)', '3 GB', 'Mali-400MP4', '32/64 GB memori internal + slot microSD(hingga 64GB) ', 'Android 4.3(Jelly Bean)', '5.7 inch(144.3mm) Full HD Super AMOLED (1920 x 1080 piksel)', 'Standar baterai, Li-ion 3.200 mAh', 'Kamera utama/belakang(13 Mpx), kamera depan(2 Mpx), dual kamera/dual rekaman/dual panggilan video', 'S Pen dengan fitur yang dioptimalisasi, Bluetooth v4.0(LE), Gesture, Accelerometer, Geo-magnetic, Gyroscope, RGB', '2013-11-09 01:30:45');
+INSERT INTO `detail` (`Id`, `Tipe_SimCard`, `Jaringan_Data`, `Jaringan_Telepon`, `Processor`, `RAM`, `Storage`, `GPU`, `Display`, `Camera`, `Batery`, `Fitur_Tambahan`, `Tanggal_Release`) VALUES
+(1, 'GSM', '4G(LTE Cat 4 150/50Mbps)', 'Quad band(850/900/1800/1900 MHz)', 'LTE(2.3 GHz Quad-Core Processor), 3G(1.9GHz Octa Core Processor(A15 1.9GHz+A7 1.3GHz)', '3 GB', '32/64 GB memori internal + slot microSD(hingga 64GB)', 'Mali-400MP4', '5.7 inch(144.3mm) Full HD Super AMOLED (1920 x 1080 piksel)', 'Kamera utama/belakang(13 Mpx), kamera depan(2 Mpx), dual kamera/dual rekaman/dual panggilan video', 'Li-ion 3.200 mAh', 'S Pen dengan fitur yang dioptimalisasi, Bluetooth v4.0(LE), Gesture, Accelerometer, Geo-magnetic, Gyroscope, RGB', '2013-11-09 06:32:35');
 
 -- --------------------------------------------------------
 
@@ -184,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`id`, `panggilan`, `nama depan`, `nama belakang`, `email`, `password`, `alamat`, `kota`, `telepon`) VALUES
 (1, '', 'admin', '', '', 'admin', '', '', 0),
 (2, 'mr', 'Fandi', 'Wirawan', 'fandi.wirawan@gmail.com', '123456789', 'Karanganyar, Kebumen', 'Kebumen', 2147483647),
-(3, 'mr', 'Danny', 'Aguswahyudi', 'danny.cute.abies@gigomail.com', 'akucantik', 'gang nanas, Yogyakarta', 'Yogyakarta', 2147483647),
+(3, 'mr', 'Danny', 'Aguswahyudi', 'dannyganteng@gantengmail.com', 'akuganteng', 'gang nanas, Yogyakarta', 'Yogyakarta', 2147483647),
 (4, 'mr', 'Steven Renaldo', 'Antony', 'steven.renaldo.antony@sadakomail.com', 'akumiripsadako', 'TPU gunung meletus, Cilacap', 'Cilacap', 2147483647);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
