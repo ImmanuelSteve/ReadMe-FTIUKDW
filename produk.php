@@ -38,12 +38,12 @@
                     <li><a class="navi" href="tentangkami.html">Tentang kami </a></li>
                 </ul>
                 <div id="formsearch" class="grid_6">
-                    <form accept-charset="utf-8" method="post" action="index.php">
+                    <form accept-charset="utf-8" method="post" action="cari.php">
                     <table>
                         <tbody>
                             <tr>
                                 <td>
-                                    <input id="textsearch" type="search" required x-moz-errormessage="Inputan jangan kosong !" size="24" value="" name="search" placeholder="pencarian"></input>
+                                    <input id="textsearch" type="search" required x-moz-errormessage="Inputan jangan kosong !" size="24" value="" name="search" placeholder="cari produk"></input>
                                 </td>
                                 <td>
                                     <input id="buttonsearch" type="submit" style="cursor:pointer;" value="" name=""></input>
