@@ -108,7 +108,7 @@
                 <!-- Kolom Kanan -->
                 <?php
                         require("koneksi.php");
-                        $sql = "SELECT id,nama,hargaString,gambar,stok,ratting FROM produk";
+                        $sql = "SELECT id,nama,hargaString,gambar,stok,nilai FROM produk";
                         $result = mysqli_query($koneksi,$sql);
                         echo "<div class='grid_18 right noright'><div id='produk'>";
                          while($data = mysqli_fetch_assoc($result)){
@@ -117,7 +117,7 @@
                             echo "<div class='produk_image center'><a href=produkdetail.php?id=".$data['id']."><img src='$gambar'/></a></div>";
                             echo "<h3 class='center'>".$data['nama']."</h3>";
                             echo "<div class='ratting '>";
-                            for($i=0; $i<$data['ratting'] ; $i++){
+                            for($i=0; $i<$data['nilai'] ; $i++){
                                 echo "<img src='images/star.jpg' width=30px height=30px/>";
                             }
                             echo "</div>";
