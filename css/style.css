@@ -103,7 +103,6 @@ a{
     background: rgb(0,100,210); 
     border: 1px solid white; 
     border-radius: 300px; 
-    font-weight: bold;
 }
 
 .aktif:hover{
