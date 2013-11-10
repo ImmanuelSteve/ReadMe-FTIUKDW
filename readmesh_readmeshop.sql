@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2013 at 11:08 AM
+-- Generation Time: Nov 10, 2013 at 03:14 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -60,8 +60,8 @@ INSERT INTO `detail` (`Id`, `Tipe_SimCard`, `Jaringan_Data`, `Jaringan_Telepon`,
 CREATE TABLE IF NOT EXISTS `pengguna` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `panggilan` varchar(20) NOT NULL,
-  `nama depan` varchar(50) NOT NULL,
-  `nama belakang` varchar(50) NOT NULL,
+  `nama_depan` varchar(50) NOT NULL,
+  `nama_belakang` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `alamat` varchar(100) NOT NULL,
@@ -74,11 +74,11 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
 -- Dumping data for table `pengguna`
 --
 
-INSERT INTO `pengguna` (`id`, `panggilan`, `nama depan`, `nama belakang`, `email`, `password`, `alamat`, `kota`, `telepon`) VALUES
-(1, '', 'admin', '', '', 'admin', '', '', 0),
+INSERT INTO `pengguna` (`id`, `panggilan`, `nama_depan`, `nama_belakang`, `email`, `password`, `alamat`, `kota`, `telepon`) VALUES
+(1, '', 'admin', '', 'admin', 'admin', '', '', 0),
 (2, 'mr', 'Fandi', 'Wirawan', 'fandi.wirawan@gmail.com', '123456789', 'Karanganyar, Kebumen', 'Kebumen', 2147483647),
 (3, 'mr', 'Danny', 'Aguswahyudi', 'dannyganteng@gantengmail.com', 'akuganteng', 'gang nanas, Yogyakarta', 'Yogyakarta', 2147483647),
-(4, 'mr', 'Steven Renaldo', 'Antony', 'steven.renaldo.antony@sadakomail.com', 'akumiripsadako', 'TPU gunung meletus, Cilacap', 'Cilacap', 2147483647);
+(4, 'mr', 'Steven Renaldo', 'Antony', 'steve@gmail.com', 'readmeshop', 'TPU gunung meletus, Cilacap', 'Cilacap', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -251,15 +251,15 @@ ALTER TABLE `detail`
 -- Constraints for table `produk_promo`
 --
 ALTER TABLE `produk_promo`
-  ADD CONSTRAINT `produk_promo_ibfk_2` FOREIGN KEY (`id_promo`) REFERENCES `promo` (`id`),
-  ADD CONSTRAINT `produk_promo_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id`);
+  ADD CONSTRAINT `produk_promo_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id`),
+  ADD CONSTRAINT `produk_promo_ibfk_2` FOREIGN KEY (`id_promo`) REFERENCES `promo` (`id`);
 
 --
 -- Constraints for table `review`
 --
 ALTER TABLE `review`
-  ADD CONSTRAINT `review_ibfk_3` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id`),
-  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id`);
+  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id`),
+  ADD CONSTRAINT `review_ibfk_3` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id`);
 
 --
 -- Constraints for table `testimoni`
@@ -271,9 +271,9 @@ ALTER TABLE `testimoni`
 -- Constraints for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD CONSTRAINT `transaksi_ibfk_5` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id`),
   ADD CONSTRAINT `transaksi_ibfk_3` FOREIGN KEY (`id_pengiriman`) REFERENCES `pengiriman` (`Id`),
-  ADD CONSTRAINT `transaksi_ibfk_4` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id`);
+  ADD CONSTRAINT `transaksi_ibfk_4` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id`),
+  ADD CONSTRAINT `transaksi_ibfk_5` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
