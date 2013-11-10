@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2013 at 03:14 PM
+-- Generation Time: Nov 10, 2013 at 04:28 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -75,10 +75,10 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
 --
 
 INSERT INTO `pengguna` (`id`, `panggilan`, `nama_depan`, `nama_belakang`, `email`, `password`, `alamat`, `kota`, `telepon`) VALUES
-(1, '', 'admin', '', 'admin', 'admin', '', '', 0),
-(2, 'mr', 'Fandi', 'Wirawan', 'fandi.wirawan@gmail.com', '123456789', 'Karanganyar, Kebumen', 'Kebumen', 2147483647),
-(3, 'mr', 'Danny', 'Aguswahyudi', 'dannyganteng@gantengmail.com', 'akuganteng', 'gang nanas, Yogyakarta', 'Yogyakarta', 2147483647),
-(4, 'mr', 'Steven Renaldo', 'Antony', 'steve@gmail.com', 'readmeshop', 'TPU gunung meletus, Cilacap', 'Cilacap', 2147483647);
+(1, '', 'admin', '', 'admin@gmail.com', 'admin', '', '', 0),
+(2, 'mr', 'fandi', 'wirawan', 'fandi.wirawan@gmail.com', '123456789', 'Karanganyar, Kebumen', 'Kebumen', 2147483647),
+(3, 'mr', 'danny', 'aguswahyudi', 'dannyganteng@gantengmail.com', 'akuganteng', 'gang nanas, Yogyakarta', 'Yogyakarta', 2147483647),
+(4, 'mr', 'steven renaldo', 'antony', 'steve@gmail.com', 'readmeshop', 'TPU gunung meletus, Cilacap', 'Cilacap', 2147483647);
 
 -- --------------------------------------------------------
 
