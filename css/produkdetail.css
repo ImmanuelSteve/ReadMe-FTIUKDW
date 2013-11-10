@@ -43,6 +43,11 @@
     cursor: pointer;
 }
 
+#buttonbeli:hover{
+    background: rgb(0,100,210);
+    border: 2px solid rgb(10, 72, 180);
+}
+
 #mid{
     margin-top: 10px;
 }
