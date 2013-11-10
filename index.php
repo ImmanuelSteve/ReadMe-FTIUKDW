@@ -32,7 +32,7 @@
                 else if (isset($_POST['username']) && isset($_POST['password'])) {
                     $username = $_POST['username'];
                     $password = $_POST['password'];
-                    $query_string = "SELECT email,password FROM pengguna WHERE email='".$username."'AND password='".$password."'";
+                    $query_string = "SELECT CONCAT(nama_depan,' ',nama_belakang),password FROM pengguna WHERE CONCAT(nama_depan,' ',nama_belakang)='".$username."'AND password='".$password."'";
                     $result = mysqli_query($koneksi,$query_string) or die(mysqli_error($koneksi));
                     $found = mysqli_num_rows($result);
                     if ($found > 0 ) {                        
@@ -51,7 +51,7 @@
                         echo "<input type='text' name='username' placeholder='nama pengguna'>";
                         echo "<input type='password' name='password' placeholder='kata sandi'>";
                         echo "<input id='buttonlogin' type='submit' value='Masuk'>";
-                        echo "<br/>Periksalah nama pengguna dan kata sandi Anda.
+                        echo "<br/>Periksalah nama pengguna dan kata sandi Anda
                         <br/>Belum punya akun <a href='daftar.php'>daftar disini</a>";
                         echo "</form></div>";
                         echo "<div class='clear'></div>";
@@ -83,7 +83,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <input id="textsearch" type="search" required x-moz-errormessage="Inputan jangan kosong !" size="24" value="" name="search" placeholder="cari produk"></input>
+                                    <input id="textsearch" type="search" required x-moz-errormessage="Inputan jangan kosong !" size="22" value="" name="search" placeholder="cari produk"></input>
                                 </td>
                                 <td>
                                     <input id="buttonsearch" type="submit" style="cursor:pointer;" value="" name=""></input>
