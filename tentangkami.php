@@ -88,7 +88,7 @@
                     <li><a class="navi" href="index.php">Beranda</a> </li>
                     <li><a class="navi" href="produk.php">Produk</a></li>
                     <li><a class="navi" href="promosi.php">Promosi </a></li>
-                    <li><a class="navi" href="tentangkami.php">Tentang kami </a></li>
+                    <li><a class="navi" style="color:white; background: rgb(0,100,210); border: 1px solid white; border-radius: 300px; font-weight: bold;">Tentang kami </a></li>
                 </ul>
                 <div id="formsearch" class="grid_6">
                     <form accept-charset="utf-8" method="post" action="cari.php">
