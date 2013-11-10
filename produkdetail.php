@@ -239,7 +239,7 @@
             <div class="grid_24" id="footerarea">
                 <div class="grid_4 footerleft">
 		    <p class="textfootertitle center">Merek Kami</p>
-		    <ul class="center">
+		    <ul class="center hover">
 			<li><a class="textfooterinfo" href="#">Apple</a></li>
                         <li><a class="textfooterinfo" href="#">BlackBerry</a></li>
                         <li><a class="textfooterinfo" href="#">HTC</a></li>
@@ -254,7 +254,7 @@
 		</div>
                 <div class="grid_4">
 		    <p class="textfootertitle center">Link</p>
-		    <ul class="center">
+		    <ul class="center hover">
 			<li><a class="textfooterinfo" href="produk.php">Produk</a></li>
                         <li><a class="textfooterinfo" href="#">Produk Baru</a></li>
                         <li><a class="textfooterinfo" href="#">Produk Terlaris</a></li>
@@ -263,7 +263,7 @@
 		</div>
                 <div class="grid_4">
 		    <p class="textfootertitle center">Gabung Yuk</p>
-		    <ul class="center">
+		    <ul class="center hover">
 			<li><a class="textfooterinfo textfooterbig" href="http://www.facebook.com" target="blank">Facebook</a></li>
                         <li><a class="textfooterinfo textfooterbig" href="http://www.instagram.com" target="blank">Instagram</a></li>
                         <li><a class="textfooterinfo textfooterbig" href="http://www.twitter.com" target="blank">Twitter</a></li>
@@ -279,7 +279,7 @@
 		</div>
                  <div class="grid_5">
 		    <p class="textfootertitle center">Jasa Pengiriman</p>
-		    <ul class="center">
+		    <ul class="center hover">
 			<li><a class="textfooterinfo" href="http://www.jne.co.id" target="blank">
                             <img src="images/JNE.png">
                         </a></li>

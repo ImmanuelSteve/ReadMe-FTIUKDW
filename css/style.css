@@ -91,7 +91,7 @@ a{
     padding: 5px 15px;
 }
 
-.navi:hover, ul:hover li:hover{
+.navi:hover, ul#nav li:hover, ul.hover li:hover{
     color : white;
     border-radius: 300px 300px 300px 300px;
     text-shadow: 0.5px 0.5px 0.5px rgb(34, 34, 34);
