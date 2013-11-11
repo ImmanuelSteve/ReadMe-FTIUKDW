@@ -92,7 +92,7 @@
                     <h1 id="buatakun">Buat akun Anda</h1>
                 </div>
                 <div class="clear"></div>
-                <form>
+                <form method="post"action="daftar.php">
                     <div class="grid_18" id="informasiumum">
                         <h3>INFORMASI UMUM</h3>
                      </div>

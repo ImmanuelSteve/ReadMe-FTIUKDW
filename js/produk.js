@@ -1,7 +1,9 @@
 $(document).ready(function(){
-    //$(".isikategori:not(:first)").hide();
-    $(".judulkategori p a").click(function(){
-	$(".isikategori").slideToggle("slow");
+    $("dd:not(:first)").hide();
+    $("dt p").click(function() {
+	$("dd:visible").slideUp("slow");
+	$(this).parent().next().slideDown("slow");
+	return false;
     });
     
     //komentar dan spesifikasi

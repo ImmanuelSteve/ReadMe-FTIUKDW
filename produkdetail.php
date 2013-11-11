@@ -125,10 +125,10 @@
         <div class="container_24">
             <div id="contentarea" class="grid_24">
                 <div class="grid_6 noleft" id="kategori">
-                    <div class="grid_6 judulkategori">
+                    <dt class="grid_6 judulkategori">
                         <p><a href="#">Merek</a></p>
-                    </div>
-                    <div class="grid_6 isikategori">
+                    </dt>
+                    <dd class="grid_6 isikategori">
                         <ul>
                             <li><a href="#">Apple</a></li>
                             <li><a href="#">BlackBerry</a></li>
@@ -141,11 +141,11 @@
                             <li><a href="#">Sony</a></li>
                             <li><a href="#">ZTE</a></li>
                         </ul>
-                    </div>
-                    <div class="grid_6 judulkategori">
+                    </dd>
+                    <dt class="grid_6 judulkategori">
                         <p><a href="#">Harga</a></p>
-                    </div>
-                    <div class="grid_6 isikategori">
+                    </dt>
+                    <dd class="grid_6 isikategori">
                         <ul>
                             <li><a href="#">di bawah 1 juta</a></li>
                             <li><a href="#">1 juta sampai 2 juta</a></li>
@@ -153,17 +153,17 @@
                             <li><a href="#">3 juta sampai 4 juta</a></li>
                             <li><a href="#">di atas 4 juta</a></li>
                         </ul>
-                    </div>
-                     <div class="grid_6 judulkategori">
+                    </dd>
+                     <dt class="grid_6 judulkategori">
                         <p><a href="#">Tipe Simcard</a></p>
-                    </div>
-                    <div class="grid_6 isikategori">
+                    </dt>
+                    <dd class="grid_6 isikategori">
                         <ul>
                             <li><a href="#">GSM</a></li>
                             <li><a href="#">CDMA Phone</a></li>
                             <li><a href="#">Dual Simcard</a></li>
                         </ul>
-                    </div>
+                    </dd>
                 </div>
                 <?php
                     require("koneksi.php");
@@ -177,35 +177,37 @@
                         $sql = "SELECT nama,hargaString,gambar,stok FROM produk WHERE id='".$id."'";
                         $result = mysqli_query($koneksi,$sql);
                         while($data = mysqli_fetch_assoc($result)){
-                            echo"<div class='grid_7' id='detailproduk1'>";
-                                echo"<div class='grid_7' id='namaproduk'><p>".$data['nama']."</p></div>";
-                                echo"<div class='grid_6 center' id='gambarproduk'>";
-                                    echo"<img src='".$data['gambar']."' width='220px'/>";
+                            echo"<div class='grid_17' id='detailproduk1'>";
+                                echo"<div class='grid_17' id='namaproduk'><p>".$data['nama']."</p></div>";
+                                echo"<div class='grid_7'>";
+                                    echo"<div class='grid_6 center' id='gambarproduk'>";
+                                        echo"<img src='".$data['gambar']."' width='220px'/>";
+                                    echo"</div>";
                                 echo"</div>";
-                            echo"</div>";
-                            echo"<div class='grid_6'>";
-                                echo"<div class='grid_6' id='detailproduk2'>";
-                                    echo"<div class='grid_6' id='hargaproduk'><p>Harga : Rp.".$data['hargaString']."</p></div>";
-                                    if($data['stok']>0){
-                                        echo"<div class='grid_6' id='statusproduk'><p>Status : tersedia</p></div>";
-                                    }else{
-                                        echo"<div class='grid_6' id='statusproduk'><p>Status : tidak tersedia</p></div>";
-                                    }
+                                echo"<div class='grid_7'>";
+                                    echo"<div class='grid_6' id='detailproduk2'>";
+                                        echo"<div class='grid_6' id='hargaproduk'><p>Harga : Rp.".$data['hargaString']."</p></div>";
+                                        if($data['stok']>0){
+                                            echo"<div class='grid_6' id='statusproduk'><p>Status : tersedia</p></div>";
+                                        }else{
+                                            echo"<div class='grid_6' id='statusproduk'><p>Status : tidak tersedia</p></div>";
+                                        }
+                                    echo"</div>";
+                                    echo"<form method='GET' action='produkdetail.php' id='formbeli'>";
+                                    echo"<input type='hidden' name ='id' value='".$id."'>";
+                                    echo"<label>Warna : </label>
+                                    <select name='warna'>
+                                        <option value='putih'>Putih</option>
+                                        <option value='hitam'>Hitam</option>
+                                        <option value='biru'>Biru</option>
+                                    </select>
+                                    <br/><br/>";
+                                    echo"<label>Jumlah : </label>
+                                    <input type='text' name='jumlah' value='1'/>
+                                    <br/><br/>";
+                                    echo"<input id='buttonbeli' type='submit' value='Beli'/>";
+                                    echo"</form>";
                                 echo"</div>";
-                                echo"<form method='GET' action='produkdetail.php' id='formbeli'>";
-                                echo"<input type='hidden' name ='id' value='".$id."'>";
-                                echo"<label>Warna : </label>
-                                <select name='warna'>
-                                    <option value='putih'>Putih</option>
-                                    <option value='hitam'>Hitam</option>
-                                    <option value='biru'>Biru</option>
-                                </select>
-                                <br/><br/>";
-                                echo"<label>Jumlah : </label>
-                                <input type='text' name='jumlah' value='1'/>
-                                <br/><br/>";
-                                echo"<input id='buttonbeli' type='submit' value='Beli'/>";
-                                echo"</form>";
                             echo"</div>";
                         }  
                     }

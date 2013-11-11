@@ -4,14 +4,15 @@
 }
 
 #kategori{
-    padding : 0px;
+    margin-top: 10px;
+    height: 260px;
     float: left;
-    background-color: white;
+    background-color: rgb(218,218,218);
 }
 
 .judulkategori{
     margin-left: 0px;
-    margin-top: 10px;
+    margin-bottom: 5px;
     height: 50px;
     background-color:rgb(3,74,164);
 }
@@ -39,6 +40,11 @@
 .isikategori a:hover{
     background-color: rgb(69,154,250);
     font-weight: bold;
+}
+
+dd ul li a{
+    margin-bottom: 10px;
+ 
 }
 
 #produk {
