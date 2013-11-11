@@ -1,4 +1,80 @@
-<?php session_start(); ?>
+<?php
+    session_start();
+    include("koneksi.php");
+    
+    $valid = TRUE;
+    
+    if(!empty($_POST['daftar'])){
+        if(trim($_POST['namadepan'])=="")
+	{
+	    $valid = FALSE;
+	    $error_namadepan = 1;
+	}
+        if(trim($_POST['namabelakang'])=="")
+	{
+	    $valid = FALSE;
+	    $error_namabelakang = 1;
+	}
+        if(!preg_match("/^([a-z0-9_\.]+)@([a-z0-9\-]+\.)+[a-z]{2,6}$/i",$_POST['email']))
+	{
+	    $valid = FALSE;
+	    $error_email = 1;
+	}
+        if(trim($_POST['katasandi'])=="")
+	{
+            $valid = FALSE;
+	    $error_katasandi = 1;
+        }
+        if(trim($_POST['ulangkatasandi'])=="")
+	{
+	    $valid = FALSE;
+	    $error_ulangkatasandi = 1;
+	}
+        if(trim($_POST['alamat'])=="")
+	{
+	    $valid = FALSE;
+	    $error_alamat = 1;
+	}
+        if(trim($_POST['kota'])=="")
+	{
+	    $valid = FALSE;
+	    $error_kota = 1;
+	}
+        if(trim($_POST['telepon'])=="")
+	{
+	    $valid = FALSE;
+	    $error_telepon = 1;
+	}
+        if(strlen($_POST['telepon'])>0 && !is_numeric($_POST['telepon']))
+	{
+	    $valid = FALSE;
+	    $error_telepon1 = 1;
+	}
+        if(trim($_POST['katasandi']) != trim($_POST['ulangkatasandi']))
+	{
+            $valid = FALSE;
+	    $error_katasandi1 = 1;
+        }
+        if($valid)
+	{
+	    $namadepan = $_POST['namadepan'];
+            $namabelakang = $_POST['namabelakang'];
+	    $email = $_POST['email'];
+            $katasandi = $_POST['katasandi'];
+	    $alamat = $_POST['alamat'];
+            $kota = $_POST['kota'];
+            $telepon = $_POST['telepon'];
+	    $query = "INSERT into pengguna VALUES 
+	    ('','mr','".$namadepan."','".$namabelakang."','".$email."','".$katasandi."','".$alamat."','".$kota."','".$telepon."')";
+	
+	    if(mysqli_query($koneksi,$query)){
+                echo "<script type='text/javascript'>alert('Daftar berhasil!');</script>";
+                header("location:index.php");
+            }
+        }
+    }
+    mysqli_close($koneksi);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,7 +168,7 @@
                     <h1 id="buatakun">Buat akun Anda</h1>
                 </div>
                 <div class="clear"></div>
-                <form method="post"action="daftar.php">
+                <form method="POST" action="daftar.php">
                     <div class="grid_18" id="informasiumum">
                         <h3>INFORMASI UMUM</h3>
                      </div>
@@ -102,68 +178,79 @@
                             <li>
                                     <label class="grid_5">Panggilan</label>
                                     <div class="grid_11">
-                                        <input id="id_gender1" type="radio" value="1" name="id_gender"></input>
+                                        <input id="id_gender1" name="gender1" type="radio" value="1" name="id_gender"></input>
                                         <label> Mr. </label>
-                                        <input id="id_gender2" type="radio" value="2" name="id_gender"></input>
+                                        <input id="id_gender2" name="gender2" type="radio" value="2" name="id_gender"></input>
                                         <label> Ms. </label>
-                                        <input id="id_gender3" type="radio" value="3" name="id_gender"></input>
+                                        <input id="id_gender3" name="gender3" type="radio" value="3" name="id_gender"></input>
                                         <label> Miss </label>
                                     </div>
                             </li>
                             <li>
                                     <label class="grid_5">Nama Depan*</label>
                                     <div class="grid_11">
-                                        <input type="text" value="" name=""></input>
+                                        <input type="text" name="namadepan" value=<?php if($valid == FALSE) echo "'".$_POST['namadepan']."'"; ?>></input>
+                                        <?php if(isset($error_namadepan)) echo "Nama Depan Tidak Boleh Kosong";?>
                                     </div>
                             </li>
                             <li>
                                     <label class="grid_5">Nama Belakang*</label>
                                     <div class="grid_11">
-                                        <input type="text" value="" name=""></input>
+                                        <input type="text" name="namabelakang" value=<?php if($valid == FALSE) echo "'".$_POST['namabelakang']."'"; ?>></input>
+                                        <?php if(isset($error_namabelakang)) echo "Nama Belakang Tidak Boleh Kosong";?>
                                     </div>
                             </li>
                             <li>
                                     <label class="grid_5">Email*</label>
                                     <div class="grid_11">
-                                        <input type="text" value="" name=""></input>
+                                        <input type="text" name="email" value=<?php if($valid == FALSE) echo "'".$_POST['email']."'"; ?>></input>
+                                        <?php if(isset($error_email)) echo "Email Tidak Valid";?>
                                     </div>
                             </li>
                             <li>
                                     <label class="grid_5">Kata Sandi*</label>
                                     <div class="grid_11">
-                                        <input type="password" value="" name=""></input>
+                                        <input type="password" name="katasandi"></input>
+                                        <?php if(isset($error_katasandi)) echo "Kata Sandi Tidak Boleh Kosong";?>
+                                        <?php if(isset($error_katasandi1)) echo "Kata Sandi Harus Sama";?>
                                     </div>
                             </li>
                             <li>
                                     <label class="grid_5">Ulangi Kata Sandi*</label>
                                     <div class="grid_11">
-                                        <input type="password" value="" name=""></input>
+                                        <input type="password" name="ulangkatasandi"></input>
+                                        <?php if(isset($error_ulangkatasandi)) echo "Ulangi Kata Sandi Tidak Boleh Kosong";?>
+                                        <?php if(isset($error_katasandi1)) echo "Kata Sandi Harus Sama";?>
                                     </div>
                             </li>
                             <li>
                                     <label class="grid_5">Alamat*</label>
                                     <div class="grid_11">
-                                        <input type="text" value="" name=""></input>
+                                        <input type="text" name="alamat" value=<?php if($valid == FALSE) echo "'".$_POST['alamat']."'"; ?>></input>
+                                        <?php if(isset($error_alamat)) echo "Alamat Tidak Boleh Kosong";?>
                                     </div>
                             </li>
                             <li>
                                     <label class="grid_5">Kota*</label>
                                     <div class="grid_11">
-                                        <input type="text" value="" name=""></input>
+                                        <input type="text" name="kota" value=<?php if($valid == FALSE) echo "'".$_POST['kota']."'"; ?>></input>
+                                        <?php if(isset($error_kota)) echo "Kota Tidak Boleh Kosong";?>
                                     </div>
                             </li>
                             <li>
                                     <label class="grid_5">Telepon*</label>
                                     <div class="grid_11">
-                                        <input type="text" value="" name=""></input>
+                                        <input type="text" name="telepon" value=<?php if($valid == FALSE) echo "'".$_POST['telepon']."'"; ?>></input>
+                                        <?php if(isset($error_telepon)) echo "Nomor Telepon Tidak Boleh Kosong";?>
+                                        <?php if(isset($error_telepon1)) echo "Nomor Telepon Harus Angka";?>
                                     </div>
                             </li>
                         </ul>
                     </div>
                     <div class="clear"></div>
                     <div class="grid_18">
-                        <button type="submit" id="buttondaftar">Daftar!</button>
-						*Harus diisi
+                        <input type="submit" name="daftar" id="buttondaftar" value="Daftar!"></input>
+                        *Harus diisi
                     </div>
                 </form>
             </div>
