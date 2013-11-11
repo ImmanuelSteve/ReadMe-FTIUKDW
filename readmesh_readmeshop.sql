@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2013 at 04:28 PM
+-- Generation Time: Nov 11, 2013 at 05:02 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -60,13 +60,13 @@ INSERT INTO `detail` (`Id`, `Tipe_SimCard`, `Jaringan_Data`, `Jaringan_Telepon`,
 CREATE TABLE IF NOT EXISTS `pengguna` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `panggilan` varchar(20) NOT NULL,
-  `nama_depan` varchar(50) NOT NULL,
-  `nama_belakang` varchar(50) NOT NULL,
+  `nama depan` varchar(50) NOT NULL,
+  `nama belakang` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `alamat` varchar(100) NOT NULL,
   `kota` varchar(50) NOT NULL,
-  `telepon` int(50) NOT NULL,
+  `telepon` varchar(25) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
@@ -74,11 +74,11 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
 -- Dumping data for table `pengguna`
 --
 
-INSERT INTO `pengguna` (`id`, `panggilan`, `nama_depan`, `nama_belakang`, `email`, `password`, `alamat`, `kota`, `telepon`) VALUES
-(1, '', 'admin', '', 'admin@gmail.com', 'admin', '', '', 0),
-(2, 'mr', 'fandi', 'wirawan', 'fandi.wirawan@gmail.com', '123456789', 'Karanganyar, Kebumen', 'Kebumen', 2147483647),
-(3, 'mr', 'danny', 'aguswahyudi', 'dannyganteng@gantengmail.com', 'akuganteng', 'gang nanas, Yogyakarta', 'Yogyakarta', 2147483647),
-(4, 'mr', 'steven renaldo', 'antony', 'steve@gmail.com', 'readmeshop', 'TPU gunung meletus, Cilacap', 'Cilacap', 2147483647);
+INSERT INTO `pengguna` (`id`, `panggilan`, `nama depan`, `nama belakang`, `email`, `password`, `alamat`, `kota`, `telepon`) VALUES
+(1, '', 'admin', '', '', 'admin', '', '', '0'),
+(2, 'mr', 'Fandi', 'Wirawan', 'fandi.wirawan@gmail.com', '123456789', 'Karanganyar, Kebumen', 'Kebumen', '2147483647'),
+(3, 'mr', 'Danny', 'Aguswahyudi', 'dannyganteng@gantengmail.com', 'akuganteng', 'gang nanas, Yogyakarta', 'Yogyakarta', '2147483647'),
+(4, 'mr', 'Steven Renaldo', 'Antony', 'steven.renaldo.antony@sadakomail.com', 'akumiripsadako', 'TPU gunung meletus, Cilacap', 'Cilacap', '2147483647');
 
 -- --------------------------------------------------------
 
