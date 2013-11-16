@@ -32,57 +32,11 @@
             <div class="grid_4">
                 <img src="images/readmeshoplogo.png" height="100" width="110"/>
             </div>
-            <?php include ("koneksi.php");
-                if (!empty($_SESSION['user'])) {
-                    echo "<div id='login' class='grid_20'>";
-                    echo "<form id='formlogin' class='right' action='logout.php' method='post'>";
-                    echo "<img class='ava left' src='images/avatar.jpg' width: '64px' height='64px'>";
-                    echo "<span id='penyapa'>Selamat Datang, <br/><a href='#'>".$_SESSION['user']."</a></span></br>";
-                    echo "<input class='right logout' id='buttonlogin' type='submit' value='Keluar'>";
-                    echo "</form></div>";
-                    echo "<div class='clear'></div>";
-                }
-                else if (isset($_POST['username']) && isset($_POST['password'])) {
-                    $username = $_POST['username'];
-                    $password = $_POST['password'];
-                    $query_string = "SELECT CONCAT(nama_depan,' ',nama_belakang),password FROM pengguna WHERE CONCAT(nama_depan,' ',nama_belakang)='".$username."'AND password='".$password."'";
-                    $result = mysqli_query($koneksi,$query_string) or die(mysqli_error($koneksi));
-                    $found = mysqli_num_rows($result);
-                    if ($found > 0) {                        
-                        $_SESSION['user'] = $username;
-                        echo "<div id='login' class='grid_20'>";
-                        echo "<form id='formlogin' class='right' action='logout.php' method='post'>";
-                        echo "<img class='ava left' src='images/avatar.jpg' width: '64px' height='64px'>";
-                        echo "<span id='penyapa'>Selamat Datang, <br/><a href='#'>".$username."</a></span></br>";
-                        echo "<input class='right logout' id='buttonlogin' type='submit' value='Keluar'>";
-                        echo "</form></div>";
-                        echo "<div class='clear'></div>";
-                    }
-                    else {
-                        echo "<div id='login' class='grid_20'>";
-                        echo "<form id='formlogin' class='right' action='tentangkami.php' method='post'>";
-                        echo "<input type='text' name='username' placeholder='nama pengguna'>";
-                        echo "<input type='password' name='password' placeholder='kata sandi'>";
-                        echo "<input id='buttonlogin' type='submit' value='Masuk'>";
-                        echo "<br/>Periksalah nama pengguna dan kata sandi Anda
-                        <br/>Belum punya akun <a href='daftar.php'>daftar disini</a>";
-                        echo "</form></div>";
-                        echo "<div class='clear'></div>";
-                    }
-                }
-                else {
-                    echo "<div id='login' class='grid_20'>";
-                    echo "<form id='formlogin' class='right' action='tentangkami.php' method='post'>";
-                    echo "<input type='text' name='username' placeholder='nama pengguna'>";
-                    echo "<input type='password' name='password' placeholder='kata sandi'>";
-                    echo "<input id='buttonlogin' type='submit' value='Masuk'>";
-                    echo "<br/>Belum punya akun <a href='daftar.php'>daftar disini</a>";
-                    echo "</form></div>";
-                    echo "<div class='clear'></div>";
-                }
-                mysqli_close($koneksi);
-             ?>
-            
+             <!--login-->
+            <?php
+                $_SESSION['actionlogin'] = "tentangkami.php";
+                include("login.php");
+            ?>
             <div class="grid_24" id="header_nav">
                 <ul id="nav">
                     <li><a class="navi" href="index.php">Beranda</a> </li>

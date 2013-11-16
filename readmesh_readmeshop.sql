@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2013 at 05:10 PM
+-- Generation Time: Nov 16, 2013 at 04:48 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -59,7 +59,6 @@ INSERT INTO `detail` (`Id`, `Tipe_SimCard`, `Jaringan_Data`, `Jaringan_Telepon`,
 
 CREATE TABLE IF NOT EXISTS `pengguna` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `panggilan` varchar(20) NOT NULL,
   `nama_depan` varchar(50) NOT NULL,
   `nama_belakang` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -68,17 +67,18 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
   `kota` varchar(50) NOT NULL,
   `telepon` varchar(25) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `pengguna`
 --
 
-INSERT INTO `pengguna` (`id`, `panggilan`, `nama_depan`, `nama_belakang`, `email`, `password`, `alamat`, `kota`, `telepon`) VALUES
-(1, '', 'admin', '', '', 'admin', '', '', '0'),
-(2, 'mr', 'Fandi', 'Wirawan', 'fandi.wirawan@gmail.com', '123456789', 'Karanganyar, Kebumen', 'Kebumen', '2147483647'),
-(3, 'mr', 'Danny', 'Aguswahyudi', 'dannyganteng@gantengmail.com', 'akuganteng', 'gang nanas, Yogyakarta', 'Yogyakarta', '2147483647'),
-(4, 'mr', 'Steven Renaldo', 'Antony', 'steven.renaldo.antony@sadakomail.com', 'akumiripsadako', 'TPU gunung meletus, Cilacap', 'Cilacap', '2147483647');
+INSERT INTO `pengguna` (`id`, `nama_depan`, `nama_belakang`, `email`, `password`, `alamat`, `kota`, `telepon`) VALUES
+(1, 'admin', '', '', 'admin', '', '', '0'),
+(2, 'Fandi', 'Wirawan', 'fandi.wirawan@gmail.com', 'akumiripsadako', 'TPU gunung meletus, Kebumen', 'Kebumen', '2147483647'),
+(3, 'Danny', 'Aguswahyudi', 'dannyganteng@gantengmail.com', 'akuganteng', 'gang nanas, Yogyakarta', 'Yogyakarta', '2147483647'),
+(4, 'Steven Renaldo', 'Antony', 'steve@gmail.com', 'readme', 'jl raya banjar', 'Banjar', '2147483647'),
+(5, 'progweb', 'a', 'progweb@gmail.com', 'progweb', 'jogja', 'jogja', '0821313322322');
 
 -- --------------------------------------------------------
 

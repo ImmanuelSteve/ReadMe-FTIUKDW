@@ -65,7 +65,7 @@
             $kota = $_POST['kota'];
             $telepon = $_POST['telepon'];
 	    $query = "INSERT into pengguna VALUES 
-	    ('','mr','".$namadepan."','".$namabelakang."','".$email."','".$katasandi."','".$alamat."','".$kota."','".$telepon."')";
+	    ('','".$namadepan."','".$namabelakang."','".$email."','".$katasandi."','".$alamat."','".$kota."','".$telepon."')";
 	
 	    if(mysqli_query($koneksi,$query)){
                 echo "<script type='text/javascript'>alert('Daftar berhasil!');</script>";
@@ -93,21 +93,23 @@
             <div class="grid_4">
                 <img src="images/readmeshoplogo.png" height="100" width="110"/>
             </div>
-            <?php include ("koneksi.php");
+            <?php
+                include ("koneksi.php");
                 if (isset($_POST['username']) && isset($_POST['password'])) {
                     $username = $_POST['username'];
                     $password = $_POST['password'];
-                    $query_string = "SELECT CONCAT(nama_depan,' ',nama_belakang),password FROM pengguna WHERE CONCAT(nama_depan,' ',nama_belakang)='".$username."'AND password='".$password."'";
+                    $query_string = "SELECT nama_depan,email,password FROM pengguna WHERE email='".$username."'AND password='".$password."'";
                     $result = mysqli_query($koneksi,$query_string) or die(mysqli_error($koneksi));
                     $found = mysqli_num_rows($result);
+                    $data = mysqli_fetch_assoc($result);
                     if ($found > 0 ) {                        
-                        $_SESSION['user'] = $username;
-                        header('location:index.php');
+                        $_SESSION['user'] = $data['nama_depan'];
+                        header("location:index.php");
                     }
                     else {
                         echo "<div id='login' class='grid_20'>";
                         echo "<form id='formlogin' class='right' action='daftar.php' method='post'>";
-                        echo "<input type='text' name='username' placeholder='nama pengguna'>";
+                        echo "<input type='text' name='username' placeholder='email'>";
                         echo "<input type='password' name='password' placeholder='kata sandi'>";
                         echo "<input id='buttonlogin' type='submit' value='Masuk'>";
                         echo "<br/>Periksalah nama pengguna dan kata sandi Anda";
@@ -118,7 +120,7 @@
                 else {
                     echo "<div id='login' class='grid_20'>";
                     echo "<form id='formlogin' class='right' action='daftar.php' method='post'>";
-                    echo "<input type='text' name='username' placeholder='nama pengguna'>";
+                    echo "<input type='text' name='username' placeholder='email'>";
                     echo "<input type='password' name='password' placeholder='kata sandi'>";
                     echo "<input id='buttonlogin' type='submit' value='Masuk'>";
                     echo "</form></div>";
@@ -176,17 +178,6 @@
                     <div class="grid_18" id="formdaftar">
                         <ul>
                             <li>
-                                    <label class="grid_5">Panggilan</label>
-                                    <div class="grid_11">
-                                        <input id="id_gender1" name="gender1" type="radio" value="1" name="id_gender"></input>
-                                        <label> Mr. </label>
-                                        <input id="id_gender2" name="gender2" type="radio" value="2" name="id_gender"></input>
-                                        <label> Ms. </label>
-                                        <input id="id_gender3" name="gender3" type="radio" value="3" name="id_gender"></input>
-                                        <label> Miss </label>
-                                    </div>
-                            </li>
-                            <li>
                                     <label class="grid_5">Nama Depan*</label>
                                     <div class="grid_11">
                                         <input type="text" name="namadepan" value=<?php if($valid == FALSE) echo "'".$_POST['namadepan']."'"; ?>></input>
@@ -210,7 +201,7 @@
                             <li>
                                     <label class="grid_5">Kata Sandi*</label>
                                     <div class="grid_11">
-                                        <input type="password" name="katasandi"></input>
+                                        <input type="password" name="katasandi" value=<?php if($valid == FALSE) echo "'".$_POST['katasandi']."'"; ?>></input>
                                         <?php if(isset($error_katasandi)) echo "Kata Sandi Tidak Boleh Kosong";?>
                                         <?php if(isset($error_katasandi1)) echo "Kata Sandi Harus Sama";?>
                                     </div>
@@ -218,7 +209,7 @@
                             <li>
                                     <label class="grid_5">Ulangi Kata Sandi*</label>
                                     <div class="grid_11">
-                                        <input type="password" name="ulangkatasandi"></input>
+                                        <input type="password" name="ulangkatasandi" value=<?php if($valid == FALSE) echo "'".$_POST['ulangkatasandi']."'"; ?>></input>
                                         <?php if(isset($error_ulangkatasandi)) echo "Ulangi Kata Sandi Tidak Boleh Kosong";?>
                                         <?php if(isset($error_katasandi1)) echo "Kata Sandi Harus Sama";?>
                                     </div>
