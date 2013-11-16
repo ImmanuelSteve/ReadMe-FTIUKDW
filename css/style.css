@@ -76,11 +76,6 @@ a{
    border-bottom-right-radius: 5px; 
 }
 
-#nav {
-    list-style: none outside none;
-    padding-left:40px;
-}
-
 .navi{
     float: left;
     color:rgb(218,218,218);
@@ -206,3 +201,41 @@ a{
 ::-webkit-scrollbar-thumb:window-inactive{
     background: rgb(100,150,220);
 }
+
+/* Styles for the entire LavaLamp menu */        
+.lavaLamp {
+    list-style: none outside none;
+    padding-left:40px;
+}
+
+    /* Force the list to flow horizontally */
+    .lavaLamp li {
+        float: left;
+        list-style: none;                    
+    }
+        /* Represents the background of the highlighted menu-item. */
+        .lavaLamp li.back {
+            border-bottom: 5px solid rgba(255,255,255,0.2);
+            width: 9px; height: 30px;
+            z-index: 8;
+            position: absolute;
+        }
+            .lavaLamp li.back .left {
+                border-bottom: 5px solid rgba(255,255,255,0.2);
+                height: 30px;
+                margin-right: 9px; 
+            }
+        /* Styles for each menu-item. */    
+        .lavaLamp li a {
+            position: relative; overflow: hidden;
+            text-decoration: none; 
+            text-transform: uppercase;
+            font: bold 14px arial;
+            color: #fff; outline: none;
+            text-align: center;
+            height: 30px; top: 7px; 
+            z-index: 10; letter-spacing: 0; 
+            float: left; 
+            display: block;
+            margin: auto 10px;    
+        }

@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="css/produk.css" />
     <script language="JavaScript" type="text/javascript" src="js/jquery-2.0.3.js"></script>
     <script language="JavaScript" type="text/javascript" src="js/produk.js"></script>
+    <script type="text/javascript" src="js/jquery-1.2.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
+    <script type="text/javascript" src="js/lamp.js"></script>
 </head>
 
 <body>
@@ -25,11 +29,11 @@
                 include("login.php");
             ?>
             <div class="grid_24" id="header_nav">
-                <ul id="nav">
-                    <li><a class="navi" href="index.php">Beranda</a> </li>
-                    <li><a class="navi aktif" href="produk.php">Produk </a></li>
-                    <li><a class="navi" href="promosi.php">Promosi </a></li>
-                    <li><a class="navi" href="tentangkami.php">Tentang kami </a></li>
+                <ul class="lavaLamp">
+                    <li><a href="index.php">Beranda</a> </li>
+                    <li class="current"><a href="produk.php">Produk </a></li>
+                    <li><a href="promosi.php">Promosi </a></li>
+                    <li><a href="tentangkami.php">Tentang kami </a></li>
                 </ul>
                 <div id="formsearch" class="grid_6">
                     <form accept-charset="utf-8" method="post" action="cari.php">
