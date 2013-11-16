@@ -28,11 +28,10 @@
     <link rel="stylesheet" href="css/produk.css" />
     <link rel="stylesheet" href="css/produkdetail.css" />
     <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
-    <script type="text/javascript" src="js/produk.js"></script>
-    <script type="text/javascript" src="js/jquery-1.2.3.min.js"></script>
     <script type="text/javascript" src="js/jquery.easing.min.js"></script>
     <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
     <script type="text/javascript" src="js/lamp.js"></script>
+    <script type="text/javascript" src="js/produk.js"></script>
 </head>
 
 <body>
@@ -227,6 +226,7 @@
                             else{
                                 echo"<div id='tab1'>Spesifikasi belum ada</div>";
                             }
+                            mysqli_close($koneksi);
                         ?>
                         <div id="tab2">Belum ada ulasan</div>
                     </div>
