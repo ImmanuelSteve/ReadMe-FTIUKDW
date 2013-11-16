@@ -183,8 +183,51 @@
                             <li > <a class="tabbutton" name="tab1" > Spesifikasi </a></li>
                             <li > <a class="tabbutton" name="tab2" > Ulasan </a></li>
                     </ul>
-                    <div id="isiTab"> 
-                        <div id="tab1">Spesifikasi di sini</div>
+                    <div id="isiTab">
+                        <?php
+                            require("koneksi.php");
+                            if(isset($_SESSION['idProduk'])){
+                                $sql = "SELECT * FROM detail WHERE id='".$_SESSION['idProduk']."'";
+                                $result = mysqli_query($koneksi,$sql)or die(mysqli_error($koneksi));
+                                $found = mysqli_num_rows($result);
+                                if($found > 0){
+                                    while($data = mysqli_fetch_assoc($result)){
+                                        echo"<div id='tab1'><table>";
+                                        echo"<tbody>";
+                                        echo"<tr><td>Tipe Sim Card</td><td>: </td>";
+                                        echo"<td>".$data['Tipe_SimCard']."</td></tr>";
+                                        echo"<tr><td>Jaringan Data</td><td>: </td>";
+                                        echo"<td>".$data['Jaringan_Data']."</td></tr>";
+                                        echo"<tr><td>Jaringan Telepon</td><td>: </td>";
+                                        echo"<td>".$data['Jaringan_Telepon']."</td></tr>";
+                                        echo"<tr><td>Prosesor</td><td>: </td>";
+                                        echo"<td>".$data['Prosesor']."</td></tr>";
+                                        echo"<tr><td>RAM</td><td>: </td>";
+                                        echo"<td>".$data['RAM']."</td></tr>";
+                                        echo"<tr><td>Memori</td><td>: </td>";
+                                        echo"<td>".$data['Media_Penyimpanan']."</td></tr>";
+                                        echo"<tr><td>GPU</td><td>: </td>";
+                                        echo"<td>".$data['GPU']."</td></tr>";
+                                        echo"<tr><td>Layar</td><td>: </td>";
+                                        echo"<td>".$data['Layar']."</td></tr>";
+                                        echo"<tr><td>Kamera</td><td>: </td>";
+                                        echo"<td>".$data['Kamera']."</td></tr>";
+                                        echo"<tr><td>Baterai</td><td>: </td>";
+                                        echo"<td>".$data['Baterai']."</td></tr>";
+                                        echo"<tr><td>Fitur Tambahan</td><td>: </td>";
+                                        echo"<td>".$data['Fitur_Tambahan']."</td></tr>";
+                                        echo"</tbody>";
+                                        echo"</table></div>";
+                                    }
+                                }
+                                else{
+                                    echo"<div id='tab1'>Spesifikasi belum ada</div>";
+                                }
+                            }
+                            else{
+                                echo"<div id='tab1'>Spesifikasi belum ada</div>";
+                            }
+                        ?>
                         <div id="tab2">Belum ada ulasan</div>
                     </div>
                 </div>

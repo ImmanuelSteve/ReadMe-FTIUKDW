@@ -100,13 +100,11 @@
 
 #isiTab{
     background: #fff;
-    padding: 2em;
-    height: 220px;
+    padding: 15px;
+    height: 300px;
     border: 2px solid rgb(3,74,164);  
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-
-
 
