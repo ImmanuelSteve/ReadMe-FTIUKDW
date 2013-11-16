@@ -84,6 +84,10 @@
     <link rel="stylesheet" href="css/960_24_col.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/daftar.css" />
+    <script language="JavaScript" type="text/javascript" src="js/jquery-2.0.3.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
+    <script type="text/javascript" src="js/lamp.js"></script>
 </head>
 
 <body>
@@ -132,11 +136,11 @@
             <div class="clear"></div>
             
             <div class="grid_24" id="header_nav">
-                <ul id="nav">
-                    <li><a class="navi" href="index.php">Beranda</a> </li>
-                    <li><a class="navi" href="produk.php">Produk </a></li>
-                    <li><a class="navi" href="promosi.php">Promosi </a></li>
-                    <li><a class="navi" href="tentangkami.php">Tentang kami </a></li>
+                <ul class="lavaLamp">
+                    <li class="current"><a href="index.php">Beranda</a> </li>
+                    <li><a href="produk.php">Produk </a></li>
+                    <li><a href="promosi.php">Promosi </a></li>
+                    <li><a href="tentangkami.php">Tentang kami </a></li>
                 </ul>
                 <div id="formsearch" class="grid_6">
                     <form accept-charset="utf-8" method="post" action="cari.php">
