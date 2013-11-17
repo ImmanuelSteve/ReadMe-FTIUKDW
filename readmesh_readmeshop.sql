@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2013 at 04:48 AM
+-- Generation Time: Nov 17, 2013 at 04:17 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -59,8 +59,7 @@ INSERT INTO `detail` (`Id`, `Tipe_SimCard`, `Jaringan_Data`, `Jaringan_Telepon`,
 
 CREATE TABLE IF NOT EXISTS `pengguna` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nama_depan` varchar(50) NOT NULL,
-  `nama_belakang` varchar(50) NOT NULL,
+  `nama_pengguna` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `alamat` varchar(100) NOT NULL,
@@ -73,12 +72,12 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
 -- Dumping data for table `pengguna`
 --
 
-INSERT INTO `pengguna` (`id`, `nama_depan`, `nama_belakang`, `email`, `password`, `alamat`, `kota`, `telepon`) VALUES
-(1, 'admin', '', '', 'admin', '', '', '0'),
-(2, 'Fandi', 'Wirawan', 'fandi.wirawan@gmail.com', 'akumiripsadako', 'TPU gunung meletus, Kebumen', 'Kebumen', '2147483647'),
-(3, 'Danny', 'Aguswahyudi', 'dannyganteng@gantengmail.com', 'akuganteng', 'gang nanas, Yogyakarta', 'Yogyakarta', '2147483647'),
-(4, 'Steven Renaldo', 'Antony', 'steve@gmail.com', 'readme', 'jl raya banjar', 'Banjar', '2147483647'),
-(5, 'progweb', 'a', 'progweb@gmail.com', 'progweb', 'jogja', 'jogja', '0821313322322');
+INSERT INTO `pengguna` (`id`, `nama_pengguna`, `email`, `password`, `alamat`, `kota`, `telepon`) VALUES
+(1, 'Admin', '', 'admin', '', '', '0'),
+(2, 'Fandi', 'fandi.wirawan@gmail.com', 'akumiripsadako', 'TPU gunung meletus, Kebumen', 'Kebumen', '2147483647'),
+(3, 'Danny', 'dannyganteng@gantengmail.com', 'akuganteng', 'gang nanas, Yogyakarta', 'Yogyakarta', '2147483647'),
+(4, 'Steve', 'steve@gmail.com', 'readme', 'jl raya banjar', 'Banjar', '2147483647'),
+(5, 'Progweb', 'progweb@gmail.com', 'progweb', 'jogja', 'jogja', '0821313322322');
 
 -- --------------------------------------------------------
 
@@ -211,9 +210,19 @@ CREATE TABLE IF NOT EXISTS `testimoni` (
   `id_pengguna` int(11) NOT NULL,
   `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `isi` varchar(1000) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_user` (`id_pengguna`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `testimoni`
+--
+
+INSERT INTO `testimoni` (`id`, `id_pengguna`, `waktu`, `isi`) VALUES
+(1, 2, '2013-11-17 15:00:19', 'pelayanannya super cepat dan tanggap, gak salah pilih toko online... :D'),
+(2, 3, '2013-11-17 15:00:38', 'mantab abiss, respon cepat dan kualitas barang juga tetap nomer 1.... :D\r\n'),
+(3, 5, '2013-11-17 15:10:35', 'responnya cepet abis, barang dikirim cepet dan barang nya juga bagus dan gak ngecewain... mantab...'),
+(4, 4, '2013-11-17 15:11:49', '\r\npelayanannya mantab dan tetep jaga kualitas barang tentunya... maju terus :)'),
+(5, 4, '2013-11-17 15:13:35', 'jarang2 ni nemu toko online yang pelayanannya mantab abisss..');
 
 -- --------------------------------------------------------
 
@@ -260,12 +269,6 @@ ALTER TABLE `produk_promo`
 ALTER TABLE `review`
   ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id`),
   ADD CONSTRAINT `review_ibfk_3` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id`);
-
---
--- Constraints for table `testimoni`
---
-ALTER TABLE `testimoni`
-  ADD CONSTRAINT `testimoni_ibfk_1` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id`);
 
 --
 -- Constraints for table `transaksi`
