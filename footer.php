@@ -21,8 +21,9 @@
 		    <ul class="center hover">
 			<li><a class="textfooterinfo" href="produk.php">Produk</a></li>
                         <li><a class="textfooterinfo" href="#">Produk Baru</a></li>
-                        <li><a class="textfooterinfo" href="#">Produk Terlaris</a></li>
+                        <li><a class="textfooterinfo" href="#">Produk Unggulan</a></li>
                         <li><a class="textfooterinfo" href="promosi.php">Promosi</a></li>
+                         <li><a class="textfooterinfo" href="testimoni.php">Testimoni</a></li>
                     </ul>
 		</div>
                 <div class="grid_4">
@@ -34,9 +35,9 @@
                     </ul>
 		</div>
                  <div class="grid_6">
-		    <p class="textfootertitle center">HOTLINE</p>
+		    <p class="textfootertitle center">Hubungi Kami</p>
 		    <ul class="center">
-			<li class="texthotline textfooterbig">Contact us :</li>
+			<li class="texthotline textfooterbig">Hubungi di :</li>
                         <li class="texthotline textfooterbig">+62 81 234 567 89</li>
                          <li class="texthotline">Untuk informasi lebih lanjut</li>
                     </ul>

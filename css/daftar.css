@@ -30,7 +30,8 @@ ul{
 }
 
 #formdaftar{
-    height: 250px;
+    height: 220px;
+    padding-top: 10px;
     background-color: rgb(238,238,238);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;

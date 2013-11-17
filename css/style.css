@@ -42,7 +42,7 @@ ul{
     padding-right: 5px;
 }
 
-#buttonlogin{
+#buttonlogin, #buttontestimoni{
     background: rgb(3,74,164);
     box-shadow: 0px 1px 3px 0px rgba(92, 195, 244, 0.8) inset;
     color: #fff;
@@ -53,7 +53,7 @@ ul{
     cursor: pointer;
 }
 
-#buttonlogin:hover{
+#buttonlogin:hover, #buttontestimoni:hover{
     background: rgb(0,100,210);
 }
 
@@ -70,20 +70,14 @@ a{
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
+ 
+#header_nav ul li{
+    margin-right: 10px;
+}
 
 #copyright{
    border-bottom-left-radius: 5px;
    border-bottom-right-radius: 5px; 
-}
-
-.navi{
-    float: left;
-    color:rgb(218,218,218);
-    text-decoration: none;
-    margin-right: 30px;
-    font-size: 19px;
-    background-clip: border-box;
-    padding: 5px 15px;
 }
 
 .navi:hover, ul#nav li:hover, ul.hover li:hover{

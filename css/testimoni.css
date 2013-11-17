@@ -1,0 +1,23 @@
+#contentarea{
+    background-color: white;
+    width : 930px;
+    padding: 10px;
+    padding-bottom : 50px;
+}
+#contentarea h1 {
+	color: rgb(3,77,164);
+}
+
+#isitestimoni{
+    width : 500px;
+    height: 150px;
+}
+
+#buttontestimoni{
+    height: 30px;
+}
+
+#titletestimoni{
+    font-weight: bold;
+    font-size: 16px;
+}
