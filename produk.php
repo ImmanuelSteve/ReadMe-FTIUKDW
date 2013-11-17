@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="css/960_24_col.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/produk.css" />
-    <script language="JavaScript" type="text/javascript" src="js/jquery-2.0.3.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/jquery-1.2.3.min.js"></script>
     <script language="JavaScript" type="text/javascript" src="js/produk.js"></script>
-    <script type="text/javascript" src="js/jquery.easing.min.js"></script>
     <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
     <script type="text/javascript" src="js/lamp.js"></script>
 </head>
