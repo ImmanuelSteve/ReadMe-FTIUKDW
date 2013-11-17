@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <meta name="Description" content="readmeshop.com, gadget, smartphone, toko online, online shop, toko gadget"/>
     <title>
         <?php
             require("koneksi.php");

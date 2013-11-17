@@ -5,15 +5,10 @@
     $valid = TRUE;
     
     if(!empty($_POST['daftar'])){
-        if(trim($_POST['namadepan'])=="")
+        if(trim($_POST['namapengguna'])=="")
 	{
 	    $valid = FALSE;
-	    $error_namadepan = 1;
-	}
-        if(trim($_POST['namabelakang'])=="")
-	{
-	    $valid = FALSE;
-	    $error_namabelakang = 1;
+	    $error_namapengguna = 1;
 	}
         if(!preg_match("/^([a-z0-9_\.]+)@([a-z0-9\-]+\.)+[a-z]{2,6}$/i",$_POST['email']))
 	{
@@ -57,15 +52,14 @@
         }
         if($valid)
 	{
-	    $namadepan = $_POST['namadepan'];
-            $namabelakang = $_POST['namabelakang'];
+	    $namapengguna = $_POST['namapengguna'];
 	    $email = $_POST['email'];
             $katasandi = $_POST['katasandi'];
 	    $alamat = $_POST['alamat'];
             $kota = $_POST['kota'];
             $telepon = $_POST['telepon'];
 	    $query = "INSERT into pengguna VALUES 
-	    ('','".$namadepan."','".$namabelakang."','".$email."','".$katasandi."','".$alamat."','".$kota."','".$telepon."')";
+	    ('','".$namapengguna."','".$email."','".$katasandi."','".$alamat."','".$kota."','".$telepon."')";
 	
 	    if(mysqli_query($koneksi,$query)){
                 echo "<script type='text/javascript'>alert('Daftar berhasil!');</script>";
@@ -79,6 +73,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <meta name="Description" content="readmeshop.com, gadget, smartphone, toko online, online shop, toko gadget"/>
     <title>Daftar - ReadMe shop</title>
    <link rel="icon" type="image/png" href="images/icon-readmeshop.png" />
     <link rel="stylesheet" href="css/960_24_col.css" />
@@ -98,46 +93,15 @@
                 <img src="images/readmeshoplogo.png" height="100" width="110"/>
             </div>
             <?php
-                include ("koneksi.php");
-                if (isset($_POST['username']) && isset($_POST['password'])) {
-                    $username = $_POST['username'];
-                    $password = $_POST['password'];
-                    $query_string = "SELECT nama_depan,email,password FROM pengguna WHERE email='".$username."'AND password='".$password."'";
-                    $result = mysqli_query($koneksi,$query_string) or die(mysqli_error($koneksi));
-                    $found = mysqli_num_rows($result);
-                    $data = mysqli_fetch_assoc($result);
-                    if ($found > 0 ) {                        
-                        $_SESSION['user'] = $data['nama_depan'];
-                        header("location:index.php");
-                    }
-                    else {
-                        echo "<div id='login' class='grid_20'>";
-                        echo "<form id='formlogin' class='right' action='daftar.php' method='post'>";
-                        echo "<input type='text' name='username' placeholder='email'>";
-                        echo "<input type='password' name='password' placeholder='kata sandi'>";
-                        echo "<input id='buttonlogin' type='submit' value='Masuk'>";
-                        echo "<br/>Periksalah nama pengguna dan kata sandi Anda";
-                        echo "</form></div>";
-                        echo "<div class='clear'></div>";
-                    }
-                }
-                else {
-                    echo "<div id='login' class='grid_20'>";
-                    echo "<form id='formlogin' class='right' action='daftar.php' method='post'>";
-                    echo "<input type='text' name='username' placeholder='email'>";
-                    echo "<input type='password' name='password' placeholder='kata sandi'>";
-                    echo "<input id='buttonlogin' type='submit' value='Masuk'>";
-                    echo "</form></div>";
-                    echo "<div class='clear'></div>";
-                }
-                mysqli_close($koneksi);
+                $_SESSION['actionlogin'] = "daftar.php";
+                include("login.php");
              ?>
             
             <div class="clear"></div>
             
             <div class="grid_24" id="header_nav">
                 <ul class="lavaLamp">
-                    <li class="current"><a href="index.php">Beranda</a> </li>
+                    <li><a href="index.php">Beranda</a> </li>
                     <li><a href="produk.php">Produk </a></li>
                     <li><a href="promosi.php">Promosi </a></li>
                     <li><a href="tentangkami.php">Tentang kami </a></li>
@@ -182,17 +146,10 @@
                     <div class="grid_18" id="formdaftar">
                         <ul>
                             <li>
-                                    <label class="grid_5">Nama Depan*</label>
+                                    <label class="grid_5">Nama Pengguna*</label>
                                     <div class="grid_11">
-                                        <input type="text" name="namadepan" value=<?php if($valid == FALSE) echo "'".$_POST['namadepan']."'"; ?>></input>
-                                        <?php if(isset($error_namadepan)) echo "Nama Depan Tidak Boleh Kosong";?>
-                                    </div>
-                            </li>
-                            <li>
-                                    <label class="grid_5">Nama Belakang*</label>
-                                    <div class="grid_11">
-                                        <input type="text" name="namabelakang" value=<?php if($valid == FALSE) echo "'".$_POST['namabelakang']."'"; ?>></input>
-                                        <?php if(isset($error_namabelakang)) echo "Nama Belakang Tidak Boleh Kosong";?>
+                                        <input type="text" name="namapengguna" value=<?php if($valid == FALSE) echo "'".$_POST['namapengguna']."'"; ?>></input>
+                                        <?php if(isset($error_namapengguna)) echo "Nama Pengguna Tidak Boleh Kosong";?>
                                     </div>
                             </li>
                             <li>
@@ -253,7 +210,7 @@
     </div>
     <!-- content end -->
 
-    <!-- footer begin -->
+  <!-- footer begin -->
     <?php
         require("footer.php");
     ?>

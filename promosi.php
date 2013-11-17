@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <meta name="Description" content="readmeshop.com, gadget, smartphone, toko online, online shop, toko gadget"/>
     <title>Promosi - ReadMe shop</title>
     <link rel="icon" type="image/png" href="images/icon-readmeshop.png" />
     <link rel="stylesheet" href="css/promosi.css" />
@@ -61,7 +62,7 @@
     <div id="content">
         <div class="container_24">
             <div id="contentarea" class="grid_24">
-                <h1>Promo ReadMe Shop</h2>                
+                <h1>Promo ReadMe Shop</h1>                
                 <?php 
                     require("koneksi.php");
                     $sql = "SELECT id,judul,berlaku,gambar,deskripsi FROM promo";
