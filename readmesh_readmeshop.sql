@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2013 at 04:17 PM
+-- Generation Time: Nov 17, 2013 at 05:19 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -42,14 +42,21 @@ CREATE TABLE IF NOT EXISTS `detail` (
   `Baterai` varchar(200) NOT NULL,
   `Fitur_Tambahan` varchar(1000) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `detail`
 --
 
 INSERT INTO `detail` (`Id`, `Tipe_SimCard`, `Jaringan_Data`, `Jaringan_Telepon`, `Prosesor`, `RAM`, `Media_Penyimpanan`, `GPU`, `Layar`, `Kamera`, `Baterai`, `Fitur_Tambahan`) VALUES
-(1, 'GSM', '4G(LTE Cat 4 150/50Mbps)', 'Quad band(850/900/1800/1900 MHz)', 'LTE(2.3 GHz Quad-Core Processor), 3G(1.9GHz Octa Core Processor(A15 1.9GHz+A7 1.3GHz)', '3 GB', '32/64 GB memori internal + slot microSD(hingga 64GB)', 'Mali-400MP4', '5.7 inch(144.3mm) Full HD Super AMOLED (1920 x 1080 piksel)', 'Kamera utama/belakang(13 Mpx), kamera depan(2 Mpx), dual kamera/dual rekaman/dual panggilan video', 'Li-ion 3.200 mAh', 'S Pen dengan fitur yang dioptimalisasi, Bluetooth v4.0(LE), Gesture, Accelerometer, Geo-magnetic, Gyroscope, RGB');
+(1, 'GSM', '4G(LTE Cat 4 150/50Mbps)', 'Quad band(850/900/1800/1900 MHz)', 'LTE(2.3 GHz Quad-Core Processor), 3G(1.9GHz Octa Core Processor(A15 1.9GHz+A7 1.3GHz)', '3 GB', '32/64 GB memori internal + slot microSD(hingga 64GB)', 'Mali-400MP4', '5.7 inch(144.3mm) Full HD Super AMOLED (1920 x 1080 piksel)', 'Kamera utama/belakang(13 Mpx), kamera depan(2 Mpx), dual kamera/dual rekaman/dual panggilan video', 'Li-ion 3.200 mAh', 'S Pen dengan fitur yang dioptimalisasi, Bluetooth v4.0(LE), Gesture, Accelerometer, Geo-magnetic, Gyroscope, RGB'),
+(2, 'GSM', 'WCDMA850/900/1700/1900/ 2100MHz, HSPA + 42Mbps(DL) / 5.76Mbps(UL), GPRS/EDGE Class 12', 'GSM 850/900/1800/1900MHz,  GPRS/EDGE Class 12', 'Intel Atom Z2580, Dual-core 2 GHz', '1GB', 'Internal : 16GB\r\nExternal : tidak ada', 'PowerVR SGX544', '5.5" Full HD (1920x1080) IPS', 'Utama : 13 Mpx AF(F1.8 Lens), Depan : 2M FF', '2800mAh (Li-polymer)', 'OS      : Android v4.2 (Jelly Bean)\r\nSIM     : Single (Micro SIM card)\r\nDimensi : 78x157x6.9 mm'),
+(3, 'GSM', 'HSDPA 850 / 900 / 1700 / 1900 / 2100,\r\nLTE 700 / 850 / 900/ 1700 / 1900 / 2100 / 2600 - C6806, \r\nLTE 800 / 850 / 900 / 1700 / 1800 / 1900 / 2100 / 2600 - C6833', 'GSM 850 / 900 / 1800 / 1900', 'Qualcomm MSM8974 2.2 GHz, Quadcore', '2 GB', 'Internal : 16 GB, slot microSD hingga 64 GB(didukung SDXC)', 'Adreno 330', '16 juta warna, 1920 x 1080 px, 6,4" tahan terhadap goresan', 'Kamera Utama : 8 Mpx, 16 digital zoom dengan AF, Kamera depan :  2 Mpx, 1080p@30fps', 'Non-removable Li-Ion 3050 mAh', 'Berat : 212 g,\r\nDimensi : 179x92x6,6 mm,\r\nOS : Android 4.2 (Jelly Bean)\r\nTahan debu dan tahan air'),
+(4, 'GSM', 'HSDPA 850 / 900 / 1900 / 2100, \r\nLTE 800 / 1800 / 2600, \r\nLTE 1800 / 2600\r\n', 'GSM 850 / 900 / 1800 / 1900', 'Quad-core 1.7 GHz Krait 300', '2 GB', 'Internal 32 / 64 GB, tanpa media penyimpanan external.', 'Adreno 320', '16 juta warna, 1080 x 1920 px, 4.7"(~469 ppi pixel density), Corning Gorilla Glass 2', 'Kamera utama : 4 Mpx, autofocus, optical image stabilization, LED flash. Kamera depan  :  2.1 Mpx, 1080p@30fps, HDR', 'Non-removable Li-Po 2300 mAh', 'Ukuran Simcard : Micro-Sim\r\nDimensi : 137.4 x 68.2 x 9.3 mm\r\nBerat   : 143 g\r\nOS      : Android OS, v4.1.2 (Jelly Bean)\r\n'),
+(5, 'CDMA', 'CDMA2000 1xEV-DO - CDMA A1429,\r\nLTE 700 / 850 / 1800 / 1900 / 2100 - CDMA A1429', 'CDMA 800 / 1900 / 2100 - CDMA A1429', 'Dual-core 1.3 GHz Swift (berbasis ARM v7)', '1 GB DDR2', 'Internal : 16/32/64 GB.\r\nTidak ada memori external.', 'PowerVR SGX 543MP3 (grafik tiga inti)', '16 juta warna, 640 x 1136 pixels, 4.0", Corning Gorilla Glass, Oleophobic Coating', 'Kamera Utama : 8 Mpx, 3264x2448 pixels, autofocus, LED flash. Kamera depan : 1.2 Mpx, 720p@30fps', 'Non-removable Li-Po 1440 mAh', 'Ukuran simcard : Nano-SIM\r\nBerat  : 112 g\r\nOS  : iOS 6, dapat di-upgrade hingga iOS 7.0.3\r\n\r\n'),
+(6, 'CDMA', 'CDMA2000 1xEV-DO,\r\nLTE', 'CDMA 800 / 1900', 'Quad-core 2.26 GHz Krait 400', '2 GB', '16/32 GB, tampa penyimpanan external.', 'Adreno 330', 'True HD-IPS + LCD capacitive touchscreen, 16M colors, Corning Gorilla Glass 2', '13 MP, autofocus, optical image stabilization, LED flash. Kamera depan : 2.1 MP, 1080p@30fps', 'Non-removable Li-Po 3000 mAh', 'Ukuran : 138.5 x 70.9 x 8.9 mm\r\nBerat  : 143 g\r\nOS     : Android OS, v4.2.2 (Jelly Bean)\r\nUkuran simcard : Micro-SIM \r\nSensor : Accelerometer, gyro, proximity, compass\r\n'),
+(7, 'GSM', 'HSDPA 850 / 900 / 1900 / 2100,\r\n', 'GSM 850 / 900 / 1800 / 1900\r\nLTE 800 / 850 / 900 / 1800 / 2100 / 2600', 'Dual-core 1.5 GHz', '1.5 GB', 'Internal : 16/32 GB\r\nExternal : microSD, hingga 64 GB', 'Mali-400MP', '16 juta warna, 800 x 1280 px, 8.0" (~189 ppi pixel density)', 'Kamera Utama : 5 Mpx, Autofocus. Kamera depan : 1.3 Mpx', 'Non-removable Li-Ion 4450 mAh', 'Ukuran  : 209.8 x 123.8 x 7.4 mm \r\nBerat   : 314 g\r\nUkuran Simcard : Micro-SIM\r\nOS      : Android OS, v4.2.2 (Jelly Bean)'),
+(8, 'GSM', 'HSDPA 850 / 900 / 1700 / 1900 / 2100', 'GSM 850 / 900 / 1800 / 1900', '1,5 GHz quad-core Cortex-A9', '2 GB', 'Internal 8GB,\r\nExternal : hingga 64 GB', '-', '16 juta warna, 720 x 1280 px, 6.1"(~241 ppi pixel density), Corning Gorilla Glass', 'Kamera utama : 8 Mpx, Autofocus, LED flash, Kamera depan : 1Mpx 720p@30fps.\r\n', 'Non-removable Li-Ion 4050 mAh', 'Ukuran : 163.5 x 85.7 x 9.9 mm\r\nBerat  : 198 g\r\nOS     : Android OS, v4.1 (Jelly Bean)\r\nSensor : Accelerometer, gyro, proximity, compass.\r\nUkuran simcard : icro-SIM');
 
 -- --------------------------------------------------------
 
@@ -74,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
 
 INSERT INTO `pengguna` (`id`, `nama_pengguna`, `email`, `password`, `alamat`, `kota`, `telepon`) VALUES
 (1, 'Admin', '', 'admin', '', '', '0'),
-(2, 'Fandi', 'fandi.wirawan@gmail.com', 'akumiripsadako', 'TPU gunung meletus, Kebumen', 'Kebumen', '2147483647'),
+(2, 'Fandi', 'fandi.wirawan@gmail.com', 'fandi', 'Jl. Revolusi, Kebumen', 'Kebumen', '081999999999'),
 (3, 'Danny', 'dannyganteng@gantengmail.com', 'akuganteng', 'gang nanas, Yogyakarta', 'Yogyakarta', '2147483647'),
 (4, 'Steve', 'steve@gmail.com', 'readme', 'jl raya banjar', 'Banjar', '2147483647'),
 (5, 'Progweb', 'progweb@gmail.com', 'progweb', 'jogja', 'jogja', '0821313322322');
@@ -140,7 +147,7 @@ INSERT INTO `produk` (`id`, `merek`, `nama`, `harga`, `hargaString`, `gambar`, `
 (2, 'Lenovo', 'Lenovo K900', 4499000, '4.449.000', 'images/lenovo-k900.jpg', 2, 4, '2013-10-29 10:21:33', 4, 'baru'),
 (3, 'Sony', 'Sony Xperia Z Ultra', 7499000, '7.499.000', 'images/sony-xperia-z-ultra.jpg', 1, 5, '2013-10-29 10:30:05', 2, 'unggulan'),
 (4, 'HTC', 'HTC One', 7300000, '7.300.000', 'images/htc-one.jpg', 3, 4, '2013-10-30 13:02:35', 2, 'baru'),
-(5, 'i-Phone', 'iPhone 5', 9000000, '9.000.000', 'images/apple-iphone-5.jpg', 2, 4, '2013-10-30 14:50:05', 5, 'baru'),
+(5, 'Apple', 'iPhone 5', 9000000, '9.000.000', 'images/apple-iphone-5.jpg', 2, 4, '2013-10-30 14:50:05', 5, 'baru'),
 (6, 'LG', 'Lg G2', 6799000, '6.799.000', 'images/lg-g2.jpg', 3, 5, '2013-11-02 03:00:00', 2, 'unggulan'),
 (7, 'Samsung', 'Samsung Galaxy Tab 3 8.0', 4499000, '4.499.000', 'images/samsung-galaxy-tab-3-80.jpg', 2, 3, '2013-11-02 05:00:00', 8, 'baru'),
 (8, 'Huawei', 'Huawei Ascend Mate', 3999000, '3.999.000', 'images/huawei-ascend-mate.jpg', 4, 2, '2013-11-09 08:00:00', 1, 'baru');
@@ -197,7 +204,17 @@ CREATE TABLE IF NOT EXISTS `review` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_user` (`id_pengguna`),
   UNIQUE KEY `id_produk` (`id_produk`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`id`, `id_produk`, `id_pengguna`, `waktu`, `isi`) VALUES
+(1, 1, 3, '2013-11-17 16:09:13', 'Saya bisa menggunakan 9 jam pada wifi dan sekitar 12 jam untuk menonton video. Saya selalu bisa melewati hari dengan penggunaan yang intens. Dengan penggunaan normal, cukup nyaman untuk 2 hari, dan saya menebak bisa mencapai 3 hari untuk penggunaan ringan.'),
+(2, 2, 4, '2013-11-17 16:12:35', 'Saya rasa slot memori external sangat dibutuhkan, karena jaman sekarang ini, memori dengan kapasitas 16 GB terisi penuh dengan sangat cepat.'),
+(3, 3, 2, '2013-11-17 16:15:11', 'Gadged satu ini tahan ari loh,, sudah dibuktikan, kaca nya anti gores juga, jadi tak perlu membeli pelapis antigores dan case anti air,, hemat biaya, Gan,,,'),
+(4, 4, 1, '2013-11-17 16:17:29', 'Kaca anti gores dengan gorila glass itu keren, tapi kamera utama nya hanya 4 Mpx, saya rasa kurang di kamera. Ketersediaan micro-SIM masih jarang dipasaran.');
 
 -- --------------------------------------------------------
 
