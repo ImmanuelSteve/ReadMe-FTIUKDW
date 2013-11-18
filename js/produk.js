@@ -12,7 +12,7 @@ $(document).ready(function(){
 	$("#tabs li:first").attr("id","current"); // Activate first tab
 	$("#isiTab div:first").fadeIn(); // Show first tab content        
 	$('#tabs a').click(function(e) {
-		if ($(this).closest("li").attr("id") == "current"){ //detection for current tab
+		if ($(this).attr("id") == "current"){ //detection for current tab
 			return       
 		}
 		else{             
