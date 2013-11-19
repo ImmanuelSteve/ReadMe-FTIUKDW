@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2013 at 05:19 PM
+-- Generation Time: Nov 19, 2013 at 02:46 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -80,11 +80,11 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
 --
 
 INSERT INTO `pengguna` (`id`, `nama_pengguna`, `email`, `password`, `alamat`, `kota`, `telepon`) VALUES
-(1, 'Admin', '', 'admin', '', '', '0'),
-(2, 'Fandi', 'fandi.wirawan@gmail.com', 'fandi', 'Jl. Revolusi, Kebumen', 'Kebumen', '081999999999'),
-(3, 'Danny', 'dannyganteng@gantengmail.com', 'akuganteng', 'gang nanas, Yogyakarta', 'Yogyakarta', '2147483647'),
-(4, 'Steve', 'steve@gmail.com', 'readme', 'jl raya banjar', 'Banjar', '2147483647'),
-(5, 'Progweb', 'progweb@gmail.com', 'progweb', 'jogja', 'jogja', '0821313322322');
+(1, 'Admin', 'admin@gmail.com', '$2a$08$mrMbM.Pkt2/rX1QOalsgf.YwtQ26f12ewXn6UIBwWPOx4nUykqLwe', 'DutaWacana', 'Jogjakarta', '08123456789'),
+(2, 'Fandi', 'fandi.wirawan@gmail.com', '$2a$08$7RDbHoWFfQuOubgaUHTn/.xI3rvr42hNESfgBrII7R7hEroPnbiBq', 'Jl. Revolusi, Kebumen', 'Kebumen', '081999999999'),
+(3, 'Danny', 'danny@yahoo.com', '$2a$08$H8B9WJLoi.GAF/yN7l9q7eRHUzFYARL1MWxULeMAw5Vbyu4DhKMI.', 'gang nanas, Yogyakarta', 'Yogyakarta', '0821234243243'),
+(4, 'Steve', 'steve@gmail.com', '$2a$08$t9Ts1Jk.INeRjaq9.U7Mg.eP/AboFCn6UE2DdkIUo7E8SQTjaG2bS', 'jl raya banjar', 'Banjar', '082242434332'),
+(5, 'Progweb', 'progweb@gmail.com', '$2a$08$Nlx2eGtOkz35d7e38QPqk.l8ZwRFYwT4WmcpBXw/.hXcJCfRujlU6', 'jogja', 'jogja', '0821313322322');
 
 -- --------------------------------------------------------
 

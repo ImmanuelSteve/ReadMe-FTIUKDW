@@ -1,7 +1,6 @@
 <?php
     session_start();
-    include("koneksi.php");
-    
+    require("koneksi.php");
     $valid = TRUE;
     
     if(!empty($_POST['daftar'])){
@@ -25,6 +24,11 @@
 	    $valid = FALSE;
 	    $error_ulangkatasandi = 1;
 	}
+        if(trim($_POST['katasandi']) != trim($_POST['ulangkatasandi']))
+	{
+            $valid = FALSE;
+	    $error_katasandi1 = 1;
+        }
         if(trim($_POST['alamat'])=="")
 	{
 	    $valid = FALSE;
@@ -45,21 +49,19 @@
 	    $valid = FALSE;
 	    $error_telepon1 = 1;
 	}
-        if(trim($_POST['katasandi']) != trim($_POST['ulangkatasandi']))
-	{
-            $valid = FALSE;
-	    $error_katasandi1 = 1;
-        }
         if($valid)
 	{
 	    $namapengguna = $_POST['namapengguna'];
 	    $email = $_POST['email'];
+            require("PasswordHash.php");
+            $t_hasher = new PasswordHash(8, FALSE);
             $katasandi = $_POST['katasandi'];
+            $hash = $t_hasher->HashPassword($katasandi);
 	    $alamat = $_POST['alamat'];
             $kota = $_POST['kota'];
             $telepon = $_POST['telepon'];
 	    $query = "INSERT into pengguna VALUES 
-	    ('','".$namapengguna."','".$email."','".$katasandi."','".$alamat."','".$kota."','".$telepon."')";
+	    ('','".$namapengguna."','".$email."','".$hash."','".$alamat."','".$kota."','".$telepon."')";
 	
 	    if(mysqli_query($koneksi,$query)){
                 echo "<script type='text/javascript'>alert('Daftar berhasil!');</script>";
