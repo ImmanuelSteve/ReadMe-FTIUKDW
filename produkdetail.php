@@ -87,16 +87,20 @@
                     </dt>
                     <dd class="grid_6 isikategori">
                         <ul>
-                            <li><a href="#">Apple</a></li>
-                            <li><a href="#">BlackBerry</a></li>
-                            <li><a href="#">HTC</a></li>
-                            <li><a href="#">Huawei</a></li>
-                            <li><a href="#">Lenovo</a></li>
-                            <li><a href="#">LG</a></li>
-                            <li><a href="#">Nokia</a></li>
-                            <li><a href="#">Samsung</a></li>
-                            <li><a href="#">Sony</a></li>
-                            <li><a href="#">ZTE</a></li>
+                            <?php
+                                $url = "produk.php";
+                                
+                            ?>
+                            <li><a href="<?php echo $url . "?merk=apple";?>">Apple</a></li>
+                            <li><a href="<?php echo $url . "?merk=BlackBerry"; ?> ">BlackBerry</a></li>
+                            <li><a href="<?php echo $url . "?merk=HTC"; ?> ">HTC</a></li>
+                            <li><a href="<?php echo $url . "?merk=Huawei"; ?> ">Huawei</a></li>
+                            <li><a href="<?php echo $url . "?merk=Lenovo"; ?> ">Lenovo</a></li>
+                            <li><a href="<?php echo $url . "?merk=LG"; ?> ">LG</a></li>
+                            <li><a href="<?php echo $url . "?merk=Nokia"; ?> ">Nokia</a></li>
+                            <li><a href="<?php echo $url . "?merk=Samsung"; ?> " > Samsung</a></li>
+                            <li><a href="<?php echo $url . "?merk=Sony"; ?> ">Sony</a></li>
+                            <li><a href="<?php echo $url . "?merk=ZTE"; ?> ">ZTE</a></li>
                         </ul>
                     </dd>
                     <dt class="grid_6 judulkategori">
@@ -104,11 +108,11 @@
                     </dt>
                     <dd class="grid_6 isikategori">
                         <ul>
-                            <li><a href="#">di bawah 1 juta</a></li>
-                            <li><a href="#">1 juta sampai 2 juta</a></li>
-                            <li><a href="#">2 juta sampai 3 juta</a></li>
-                            <li><a href="#">3 juta sampai 4 juta</a></li>
-                            <li><a href="#">di atas 4 juta</a></li>
+                            <li><a href="<?php echo $url . "?harga=1000000";?>">di bawah 1 juta</a></li>
+                            <li><a href="<?php echo $url . "?harga=2000000";?>">1 juta sampai 2 juta</a></li>
+                            <li><a href="<?php echo $url . "?harga=3000000";?>">2 juta sampai 3 juta</a></li>
+                            <li><a href="<?php echo $url . "?harga=4000000";?>">3 juta sampai 4 juta</a></li>
+                            <li><a href="<?php echo $url . "?harga=99999999";?>">di atas 4 juta</a></li>
                         </ul>
                     </dd>
                      <dt class="grid_6 judulkategori">
@@ -116,9 +120,9 @@
                     </dt>
                     <dd class="grid_6 isikategori">
                         <ul>
-                            <li><a href="#">GSM</a></li>
-                            <li><a href="#">CDMA Phone</a></li>
-                            <li><a href="#">Dual Simcard</a></li>
+                            <li><a href="<?php echo $url . "?tipe=GSM";?>">GSM</a></li>
+                            <li><a href="<?php echo $url . "?tipe=CDMA";?>">CDMA Phone</a></li>
+                            <li><a href="<?php echo $url . "?tipe=Dual";?>">Dual Simcard</a></li>
                         </ul>
                     </dd>
                 </div>

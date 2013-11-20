@@ -69,8 +69,7 @@
                     <dd class="grid_6 isikategori">
                         <ul>
                             <?php
-                                $url = $_SERVER['PHP_SELF'];
-                                
+                                $url = $_SERVER['PHP_SELF'];                                
                             ?>
                             <li><a href="<?php echo $url . "?merk=apple";?>">Apple</a></li>
                             <li><a href="<?php echo $url . "?merk=BlackBerry"; ?> ">BlackBerry</a></li>
@@ -88,11 +87,7 @@
                         <p><a href="#">Harga</a></p>
                     </dt>
                     <dd class="grid_6 isikategori">
-                        <ul>
-                            <?php
-                                $url = $_SERVER['PHP_SELF'];
-                                
-                            ?>
+                        <ul>                            
                             <li><a href="<?php echo $url . "?harga=1000000";?>">di bawah 1 juta</a></li>
                             <li><a href="<?php echo $url . "?harga=2000000";?>">1 juta sampai 2 juta</a></li>
                             <li><a href="<?php echo $url . "?harga=3000000";?>">2 juta sampai 3 juta</a></li>
@@ -105,10 +100,6 @@
                     </dt>
                     <dd class="grid_6 isikategori">
                         <ul>
-                            <?php
-                                $url = $_SERVER['PHP_SELF'];
-                                
-                            ?>
                             <li><a href="<?php echo $url . "?tipe=GSM";?>">GSM</a></li>
                             <li><a href="<?php echo $url . "?tipe=CDMA";?>">CDMA Phone</a></li>
                             <li><a href="<?php echo $url . "?tipe=Dual";?>">Dual Simcard</a></li>
