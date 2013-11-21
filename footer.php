@@ -4,24 +4,26 @@
                 <div class="grid_4 footerleft">
 		    <p class="textfootertitle center">Merek Kami</p>
 		    <ul class="center hover">
-			<li><a class="textfooterinfo" href="#">Apple</a></li>
-                        <li><a class="textfooterinfo" href="#">BlackBerry</a></li>
-                        <li><a class="textfooterinfo" href="#">HTC</a></li>
-                        <li><a class="textfooterinfo" href="#">Huawei</a></li>
-                        <li><a class="textfooterinfo" href="#">Lenovo</a></li>
-                        <li><a class="textfooterinfo" href="#">LG</a></li>
-                        <li><a class="textfooterinfo" href="#">Nokia</a></li>
-                        <li><a class="textfooterinfo" href="#">Samsung</a></li>
-                        <li><a class="textfooterinfo" href="#">Sony</a></li>
-                        <li><a class="textfooterinfo" href="#">ZTE</a></li>
+			<?php
+                                $url = "produk.php";       
+                        ?>
+                        <li><a class="textfooterinfo" href="<?php echo $url . "?merk=apple";?>">Apple</a></li>
+                        <li><a class="textfooterinfo" href="<?php echo $url . "?merk=BlackBerry"; ?> ">BlackBerry</a></li>
+                        <li><a class="textfooterinfo" href="<?php echo $url . "?merk=HTC"; ?> ">HTC</a></li>
+                        <li><a class="textfooterinfo" href="<?php echo $url . "?merk=Huawei"; ?> ">Huawei</a></li>
+                        <li><a class="textfooterinfo" href="<?php echo $url . "?merk=Lenovo"; ?> ">Lenovo</a></li>
+                        <li><a class="textfooterinfo" href="<?php echo $url . "?merk=LG"; ?> ">LG</a></li>
+                        <li><a class="textfooterinfo" href="<?php echo $url . "?merk=Nokia"; ?> ">Nokia</a></li>
+                        <li><a class="textfooterinfo" href="<?php echo $url . "?merk=Samsung"; ?> " > Samsung</a></li>
+                        <li><a class="textfooterinfo" href="<?php echo $url . "?merk=Sony"; ?> ">Sony</a></li>
+                        <li><a class="textfooterinfo" href="<?php echo $url . "?merk=ZTE"; ?> ">ZTE</a></li>
                     </ul>
 		</div>
                 <div class="grid_4">
 		    <p class="textfootertitle center">Link</p>
 		    <ul class="center hover">
+                        <li><a class="textfooterinfo" href="compare.php">Bandingkan Produk</a></li>
 			<li><a class="textfooterinfo" href="produk.php">Produk</a></li>
-                        <li><a class="textfooterinfo" href="#">Produk Baru</a></li>
-                        <li><a class="textfooterinfo" href="#">Produk Unggulan</a></li>
                         <li><a class="textfooterinfo" href="promosi.php">Promosi</a></li>
                          <li><a class="textfooterinfo" href="testimoni.php">Testimoni</a></li>
                     </ul>
