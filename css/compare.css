@@ -1,5 +1,4 @@
 #contentarea{
-    height: 500px;
     background-color: white;
     width : 930px;
     padding: 10px;
@@ -9,10 +8,30 @@
 	color: rgb(3,77,164);
 }
 
-#labelproduk2{
-    margin-left: 50px;
-}
-
 #buttonbandingkan{
     margin-left: 30px;
+}
+
+.dropdown{
+    margin-left: 20px;
+    margin-bottom: 30px;    
+}
+
+.isiproduk{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    height : 610px;
+    border : 1px solid black;
+}
+
+.foto{
+    border-radius: 5px;
+    margin-left: 120px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    border : 1px solid rgb(204,204,204);
+}
+
+label{
+    font-weight: bold;
 }

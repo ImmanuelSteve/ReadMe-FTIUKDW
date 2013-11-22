@@ -64,24 +64,166 @@
     <div id="content">
         <div class="container_24">
             <div id="contentarea" class="grid_24">
-                <h1>Bandingkan Produk</h1>          
-                <div class="grid_24">
-                    <label>Produk 1 : </label>
-                    <select name='warna'>
-                        <option value='1'>Samsung</option>
-                        <option value='2'>Sony</option>
-                        <option value='3'>Huawei</option>
-                    </select>
-                    <label id="labelproduk2">Produk 2 : </label>
-                    <select name='warna'>
-                        <option value='1'>Samsung</option>
-                        <option value='2'>Sony</option>
-                        <option value='3'>Huawei</option>
-                    </select>
-                    <input id="buttonbandingkan" type="submit" name="compare" value="Bandingkan">
+                <h1>Bandingkan Produk</h1>
+                <form action="#contentarea" method="post">
+                    <div class="grid_11 dropdown">
+                        <label>Produk 1 : </label>
+                        <select name='produk1'>
+                            <?php
+                                require("koneksi.php");
+                                $sql = "SELECT id,nama FROM produk where id = '".$_POST['produk1']."'";
+                                $result = mysqli_query($koneksi,$sql)or die(mysqli_error($koneksi));
+                                $found = mysqli_num_rows($result);
+                                $data = mysqli_fetch_assoc($result);
+                                if($found == 1){
+                                    echo"<option value='".$data['id']."'>".$data['nama']."</option>";
+                                }else{
+                                    echo"<option value=''></option>";
+                                }
+                                $sql = "SELECT id,nama FROM produk";
+                                $result = mysqli_query($koneksi,$sql)or die(mysqli_error($koneksi));
+                                while($data = mysqli_fetch_assoc($result)){
+                                    if($data['id'] === $_POST['produk1']){
+                                        continue;
+                                    }else{
+                                        echo"<option value='".$data['id']."'>".$data['nama']."</option>";
+                                    }
+                                }
+                                mysqli_close($koneksi);
+                            ?>
+                        </select>
+                    </div>
+                    <div class = "grid_11 dropdown">
+                        <label id="labelproduk2">Produk 2 : </label>
+                        <select name='produk2'>
+                            <?php
+                                require("koneksi.php");
+                                $sql = "SELECT id,nama FROM produk where id = '".$_POST['produk2']."'";
+                                $result = mysqli_query($koneksi,$sql)or die(mysqli_error($koneksi));
+                                $found = mysqli_num_rows($result);
+                                $data = mysqli_fetch_assoc($result);
+                                if($found == 1){
+                                    echo"<option value='".$data['id']."'>".$data['nama']."</option>";
+                                }else{
+                                    echo"<option value=''></option>";
+                                }
+                                $sql = "SELECT id,nama FROM produk";
+                                $result = mysqli_query($koneksi,$sql)or die(mysqli_error($koneksi));
+                                while($data = mysqli_fetch_assoc($result)){
+                                    if($data['id'] === $_POST['produk2']){
+                                        continue;
+                                    }else{
+                                        echo"<option value='".$data['id']."'>".$data['nama']."</option>";
+                                    }
+                                }
+                                mysqli_close($koneksi);
+                            ?>
+                        </select>
+                        <input id="buttonbandingkan" type="submit" name="compare" value="Bandingkan">
+                    </div>
+                </form>
+                <div class="grid_11 isiproduk">
+                        <?php
+                            require("koneksi.php");
+                            if(!empty($_POST['produk1']) || !empty($_POST['compare'])){
+                                $sql = "SELECT id,gambar FROM produk WHERE id='".$_POST['produk1']."'";
+                                $result = mysqli_query($koneksi,$sql);
+                                while($data = mysqli_fetch_assoc($result)){
+                                    $gambar = $data['gambar'];
+                                    echo "<div class='grid_5 foto center'><a href=produkdetail.php?id=".$data['id']."><img src='$gambar'/></a></div>";
+                                }
+                                echo"<div class='clear'></div>";
+                                $sql = "SELECT * FROM detail WHERE id='".$_POST['produk1']."'";
+                                $result = mysqli_query($koneksi,$sql)or die(mysqli_error($koneksi));
+                                $found = mysqli_num_rows($result);
+                                if($found > 0){
+                                    while($data = mysqli_fetch_assoc($result)){
+                                        echo"<table>";
+                                        echo"<tbody>";
+                                        echo"<tr><td>Tipe Sim Card</td><td>: </td>";
+                                        echo"<td>".$data['Tipe_SimCard']."</td></tr>";
+                                        echo"<tr><td>Jaringan Data</td><td>: </td>";
+                                        echo"<td>".$data['Jaringan_Data']."</td></tr>";
+                                        echo"<tr><td>Jaringan Telepon</td><td>: </td>";
+                                        echo"<td>".$data['Jaringan_Telepon']."</td></tr>";
+                                        echo"<tr><td>Prosesor</td><td>: </td>";
+                                        echo"<td>".$data['Prosesor']."</td></tr>";
+                                        echo"<tr><td>RAM</td><td>: </td>";
+                                        echo"<td>".$data['RAM']."</td></tr>";
+                                        echo"<tr><td>Memori</td><td>: </td>";
+                                        echo"<td>".$data['Media_Penyimpanan']."</td></tr>";
+                                        echo"<tr><td>GPU</td><td>: </td>";
+                                        echo"<td>".$data['GPU']."</td></tr>";
+                                        echo"<tr><td>Layar</td><td>: </td>";
+                                        echo"<td>".$data['Layar']."</td></tr>";
+                                        echo"<tr><td>Kamera</td><td>: </td>";
+                                        echo"<td>".$data['Kamera']."</td></tr>";
+                                        echo"<tr><td>Baterai</td><td>: </td>";
+                                        echo"<td>".$data['Baterai']."</td></tr>";
+                                        echo"<tr><td>Fitur Tambahan</td><td>: </td>";
+                                        echo"<td>".$data['Fitur_Tambahan']."</td></tr>";
+                                        echo"</tbody>";
+                                        echo"</table>";
+                                    }
+                                }
+                                else{
+                                    echo"<br>";
+                                }
+                            }
+                            mysqli_close($koneksi);
+                        ?>
                 </div>
-            </div>
-           
+                <div class="grid_11 isiproduk">
+                        <?php
+                            require("koneksi.php");
+                            if(!empty($_POST['produk2']) || !empty($_POST['compare'])){
+                                $sql = "SELECT id,gambar FROM produk WHERE id='".$_POST['produk2']."'";
+                                $result = mysqli_query($koneksi,$sql);
+                                while($data = mysqli_fetch_assoc($result)){
+                                    $gambar = $data['gambar'];
+                                    echo "<div class='grid_5 foto center'><a href=produkdetail.php?id=".$data['id']."><img src='$gambar'/></a></div>";
+                                }
+                                echo"<div class='clear'></div>";
+                                $sql = "SELECT * FROM detail WHERE id='".$_POST['produk2']."'";
+                                $result = mysqli_query($koneksi,$sql)or die(mysqli_error($koneksi));
+                                $found = mysqli_num_rows($result);
+                                if($found > 0){
+                                    while($data = mysqli_fetch_assoc($result)){
+                                        echo"<table>";
+                                        echo"<tbody>";
+                                        echo"<tr><td>Tipe Sim Card</td><td>: </td>";
+                                        echo"<td>".$data['Tipe_SimCard']."</td></tr>";
+                                        echo"<tr><td>Jaringan Data</td><td>: </td>";
+                                        echo"<td>".$data['Jaringan_Data']."</td></tr>";
+                                        echo"<tr><td>Jaringan Telepon</td><td>: </td>";
+                                        echo"<td>".$data['Jaringan_Telepon']."</td></tr>";
+                                        echo"<tr><td>Prosesor</td><td>: </td>";
+                                        echo"<td>".$data['Prosesor']."</td></tr>";
+                                        echo"<tr><td>RAM</td><td>: </td>";
+                                        echo"<td>".$data['RAM']."</td></tr>";
+                                        echo"<tr><td>Memori</td><td>: </td>";
+                                        echo"<td>".$data['Media_Penyimpanan']."</td></tr>";
+                                        echo"<tr><td>GPU</td><td>: </td>";
+                                        echo"<td>".$data['GPU']."</td></tr>";
+                                        echo"<tr><td>Layar</td><td>: </td>";
+                                        echo"<td>".$data['Layar']."</td></tr>";
+                                        echo"<tr><td>Kamera</td><td>: </td>";
+                                        echo"<td>".$data['Kamera']."</td></tr>";
+                                        echo"<tr><td>Baterai</td><td>: </td>";
+                                        echo"<td>".$data['Baterai']."</td></tr>";
+                                        echo"<tr><td>Fitur Tambahan</td><td>: </td>";
+                                        echo"<td>".$data['Fitur_Tambahan']."</td></tr>";
+                                        echo"</tbody>";
+                                        echo"</table>";
+                                    }
+                                }
+                                else{
+                                    echo"<br>";
+                                }
+                            }
+                            mysqli_close($koneksi);
+                        ?>
+                </div>       
         </div>
     </div>
     <!-- content end -->
