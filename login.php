@@ -60,6 +60,17 @@
                 echo "<div class='clear'></div>";
             }
         }
+        else {
+            echo "<div id='login' class='grid_20'>";
+            echo "<form id='formlogin' class='right' action='".$_SESSION['actionlogin']."' method='post'>";
+            echo "<input type='text' name='username' placeholder='email'>";
+            echo "<input type='password' name='password' placeholder='kata sandi'>";
+            echo "<input id='buttonlogin' type='submit' value='Masuk'>";
+            echo "<br/>Periksalah email dan kata sandi Anda
+            <br/>Belum punya akun <a href='daftar.php'>daftar disini</a>";
+            echo "</form></div>";
+            echo "<div class='clear'></div>";
+        }
     }
     else {
         echo "<div id='login' class='grid_20'>";
