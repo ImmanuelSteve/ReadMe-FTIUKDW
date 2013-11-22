@@ -104,7 +104,7 @@
                         echo "</div><div class='clear'></div>";
                     }
                     if(isset($_SESSION['user'])){
-                        echo"<form method='POST' action='#content'>";
+                        echo"<form method='POST' action='#contentarea'>";
                         echo"<br><textarea id='isitestimoni' name='isitestimoni'></textarea><br><br>";
                         if(isset($error_tambahtestimoni)) echo"Input Tidak Boleh Kosong<br><br>";
                         echo"<input id='buttontestimoni' name='tambahtestimoni' type='submit' value='Tambahkan'>";

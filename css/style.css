@@ -42,7 +42,7 @@ ul{
     padding-right: 5px;
 }
 
-#buttonlogin, #buttontestimoni, #buttonbandingkan{
+#buttonlogin, #buttontestimoni, #buttonbandingkan, #buttonbeli{
     background: rgb(3,74,164);
     box-shadow: 0px 1px 3px 0px rgba(92, 195, 244, 0.8) inset;
     color: #fff;
@@ -53,7 +53,7 @@ ul{
     cursor: pointer;
 }
 
-#buttonlogin:hover, #buttontestimoni:hover, #buttonbandingkan:hover{
+#buttonlogin:hover, #buttontestimoni:hover, #buttonbandingkan:hover, #buttonbeli:hover{
     background: rgb(0,100,210);
 }
 
@@ -85,17 +85,6 @@ a{
     border-radius: 300px 300px 300px 300px;
     text-shadow: 0.5px 0.5px 0.5px rgb(34, 34, 34);
     background:rgba(255,255,255,0.2);
-}
-
-.aktif{
-    color:white; 
-    background: rgb(0,100,210); 
-    border: 1px solid white; 
-    border-radius: 300px; 
-}
-
-.aktif:hover{
-    background: rgb(0,100,210);
 }
 
 #formsearch{

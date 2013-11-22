@@ -10,7 +10,7 @@
 }
 
 #gambarproduk{
-    border: 1px solid rgb(3,4,164);
+    border : 1px solid rgb(204,204,204);
     border-radius: 5px;
 }
 
@@ -35,20 +35,9 @@
     display: block;
     margin-top: 10px;
     margin-left: 55px;
-    background: rgb(3,74,164);
-    box-shadow: 0px 1px 3px 0px rgba(92, 195, 244, 0.8) inset;
-    color: white;
     height: 35px;
     width: 100px;
     font-weight: bold;
-    border: 2px solid rgb(5, 52, 150);
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-#buttonbeli:hover{
-    background: rgb(0,100,210);
-    border: 2px solid rgb(10, 72, 180);
 }
 
 #mid{
