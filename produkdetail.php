@@ -1,4 +1,27 @@
-<?php session_start(); ?>
+<?php
+    session_start();
+    require("koneksi.php");
+    
+    $valid = TRUE;
+    
+    if(!empty($_POST['tambahreview'])){
+        if(trim($_POST['isireview'])=="")
+	{
+	    $valid = FALSE;
+	    $error_tambahreview = 1;
+	}
+        if($valid)
+	{
+	    $isireview = $_POST['isireview'];
+            $query = "INSERT into review VALUES 
+            (NULL,'".$_SESSION['idProduk']."','".$_SESSION['user']."',CURRENT_TIMESTAMP,'".$isireview."')";
+            if(mysqli_query($koneksi,$query)){
+
+            }
+        }
+    }
+    mysqli_close($koneksi);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -230,9 +253,43 @@
                             else{
                                 echo"<div id='tab1'>Spesifikasi belum ada</div>";
                             }
+                            echo "<div id='tab2'><p class='bold'>Ulasan sebelumnya :</p><hr>";
+                            if(isset($_SESSION['idProduk'])){
+                                $sql = "SELECT review.waktu, review.isi , pengguna.nama_pengguna FROM review,pengguna WHERE review.id_produk='".$_SESSION['idProduk']."' AND pengguna.id = review.id_pengguna";
+                                $result = mysqli_query($koneksi,$sql)or die("Maaf Server sedang dalam perawatan, coba beberapa saat lagi :D");
+                                $found = mysqli_num_rows($result);
+                                if($found>0){
+                                    while ($data = mysqli_fetch_assoc($result)) {
+                                        echo"<p id='titlereview'>".$data['nama_pengguna']." / ".$data['waktu']."</p>";
+                                        echo"<p>".$data['isi']."</p>";
+                                    }
+                                    echo"<hr>";
+                                }
+                                else{
+                                    echo"Belum ada ulasan<hr>";
+                                }
+                            }
+                            if(!empty($_SESSION['user']) && isset($_SESSION['idProduk'])){
+                                    $sql = "SELECT id_pengguna FROM review where id_pengguna = '".$_SESSION['user']."' AND id_produk = '".$_SESSION['idProduk']."'";
+                                    $result = mysqli_query($koneksi,$sql)or die("Maaf Server sedang dalam perawatan, coba beberapa saat lagi :D");
+                                    $found = mysqli_num_rows($result);
+                                    if($found < 1){
+                                        echo"<form method='POST' action='#tab2'>";
+                                        echo"<br><textarea id='isireview' name='isireview'></textarea><br><p class='bold'>*Anda hanya bisa memberi ulasan produk ini satu kali saja</p><br>";
+                                        if(isset($error_tambahreview)) echo"Input Tidak Boleh Kosong<br><br>";
+                                        echo"<input id='buttonreview' name='tambahreview' type='submit' value='Tambahkan Ulasan'>";
+                                        echo"</form>";
+                                        echo "<br></div>";
+                                    }
+                                    else{
+                                        echo "<p class='bold'>Anda sudah pernah memberikan review sebelumnya</p><br></div>";
+                                    }
+                            }
+                            else{
+                                echo "<br></div>";
+                            }
                             mysqli_close($koneksi);
                         ?>
-                        <div id="tab2">Belum ada ulasan</div>
                     </div>
                 </div>
             </div>
