@@ -109,113 +109,55 @@
                 <!-- Kolom Kanan -->
                 <?php
                         require("koneksi.php");
-                        if(isset($_GET['merk'])){
-                            $merk = $_GET['merk'];
-                            $sql = "SELECT id,nama,hargaString,gambar,stok,nilai FROM produk WHERE merek = '$merk'";
-                            $result = mysqli_query($koneksi,$sql);
-                            echo "<div class='grid_18 right noright'><div id='produk'>";
-                             while($data = mysqli_fetch_assoc($result)){
-                                $gambar = $data['gambar'];
-                                echo "<div id='produk_item'>";
-                                echo "<div class='produk_image center'><a href=produkdetail.php?id=".$data['id']."><img src='$gambar'/></a></div>";
-                                echo "<h3 class='center'>".$data['nama']."</h3>";
-                                echo "<div class='ratting '>";
-                                for($i=0; $i<$data['nilai'] ; $i++){
-                                    echo "<img src='images/star.jpg' width=30px height=30px/>";
-                                }
-                                echo "</div>";
-                                echo "<div class='produk_keterangan'>";
-                                echo "<span id='harga'>Rp ".$data['hargaString']."</span>";
-                                if($data['stok'] > 0){
-                                    echo "<span class='availability'>Tersedia</span>";    
-                                }
-                                else {
-                                    echo "<span class='availability'>Tidak Tersedia</span>";
-                                    }
-                                echo "<div class='clear'></div>";
-                                echo "<div class='command'>
-                                    <a class='detail nodecor produk_menu' href=produkdetail.php?id=".$data['id'].">Detail</a>
-                                    <a class='beli nodecor produk_menu' href='#'>Beli</a>
-                                    </div>";
-                                echo "</div><hr/></div>";
+                        if (isset($_GET['merk']) || isset($_GET['harga']) || isset($_GET['tipe'])) {
+                            if(isset($_GET['merk'])){
+                                $merk = $_GET['merk'];
+                                $sql = "SELECT id,nama,hargaString,gambar,stok,nilai FROM produk WHERE merek = '$merk'";
                             }
-                            echo "</div></div>";
-                        }
-
-                        else if(isset($_GET['harga'])){
-                            $harga = $_GET['harga'];
-                            
-                            $sql = "SELECT id,nama,hargaString,gambar,stok,nilai,harga 
-                            FROM produk 
-                            WHERE harga<'$harga'";
-                            $result = mysqli_query($koneksi,$sql);
-                            echo "<div class='grid_18 right noright'><div id='produk'>";
-                             while($data = mysqli_fetch_assoc($result)){
-                                $gambar = $data['gambar'];
-                                echo "<div id='produk_item'>";
-                                echo "<div class='produk_image center'><a href=produkdetail.php?id=".$data['id']."><img src='$gambar'/></a></div>";
-                                echo "<h3 class='center'>".$data['nama']."</h3>";
-                                echo "<div class='ratting '>";
-                                for($i=0; $i<$data['nilai'] ; $i++){
-                                    echo "<img src='images/star.jpg' width=30px height=30px/>";
-                                }
-                                echo "</div>";
-                                echo "<div class='produk_keterangan'>";
-                                echo "<span id='harga'>Rp ".$data['hargaString']."</span>";
-                                if($data['stok'] > 0){
-                                    echo "<span class='availability'>Tersedia</span>";    
-                                }
-                                else {
-                                    echo "<span class='availability'>Tidak Tersedia</span>";
-                                    }
-                                echo "<div class='clear'></div>";
-                                echo "<div class='command'>
-                                    <a class='detail nodecor produk_menu' href=produkdetail.php?id=".$data['id'].">Detail</a>
-                                    <a class='beli nodecor produk_menu' href='#'>Beli</a>
-                                    </div>";
-                                echo "</div><hr/></div>";
+                            else if(isset($_GET['harga'])){
+                                $harga = $_GET['harga'];   
+                                $sql = "SELECT id,nama,hargaString,gambar,stok,nilai,harga 
+                                FROM produk 
+                                WHERE harga<'$harga'";
                             }
-                            echo "</div></div>";
-                        }
-
-                        else if(isset($_GET['tipe'])){
-                            $tipe = $_GET['tipe'];
-                            $sql = "SELECT produk.id, produk.nama, produk.hargaString, produk.gambar, produk.stok, produk.nilai, detail.id 
-                            FROM produk, detail 
-                            WHERE produk.id=detail.id 
-                            AND detail.tipe_simcard='$tipe'";
+                            else if(isset($_GET['tipe'])){
+                                $tipe = $_GET['tipe'];
+                                $sql = "SELECT produk.id, produk.nama, produk.hargaString, produk.gambar, produk.stok, produk.nilai, detail.id 
+                                FROM produk, detail 
+                                WHERE produk.id=detail.id 
+                                AND detail.tipe_simcard='$tipe'";
+                            }
 
                             $result = mysqli_query($koneksi,$sql);
                             echo "<div class='grid_18 right noright'><div id='produk'>";
-                             while($data = mysqli_fetch_assoc($result)){
-                                $gambar = $data['gambar'];
-                                echo "<div id='produk_item'>";
-                                echo "<div class='produk_image center'><a href=produkdetail.php?id=".$data['id']."><img src='$gambar'/></a></div>";
-                                echo "<h3 class='center'>".$data['nama']."</h3>";
-                                echo "<div class='ratting '>";
-                                for($i=0; $i<$data['nilai'] ; $i++){
-                                    echo "<img src='images/star.jpg' width=30px height=30px/>";
-                                }
-                                echo "</div>";
-                                echo "<div class='produk_keterangan'>";
-                                echo "<span id='harga'>Rp ".$data['hargaString']."</span>";
-                                if($data['stok'] > 0){
-                                    echo "<span class='availability'>Tersedia</span>";    
-                                }
-                                else {
-                                    echo "<span class='availability'>Tidak Tersedia</span>";
-                                    }
-                                echo "<div class='clear'></div>";
-                                echo "<div class='command'>
-                                    <a class='detail nodecor produk_menu' href=produkdetail.php?id=".$data['id'].">Detail</a>
-                                    <a class='beli nodecor produk_menu' href='#'>Beli</a>
-                                    </div>";
-                                echo "</div><hr/></div>";
+                            while($data = mysqli_fetch_assoc($result)){
+                            $gambar = $data['gambar'];
+                            echo "<div id='produk_item'>";
+                            echo "<div class='produk_image center'><a href=produkdetail.php?id=".$data['id']."><img src='$gambar'/></a></div>";
+                            echo "<h3 class='center'>".$data['nama']."</h3>";
+                            echo "<div class='ratting '>";
+                            for($i=0; $i<$data['nilai'] ; $i++){
+                                echo "<img src='images/star.jpg' width=30px height=30px/>";
                             }
-                            echo "</div></div>";
+                            echo "</div>";
+                            echo "<div class='produk_keterangan'>";
+                            echo "<span id='harga'>Rp ".$data['hargaString']."</span>";
+                            if($data['stok'] > 0){
+                                echo "<span class='availability'>Tersedia</span>";    
+                            }
+                            else {
+                                echo "<span class='availability'>Tidak Tersedia</span>";
+                                }
+                            echo "<div class='clear'></div>";
+                            echo "<div class='command'>
+                                <a class='detail nodecor produk_menu' href=produkdetail.php?id=".$data['id'].">Detail</a>
+                                <a class='beli nodecor produk_menu' href='#'>Beli</a>
+                                </div>";
+                            echo "</div><hr/></div>";
+                            }
+                            echo "</div></div>";    
                         }
-
-
+                        
                         else{
                             $sql = "SELECT id,nama,hargaString,gambar,stok,nilai FROM produk";
                             $result = mysqli_query($koneksi,$sql);
