@@ -2,17 +2,13 @@
     require("koneksi.php");
     require("PasswordHash.php");
     if (!empty($_SESSION['user'])) {
-        $id = $_SESSION['user'];
-        $sql = "SELECT nama_pengguna FROM pengguna WHERE id='".$id."'";
-        $mysqli = new mysqli("localhost", "readmesh_readsh", "5hAHfL6GFwzKqymu", "readmesh_readmeshop");
-        $stmt = $mysqli->prepare($sql);
-        $stmt->execute();
-        $stmt->bind_result($nama);
-        $stmt->fetch();
         echo "<div id='login' class='grid_20'>";
         echo "<form id='formlogin' class='right' action='logout.php' method='post'>";
         echo "<img class='ava left' src='images/avatar.jpg' width: '64px' height='64px'>";
-        echo "<span id='penyapa'>Selamat Datang, <br/><a href='profil.php'>".$nama."</a></span></br>";
+        $sql = "SELECT nama_pengguna FROM pengguna WHERE id ='".$_SESSION['user']."'";
+        $result = mysqli_query($koneksi,$sql);
+        $data = mysqli_fetch_assoc($result);
+        echo "<span id='penyapa'>Selamat Datang, <br/><a href='profil.php'>".$data['nama_pengguna']."</a></span></br>";
         echo "<input class='right logout' id='buttonlogin' type='submit' value='Keluar'>";
         echo "</form></div>";
         echo "<div class='clear'></div>";
@@ -22,7 +18,7 @@
         //buat variabel t_haster
         $t_hasher = new PasswordHash(8, FALSE);
         $correct = $_POST['password'];
-        $sql = "SELECT id,password FROM pengguna WHERE email= ?";
+        $sql = "SELECT id,nama_pengguna,password FROM pengguna WHERE email= ?";
         /* create a prepared statement */
         $stmt = mysqli_prepare($koneksi, $sql);
         /* bind parameters for markers */
@@ -34,29 +30,22 @@
         //echo"$found";
         if($found === 1) {
             /* bind result variables */
-            mysqli_stmt_bind_result($stmt, $id,$password);
+            mysqli_stmt_bind_result($stmt,$id_pengguna,$nama_pengguna,$password);
             /* fetch value */
             mysqli_stmt_fetch($stmt);
             //cek apakah password hash di database sama dengan password asli yg diinput user
             $check = $t_hasher->CheckPassword($correct, $password);
             //echo"$password"; echo"$namapengguna";
             if($check){
-                $_SESSION['user'] = $id;
+                $_SESSION['user'] = $id_pengguna;
                 if($_SESSION['actionlogin'] == "daftar.php"){
                     header("location:index.php");
                 }
                 else{
-                    $id = $_SESSION['user'];
-                    $sql = "SELECT nama_pengguna FROM pengguna WHERE id='".$id."'";
-                    $mysqli = new mysqli("localhost", "readmesh_readsh", "5hAHfL6GFwzKqymu", "readmesh_readmeshop");
-                    $stmt = $mysqli->prepare($sql);
-                    $stmt->execute();
-                    $stmt->bind_result($nama);
-                    $stmt->fetch();
                     echo "<div id='login' class='grid_20'>";
                     echo "<form id='formlogin' class='right' action='logout.php' method='post'>";
                     echo "<img class='ava left' src='images/avatar.jpg' width: '64px' height='64px'>";
-                    echo "<span id='penyapa'>Selamat Datang, <br/><a href='profil.php'>".$nama."</a></span></br>";
+                    echo "<span id='penyapa'>Selamat Datang, <br/><a href='profil.php'>".$nama_pengguna."</a></span></br>";
                     echo "<input class='right logout' id='buttonlogin' type='submit' value='Keluar'>";
                     echo "</form></div>";
                     echo "<div class='clear'></div>";
