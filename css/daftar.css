@@ -37,11 +37,11 @@ ul{
     border-bottom-right-radius: 5px;
 }
 
-#buttondaftar,h3,#buttonsimpan,#buttonkembali{
+#buttondaftar,h3,#buttonsimpan{
     margin-top: 10px;
     margin-left: 45px;
 }
 
-#buttondaftar,#buttonsimpan,#buttonkembali{
+#buttondaftar,#buttonsimpan{
     cursor: pointer;
 }
