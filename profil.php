@@ -126,13 +126,12 @@ require("koneksi.php"); ?>
                         <?php
                         echo "<img class='ava left' src='images/avatar.jpg' width: '150px' height='150px' >";
                         ?>
-                        <input type="submit" name="simpan" id="buttonsimpan" value="Ganti"></input>
+                        <input type="submit" name="ganti" id="buttonsimpan" value="Ganti"></input>
                     </div>
                 </div>
                 <div class="clear"></div>
                     <div class="grid_18">
                         <input type="submit" name="simpan" id="buttonsimpan" value="Simpan"></input>
-                        <input type="submit" name="kembali" id="buttonkembali" value="Kembali"></input>
                     </div>    
             </div>
         </div>
