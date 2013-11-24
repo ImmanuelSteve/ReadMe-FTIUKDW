@@ -13,14 +13,10 @@
         if($valid)
 	{
 	    $isitestimoni = $_POST['isitestimoni'];
-            $sql = "SELECT id FROM pengguna WHERE nama_pengguna LIKE '%".$_SESSION['user']."%'";
-            $result = mysqli_query($koneksi,$sql);
-            while($data = mysqli_fetch_assoc($result)){
-                $query = "INSERT into testimoni VALUES 
-                (NULL,'".$data['id']."',CURRENT_TIMESTAMP,'".$isitestimoni."')";
-                if(mysqli_query($koneksi,$query)){
+            $query = "INSERT into testimoni VALUES 
+            (NULL,'".$_SESSION['user']."',CURRENT_TIMESTAMP,'".$isitestimoni."')";
+            if(mysqli_query($koneksi,$query)){
                 
-                }
             }
         }
     }
@@ -96,18 +92,26 @@
                     require("koneksi.php");
                     $sql = "SELECT nama_pengguna, waktu, isi FROM testimoni, pengguna WHERE pengguna.id = testimoni.id_pengguna";
                     $result = mysqli_query($koneksi,$sql);
+                    $found = mysqli_num_rows($result);
                     echo"<hr/>";
-                    while ($data = mysqli_fetch_assoc($result)) {
+                    if($found > 0){
+                        while ($data = mysqli_fetch_assoc($result)) {
+                            echo "<div class='grid_18'>";
+                            echo"<p id='titletestimoni'>".$data['nama_pengguna']." / ".$data['waktu']."</p>";
+                            echo"<p>".$data['isi']."</p>";
+                            echo "</div><div class='clear'></div>";
+                        }
+                    }
+                    else{
                         echo "<div class='grid_18'>";
-                        echo"<p id='titletestimoni'>".$data['nama_pengguna']." / ".$data['waktu']."</p>";
-                        echo"<p>".$data['isi']."</p>";
+                        echo"<p>Belum ada testimoni</p>";
                         echo "</div><div class='clear'></div>";
                     }
                     if(isset($_SESSION['user'])){
                         echo"<form method='POST' action='#contentarea'>";
                         echo"<br><textarea id='isitestimoni' name='isitestimoni'></textarea><br><br>";
                         if(isset($error_tambahtestimoni)) echo"Input Tidak Boleh Kosong<br><br>";
-                        echo"<input id='buttontestimoni' name='tambahtestimoni' type='submit' value='Tambahkan'>";
+                        echo"<input id='buttontestimoni' name='tambahtestimoni' type='submit' value='Tambahkan Testimoni'>";
                         echo"</form>";
                     }
                     mysqli_close($koneksi);

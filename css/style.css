@@ -33,6 +33,10 @@ ul{
     margin-right: 0px;
 }
 
+.bold{
+    font-weight: bold;
+}
+
 #login{
     height: 50px;
     padding-top: 35px;
@@ -42,7 +46,7 @@ ul{
     padding-right: 5px;
 }
 
-#buttonlogin, #buttontestimoni, #buttonbandingkan, #buttonbeli{
+#buttonlogin, #buttontestimoni, #buttonbandingkan, #buttonbeli, #buttonreview, #buttondaftar, #buttonsimpan{
     background: rgb(3,74,164);
     box-shadow: 0px 1px 3px 0px rgba(92, 195, 244, 0.8) inset;
     color: #fff;
@@ -53,7 +57,7 @@ ul{
     cursor: pointer;
 }
 
-#buttonlogin:hover, #buttontestimoni:hover, #buttonbandingkan:hover, #buttonbeli:hover{
+#buttonlogin:hover, #buttontestimoni:hover, #buttonbandingkan:hover, #buttonbeli:hover, #buttonreview:hover, #buttondaftar:hover, #buttonsimpan:hover{
     background: rgb(0,100,210);
 }
 

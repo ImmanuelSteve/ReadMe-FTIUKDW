@@ -29,7 +29,7 @@ ul{
     color: rgb(218,218,218);
 }
 
-#formdaftar{
+#formdaftar, #informasi_user{
     height: 220px;
     padding-top: 10px;
     background-color: rgb(238,238,238);
@@ -37,11 +37,11 @@ ul{
     border-bottom-right-radius: 5px;
 }
 
-#buttondaftar,h3{
+#buttondaftar,h3,#buttonsimpan{
     margin-top: 10px;
     margin-left: 45px;
 }
 
-#buttondaftar{
+#buttondaftar,#buttonsimpan{
     cursor: pointer;
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2013 at 02:46 PM
+-- Generation Time: Nov 24, 2013 at 07:29 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -201,20 +201,20 @@ CREATE TABLE IF NOT EXISTS `review` (
   `id_pengguna` int(11) NOT NULL,
   `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `isi` varchar(1000) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_user` (`id_pengguna`),
-  UNIQUE KEY `id_produk` (`id_produk`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `review`
 --
 
 INSERT INTO `review` (`id`, `id_produk`, `id_pengguna`, `waktu`, `isi`) VALUES
-(1, 1, 3, '2013-11-17 16:09:13', 'Saya bisa menggunakan 9 jam pada wifi dan sekitar 12 jam untuk menonton video. Saya selalu bisa melewati hari dengan penggunaan yang intens. Dengan penggunaan normal, cukup nyaman untuk 2 hari, dan saya menebak bisa mencapai 3 hari untuk penggunaan ringan.'),
-(2, 2, 4, '2013-11-17 16:12:35', 'Saya rasa slot memori external sangat dibutuhkan, karena jaman sekarang ini, memori dengan kapasitas 16 GB terisi penuh dengan sangat cepat.'),
-(3, 3, 2, '2013-11-17 16:15:11', 'Gadged satu ini tahan ari loh,, sudah dibuktikan, kaca nya anti gores juga, jadi tak perlu membeli pelapis antigores dan case anti air,, hemat biaya, Gan,,,'),
-(4, 4, 1, '2013-11-17 16:17:29', 'Kaca anti gores dengan gorila glass itu keren, tapi kamera utama nya hanya 4 Mpx, saya rasa kurang di kamera. Ketersediaan micro-SIM masih jarang dipasaran.');
+(1, 1, 4, '2013-11-17 16:09:13', 'Saya bisa menggunakan 9 jam pada wifi dan sekitar 12 jam untuk menonton video. Saya selalu bisa melewati hari dengan penggunaan yang intens. Dengan penggunaan normal, cukup nyaman untuk 2 hari, dan saya menebak bisa mencapai 3 hari untuk penggunaan ringan.'),
+(2, 2, 3, '2013-11-17 16:12:35', 'Saya rasa slot memori external sangat dibutuhkan, karena jaman sekarang ini, memori dengan kapasitas 16 GB terisi penuh dengan sangat cepat.'),
+(3, 3, 2, '2013-11-17 16:15:11', 'Gadged satu ini tahan air loh,, sudah dibuktikan, kaca nya anti gores juga, jadi tak perlu membeli pelapis antigores dan case anti air,, hemat biaya, Gan,,,'),
+(4, 4, 5, '2013-11-17 16:17:29', 'Kaca anti gores dengan gorila glass itu keren.'),
+(5, 4, 3, '2013-11-24 05:52:57', 'manteb ni gadget dilihat secara keseluruhan gak habis pikir lah kalo punya ni gadget... :D'),
+(6, 1, 3, '2013-11-24 06:28:51', 'Sudah tidak diragukan lagi untuk peforma gadget ini dengan prosesor generasi terbaru dari qualcomm dan RAM 3gb maka sudah dipastikan semua komputasi dapat berjalan dengan baik... :D');
 
 -- --------------------------------------------------------
 
@@ -279,13 +279,6 @@ ALTER TABLE `detail`
 ALTER TABLE `produk_promo`
   ADD CONSTRAINT `produk_promo_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id`),
   ADD CONSTRAINT `produk_promo_ibfk_2` FOREIGN KEY (`id_promo`) REFERENCES `promo` (`id`);
-
---
--- Constraints for table `review`
---
-ALTER TABLE `review`
-  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id`),
-  ADD CONSTRAINT `review_ibfk_3` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id`);
 
 --
 -- Constraints for table `transaksi`
