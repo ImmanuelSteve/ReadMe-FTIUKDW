@@ -23,9 +23,11 @@
 		    <p class="textfootertitle center">Link</p>
 		    <ul class="center hover">
                         <li><a class="textfooterinfo" href="compare.php">Bandingkan Produk</a></li>
+                        <li><a class="textfooterinfo" href="faq.php">FAQ</a></li>
 			<li><a class="textfooterinfo" href="produk.php">Produk</a></li>
                         <li><a class="textfooterinfo" href="promosi.php">Promosi</a></li>
-                         <li><a class="textfooterinfo" href="testimoni.php">Testimoni</a></li>
+                        <li><a class="textfooterinfo" href="testimoni.php">Testimoni</a></li>
+                        <li><a class="textfooterinfo" href="syarat&kondisi.php">Syarat & Kondisi</a></li>
                     </ul>
 		</div>
                 <div class="grid_4">
@@ -61,7 +63,7 @@
             </div>
             <div class="grid_24" id="copyright">
                 <p id="copyrighttext" class="center">
-                    Copyright @2013 ReadmeShop All Right Reserved
+                    @2013 <a href="http://www.readmeshop.revti.com">readmeshop.com</a>
                 </p>
             </div>
             

@@ -1,0 +1,10 @@
+#contentarea{
+    background-color: white;
+    width : 930px;
+    padding: 10px;
+    padding-bottom : 50px;
+}
+
+#contentarea h1{
+    color: rgb(3,77,164);
+}

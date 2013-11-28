@@ -13,6 +13,10 @@ ul{
     text-align: center;
 }
 
+.justify{
+    text-align: justify;   
+}
+
 .right{
     float: right;
 }
@@ -142,11 +146,11 @@ a{
     background-color: black;
 }
 
-#copyrighttext{
+#copyrighttext, #copyrighttext a{
     /*padding-left:40px;*/
     color:rgb(218,218,218);
 }
-#copyrighttext:hover{
+#copyrighttext:hover  #copyrighttext a:hover{
     color:white;
 }
 
