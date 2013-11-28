@@ -44,7 +44,7 @@
             mysqli_close($koneksi);
         ?>    
         
-        - ReadMe shop
+        - ReadMe Shop
     </title>
     <link rel="icon" type="image/png" href="images/icon-readmeshop.png" />
     <link rel="stylesheet" href="css/960_24_col.css" />

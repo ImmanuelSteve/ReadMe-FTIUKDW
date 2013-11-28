@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="Description" content="readmeshop.com, gadget, smartphone, toko online, online shop, toko gadget"/>
-    <title>Bandingkan Produk - ReadMe shop</title>
+    <title>Bandingkan Produk - ReadMe Shop</title>
     <link rel="icon" type="image/png" href="images/icon-readmeshop.png" />
     <link rel="stylesheet" href="css/960_24_col.css" />
     <link rel="stylesheet" href="css/style.css" />

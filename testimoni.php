@@ -27,13 +27,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="Description" content="readmeshop.com, gadget, smartphone, toko online, online shop, toko gadget"/>
-    <title>Testimoni - ReadMe shop</title>
+    <title>Testimoni - ReadMe Shop</title>
     <link rel="icon" type="image/png" href="images/icon-readmeshop.png" />
     <link rel="stylesheet" href="css/960_24_col.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/testimoni.css" />
-    <link href="css/js-image-slider.css" rel="stylesheet" type="text/css" />
-    <script src="js/js-image-slider.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
     <script type="text/javascript" src="js/jquery.easing.min.js"></script>
     <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
