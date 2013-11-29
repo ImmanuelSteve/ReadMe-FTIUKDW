@@ -27,6 +27,10 @@
                 $_SESSION['actionlogin'] = "produk.php";
                 include("login.php");
             ?>
+            <div class="grid_24">
+                <a href="#" class="right">FuckinCart</a><br>
+                <?php include 'myCart.php'; ?>
+            </div>
             <div class="grid_24" id="header_nav">
                 <ul class="lavaLamp">
                     <li><a href="index.php">Beranda</a> </li>
@@ -151,7 +155,7 @@
                             echo "<div class='clear'></div>";
                             echo "<div class='command'>
                                 <a class='detail nodecor produk_menu' href=produkdetail.php?id=".$data['id'].">Detail</a>
-                                <a class='beli nodecor produk_menu' href='#'>Beli</a>
+                                <a class='beli nodecor produk_menu' href='$url?action=add&id=".$data['id']."'>Beli</a>
                                 </div>";
                             echo "</div><hr/></div>";
                             }
@@ -183,7 +187,7 @@
                                 echo "<div class='clear'></div>";
                                 echo "<div class='command'>
                                     <a class='detail nodecor produk_menu' href=produkdetail.php?id=".$data['id'].">Detail</a>
-                                    <a class='beli nodecor produk_menu' href='#'>Beli</a>
+                                    <a class='beli nodecor produk_menu' href='$url?action=add&id=".$data['id']."'>Beli</a>
                                     </div>";
                                 echo "</div><hr/></div>";
                             }
