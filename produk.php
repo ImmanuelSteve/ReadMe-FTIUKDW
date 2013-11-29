@@ -27,10 +27,7 @@
                 $_SESSION['actionlogin'] = "produk.php";
                 include("login.php");
             ?>
-            <div class="grid_24">
-                <a href="#" class="right">FuckinCart</a><br>
-                <?php include 'myCart.php'; ?>
-            </div>
+            <?php include ("myCart.php") ?>
             <div class="grid_24" id="header_nav">
                 <ul class="lavaLamp">
                     <li><a href="index.php">Beranda</a> </li>
