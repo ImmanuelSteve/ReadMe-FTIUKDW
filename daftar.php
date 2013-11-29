@@ -98,6 +98,7 @@
                 $_SESSION['actionlogin'] = "daftar.php";
                 include("login.php");
              ?>
+             <?php include ("myCart.php") ?>
             
             <div class="clear"></div>
             

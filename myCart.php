@@ -4,12 +4,10 @@ require 'cart.php';
 $total = 0;
 ?>
 
-<div class="grid_24">
-    <h4 class="right" id="cart">
-        <span class="cart_icon left">
-        </span> 
-        <span class="left">
-        	<?php 
+<div class="grid_24 notop" >
+    <h4 class="right nobottom" id="cart">
+        <span class="cart_icon left"></span> 
+        <span class="left"><?php 
 	        	if (!empty($_SESSION['cart'])) {
 	        		echo count($_SESSION['cart']);
 	        	}
@@ -17,24 +15,22 @@ $total = 0;
 	        	{
 	        		echo "0";
 	        	}
-        	?>
-        </span>
+        	?></span>
     </h4>
-    <div class="clear"></div>   
- 
+    <div class="clear"></div>
  	<!-- tampilin cart -->
-	<table id='myChart' border='0' class='right'>
-		<thead>
-			<th colspan="4">
+	<table id='myChart' border='1' class='right'>
+		<thead class="right">
+			<th colspan="5">
 				Keranjang Belanja
 			</th>
 		</thead>
-		<tbody>
+		<tbody class="right">
 			<!-- cek session start -->
 			<?php if (!empty($_SESSION['cart'])) { 
 				// perulangan start
 				foreach ($_SESSION['cart'] as $product_id => $quantity) {
-					$sql = "SELECT gambar, nama, harga , hargaString FROM produk WHERE id = '".$product_id."'";
+					$sql = "SELECT id, gambar, nama, harga , hargaString FROM produk WHERE id = '".$product_id."'";
 					$result = mysqli_query($koneksi,$sql) or die(mysql_error());
 
 					$data = mysqli_fetch_assoc($result) or die(mysql_error());
@@ -51,6 +47,9 @@ $total = 0;
 					<?php echo $quantity; ?>
 				</td>
 				<td>
+					<a href="<?php echo "produk.php?action=remove&id=".$data['id'].""; ?>">hapus</a>
+				</td>
+				<td>
 					<img src="<?php echo $data['gambar']; ?>" width="45px" height="45px">
 				</td>
 				<td>
@@ -59,12 +58,13 @@ $total = 0;
 				<td>
 					Rp <?php echo number_format($data['harga']); ?>
 				</td>
+				
 			</tr>
 
 			<?php } ?> <!-- perulangan end -->
 		
 			<tr>
-				<td colspan='3'>
+				<td colspan='4'>
 					Total Harga
 				</td>
 				<td>
@@ -85,12 +85,12 @@ $total = 0;
 			<?php } ?> <!-- else end -->
 			
 			<tr>
-				<td>
+				<td colspan="5">
 					<a href="<?php echo "produk.php?action=empty";  ?>">Kosongkan keranjang</a>
 				</td>
 			</tr>
 		</tbody>
 	</table>
 	<!-- tampilin cart end -->
-
+</div>
 <?php mysqli_close($koneksi) ?>

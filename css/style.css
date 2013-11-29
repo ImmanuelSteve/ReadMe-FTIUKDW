@@ -37,6 +37,14 @@ ul{
     margin-right: 0px;
 }
 
+.notop {
+    margin-top: 0px;
+}
+
+.nobottom {
+    margin-bottom: 0px;
+}
+
 .bold{
     font-weight: bold;
 }
@@ -167,6 +175,30 @@ a{
 
 .logout {
     margin-top: 5px;
+}
+
+/*CSS buat chart*/
+.cart_icon {
+    background: url("../images/cart32.png") no-repeat scroll 0% 0% transparent;
+    background-position: 0px -64px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+#cart {
+    margin-top: 0px;
+    color: rgb(45, 137, 239);
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+#myChart {
+    width: 350px;
+    position: absolute;
+    left: 800px;
+    display: none;
+    padding: 0px;
 }
 
 ::-webkit-scrollbar{

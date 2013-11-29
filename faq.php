@@ -27,6 +27,7 @@
                 $_SESSION['actionlogin'] = "faq.php";
                 include("login.php");
             ?>
+            <?php include ("myCart.php") ?>
             <div class="grid_24" id="header_nav">
                 <ul class="lavaLamp">
                     <li class="current"><a href="index.php">Beranda</a> </li>

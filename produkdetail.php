@@ -69,6 +69,7 @@
                 $_SESSION['actionlogin'] = "produkdetail.php";
                 include("login.php");
             ?>
+            <?php include ("myCart.php") ?>
             <div class="grid_24" id="header_nav">
                 <ul class="lavaLamp">
                     <li><a href="index.php">Beranda</a> </li>
@@ -189,7 +190,7 @@
                                     echo"<label>Jumlah : </label>
                                     <input type='text' name='jumlah' value='1'/>
                                     <br/><br/>";
-                                    echo"<input id='buttonbeli' type='submit' value='Beli'/>";
+                                    echo"<input id='buttonbeli' type='submit' name ='action' value='Beli'/>";
                                     echo"</form>";
                                 echo"</div>";
                             echo"</div>";

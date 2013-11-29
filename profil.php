@@ -27,7 +27,7 @@ require("koneksi.php"); ?>
                 $_SESSION['actionlogin'] = "daftar.php";
                 include("login.php");
              ?>
-            
+             <?php include ("myCart.php") ?>            
             <div class="clear"></div>
             
             <div class="grid_24" id="header_nav">

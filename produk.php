@@ -13,6 +13,7 @@
     <script language="JavaScript" type="text/javascript" src="js/produk.js"></script>
     <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
     <script type="text/javascript" src="js/lamp.js"></script>
+    <script type="text/javascript" src="js/cart.js"></script>
 </head>
 
 <body>
@@ -27,7 +28,9 @@
                 $_SESSION['actionlogin'] = "produk.php";
                 include("login.php");
             ?>
+            
             <?php include ("myCart.php") ?>
+            
             <div class="grid_24" id="header_nav">
                 <ul class="lavaLamp">
                     <li><a href="index.php">Beranda</a> </li>
