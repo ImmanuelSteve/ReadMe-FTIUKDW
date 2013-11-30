@@ -16,8 +16,10 @@
             $query = "INSERT into testimoni VALUES 
             (NULL,'".$_SESSION['user']."',CURRENT_TIMESTAMP,'".$isitestimoni."')";
             if(mysqli_query($koneksi,$query)){
-                
+                $_SESSION['berhasil']="Testimoni berhasil di tambahkan";
             }
+        }else{
+            $_SESSION['gagal']="Testimoni gagal di tambahkan. Pastikan semua inputan terisi";
         }
     }
     mysqli_close($koneksi);
@@ -86,6 +88,7 @@
     <div id="content">
         <div class="container_24">
             <div id="contentarea" class="grid_24">
+                <?php require("notifikasi.php"); ?>
                 <h1>Testimoni Readme Shop</h1>
                 <?php 
                     require("koneksi.php");
