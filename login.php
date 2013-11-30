@@ -49,7 +49,7 @@
                 $_SESSION['user'] = $id_pengguna;
                 if($_SESSION['user'] == 1){
                     $_SESSION['password']= $correct;
-                    header("location:editprodukadmin.php");
+                    header("location:penggunaadmin.php");
                 }
                 else if($_SESSION['actionlogin'] == "daftar.php"){
                     header("location:index.php");
