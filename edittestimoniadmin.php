@@ -57,6 +57,9 @@
 		    <form method="post" action="tambahdata.php">
 			<table>
 			    <tr>
+				<td colspan=3 class="bold">Tambah Testimoni</td>
+			    </tr>
+			    <tr>
 				<td valign="top">Isi Testimoni</td>
 				<td valign="top">:</td>
 				<td>

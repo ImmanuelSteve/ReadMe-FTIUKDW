@@ -57,6 +57,9 @@
 		    <form method="post" action="tambahdata.php">
 			<table>
                             <tr>
+				<td colspan=3 class="bold">Tambah Ulasan</td>
+			    </tr>
+                            <tr>
                                 <td>Produk</td>
                                 <td>: </td>
                                 <td>
@@ -70,7 +73,7 @@
                                         if($found == 1){
                                             echo"<option value='".$data['id']."'>".$data['nama']."</option>";
                                         }else{
-                                            echo"<option value=''></option>";
+                                            echo"<option value=''>Pilih Produk</option>";
                                         }
                                         $sql = "SELECT id,nama FROM produk";
                                         $result = mysqli_query($koneksi,$sql)or die(mysqli_error($koneksi));
