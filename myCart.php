@@ -19,78 +19,76 @@ $total = 0;
     </h4>
     <div class="clear"></div>
  	<!-- tampilin cart -->
-	<table id='myChart' border='1' class='right'>
-		<thead class="right">
-			<th colspan="5">
-				Keranjang Belanja
-			</th>
-		</thead>
-		<tbody class="right">
-			<!-- cek session start -->
-			<?php if (!empty($_SESSION['cart'])) { 
-				// perulangan start
-				foreach ($_SESSION['cart'] as $product_id => $quantity) {
-					$sql = "SELECT id, gambar, nama, harga , hargaString FROM produk WHERE id = '".$product_id."'";
-					$result = mysqli_query($koneksi,$sql) or die(mysql_error());
+ 	<div id='myCart'>
+ 		<span id="cart_title" class="center">Keranjang Belanja</span>
+		<table>
+			<tbody>
+				<!-- cek session start -->
+				<?php if (!empty($_SESSION['cart'])) { 
+					// perulangan start
+					foreach ($_SESSION['cart'] as $product_id => $quantity) {
+						$sql = "SELECT id, gambar, nama, harga , hargaString FROM produk WHERE id = '".$product_id."'";
+						$result = mysqli_query($koneksi,$sql) or die(mysql_error());
 
-					$data = mysqli_fetch_assoc($result) or die(mysql_error());
-					$found = mysqli_num_rows($result) or die(mysql_error());
-					//check ada produk e nggak
-					if ( $found > 0) {
-					    $line_cost = $data['harga'] * $quantity; //harga perline
-						$total = $total + $line_cost; //total cost
-					}
-			?>
+						$data = mysqli_fetch_assoc($result) or die(mysql_error());
+						$found = mysqli_num_rows($result) or die(mysql_error());
+						//check ada produk e nggak
+						if ( $found > 0) {
+						    $line_cost = $data['harga'] * $quantity; //harga perline
+							$total = $total + $line_cost; //total cost
+						}
+				?>
 
-			<tr>
-				<td>
-					<?php echo $quantity; ?>
-				</td>
-				<td>
-					<a href="<?php echo "produk.php?action=remove&id=".$data['id'].""; ?>">hapus</a>
-				</td>
-				<td>
-					<img src="<?php echo $data['gambar']; ?>" width="45px" height="45px">
-				</td>
-				<td>
-					<?php echo $data['nama']; ?>
-				</td>
-				<td>
-					Rp <?php echo number_format($data['harga']); ?>
-				</td>
+				<tr>
+					<td>
+						<?php echo $quantity; ?>
+					</td>
+					<td>
+						<a href="<?php echo "produk.php?action=remove&id=".$data['id'].""; ?>"><img src="images/icon_close.gif"></a>
+					</td>
+					<td>
+						<img src="<?php echo $data['gambar']; ?>" width="45px" height="45px">
+					</td>
+					<td>
+						<a href="produkdetail.php?id=<?php echo $data['id']?>"><?php echo $data['nama']; ?></a>
+					</td>
+					<td>
+						Rp <?php echo number_format($data['harga']); ?>
+					</td>
+					
+				</tr>
+
+				<?php } ?> <!-- perulangan end -->
 				
-			</tr>
+				<tr>
+					<td colspan='4'>
+						<strong>Total Harga</strong>
+					</td>
+					<td>
+						<strong>Rp <?php echo number_format($total); ?></strong>
+					</td>
+				</tr>
+				 
+				<?php } else { ?> <!-- cek session end -->
 
-			<?php } ?> <!-- perulangan end -->
-		
-			<tr>
-				<td colspan='4'>
-					Total Harga
-				</td>
-				<td>
-					Rp <?php echo number_format($total); ?>
-				</td>
-			</tr>
-			 
-			<?php } else { ?> <!-- cek session end -->
+				<tr>
+					<td colspan="5">
+						<span class="center">Belum ada barang di keranjang belanja.</span>
+					</td>
+				</tr>
 
-			
-			
-			<tr>
-				<td>
-					Belum ada barang di keranjang belanja.
-				</td>
-			</tr>
+				<?php } ?> <!-- else end -->
+			</tbody>
+		</table>
 
-			<?php } ?> <!-- else end -->
-			
-			<tr>
-				<td colspan="5">
-					<a href="<?php echo "produk.php?action=empty";  ?>">Kosongkan keranjang</a>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+		<!-- action button -->
+		<a class="nodecor" href="<?php echo "produk.php?action=empty";  ?>">
+			<span class="cart_action cart_action_blue">Kosongkan keranjang</span>
+		</a>
+		<a class="nodecor" href="pembayaran.php">
+			<span class="cart_action cart_action_green">Pembayaran</span>
+		</a>
+ 	</div> 	
 	<!-- tampilin cart end -->
 </div>
 <?php mysqli_close($koneksi) ?>

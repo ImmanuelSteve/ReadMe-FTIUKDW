@@ -186,6 +186,13 @@ a{
 }
 
 /*CSS buat chart*/
+#cart {
+    margin-top: 0px;
+    color: rgb(45, 137, 239);
+    font-size: 20px;
+    vertical-align: middle;
+}
+
 .cart_icon {
     background: url("../images/cart32.png") no-repeat scroll 0% 0% transparent;
     background-position: 0px -64px;
@@ -194,19 +201,55 @@ a{
     cursor: pointer;
 }
 
-#cart {
-    margin-top: 0px;
-    color: rgb(45, 137, 239);
-    font-size: 20px;
-    vertical-align: middle;
+.cart_action {
+    width:auto;
+    height:25px;
+    border-radius:5px;
+    margin:10px;
+    padding:5px 15px;
+    text-align:center;
+    cursor:pointer;
+    color: rgb(255,255,255);
 }
 
-#myChart {
-    width: 350px;
+.cart_action_blue {
+    background: rgb(3,77,164);
+}
+
+.cart_action_green{
+    background: rgb(100, 180, 6);
+}
+
+#myCart {
+    width: 420px;
     position: absolute;
-    left: 800px;
+    left: 720px;
     display: none;
-    padding: 0px;
+    padding: 0px 0px 10px 0px; 
+    background: white;
+    box-shadow: 0px 2px 5px rgba(50, 50, 50, 0.75);
+    overflow: hidden;
+    height: auto;
+}
+
+#cart_title {
+    display: block;
+    height: 40px;
+    padding-top: 20px;
+    font-family: "Calibri",Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: rgb(238,238,238);
+}
+
+#myCart table {
+    width: inherit;
+    margin-bottom: 10px;
+}
+
+#myCart table tr td {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /*css notifikasi*/
