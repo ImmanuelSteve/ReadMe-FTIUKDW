@@ -12,10 +12,11 @@
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7qKpuybHDGaPKLaoqQbmAF3-mEGsj9JY&sensor=true">
     </script>
-    <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/jquery-1.2.3.min.js"></script>
     <script type="text/javascript" src="js/jquery.easing.min.js"></script>
     <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
     <script type="text/javascript" src="js/lamp.js"></script>
+    <script type="text/javascript" src="js/cart.js"></script>
     <script type="text/javascript">
       function initialize() {
         var mapOptions = {

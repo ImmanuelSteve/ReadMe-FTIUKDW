@@ -36,10 +36,11 @@
     <link rel="stylesheet" href="css/960_24_col.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/testimoni.css" />
-    <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/jquery-1.2.3.min.js"></script>
     <script type="text/javascript" src="js/jquery.easing.min.js"></script>
     <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
     <script type="text/javascript" src="js/lamp.js"></script>
+    <script type="text/javascript" src="js/cart.js"></script>
 </head>
 
 <body>
@@ -54,7 +55,9 @@
                 $_SESSION['actionlogin'] = "testimoni.php";
                 include("login.php");
             ?>
+
             <?php include ("myCart.php") ?>
+            
             <div class="grid_24" id="header_nav">
                 <ul class="lavaLamp">
                     <li class="current"><a href="index.php">Beranda</a> </li>

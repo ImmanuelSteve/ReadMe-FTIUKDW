@@ -13,6 +13,7 @@
     <script language="JavaScript" type="text/javascript" src="js/produk.js"></script>
     <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
     <script type="text/javascript" src="js/lamp.js"></script>
+    <script type="text/javascript" src="js/cart.js"></script>   
 
 <body>
      <!-- header begin -->

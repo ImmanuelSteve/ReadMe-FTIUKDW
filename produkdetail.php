@@ -56,6 +56,7 @@
     <script language="JavaScript" type="text/javascript" src="js/produk.js"></script>
     <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
     <script type="text/javascript" src="js/lamp.js"></script>
+    <script type="text/javascript" src="js/cart.js"></script>
 </head>
 
 <body>
@@ -179,7 +180,7 @@
                                             echo"<div class='grid_6' id='statusproduk'><p>Status : tidak tersedia</p></div>";
                                         }
                                     echo"</div>";
-                                    echo"<form method='GET' action='produkdetail.php' id='formbeli'>";
+                                    echo"<form method='GET' action='produk.php' id='formbeli'>";
                                     echo"<input type='hidden' name ='id' value='".$id."'>";
                                     echo"<label>Warna : </label>
                                     <select name='warna'>
@@ -191,7 +192,8 @@
                                     echo"<label>Jumlah : </label>
                                     <input type='text' name='jumlah' value='1'/>
                                     <br/><br/>";
-                                    echo"<input id='buttonbeli' type='submit' name ='action' value='Beli'/>";
+                                    echo"<input id='buttonbeli' type='submit' value='Beli'/>";
+                                    echo "<input type='hidden' value='add' name='action'>";
                                     echo"</form>";
                                 echo"</div>";
                             echo"</div>";
