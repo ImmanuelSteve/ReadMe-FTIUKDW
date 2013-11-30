@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2013 at 04:08 PM
+-- Generation Time: Nov 30, 2013 at 02:41 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -134,7 +134,8 @@ CREATE TABLE IF NOT EXISTS `produk` (
   `waktu_peluncuran` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `terjual` int(11) NOT NULL,
   `status` varchar(10) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `hargaString` (`hargaString`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
@@ -143,6 +144,8 @@ CREATE TABLE IF NOT EXISTS `produk` (
 
 INSERT INTO `produk` (`id`, `merek`, `nama`, `harga`, `hargaString`, `gambar`, `stok`, `nilai`, `waktu_peluncuran`, `terjual`, `status`) VALUES
 (1, 'Samsung', 'Samsung Galaxy Note 3', 8880000, '8.880.000', 'images/samsung-galaxy-note-3.jpg', 5, 4, '2013-10-27 14:23:52', 5, 'unggulan'),
+(2, 'Lenovo', 'Lenovo K900', 4499000, '4.449.000', 'images/lenovo-k900.jpg', 2, 4, '2013-10-29 10:21:33', 4, 'baru'),
+(3, 'Sony', 'Sony Xperia Z Ultra', 7499000, '7.499.000', 'images/sony-xperia-z-ultra.jpg', 1, 5, '2013-10-29 10:30:05', 2, 'unggulan'),
 (4, 'HTC', 'HTC One', 7300000, '7.300.000', 'images/htc-one.jpg', 3, 4, '2013-10-30 13:02:35', 2, 'baru'),
 (5, 'Apple', 'iPhone 5', 9000000, '9.000.000', 'images/apple-iphone-5.jpg', 2, 4, '2013-10-30 14:50:05', 5, 'baru'),
 (6, 'LG', 'Lg G2', 6799000, '6.799.000', 'images/lg-g2.jpg', 3, 5, '2013-11-02 03:00:00', 2, 'unggulan'),
@@ -199,7 +202,7 @@ CREATE TABLE IF NOT EXISTS `review` (
   `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `isi` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `review`
@@ -210,7 +213,10 @@ INSERT INTO `review` (`id`, `id_produk`, `id_pengguna`, `waktu`, `isi`) VALUES
 (2, 2, 3, '2013-11-17 16:12:35', 'Saya rasa slot memori external sangat dibutuhkan, karena jaman sekarang ini, memori dengan kapasitas 16 GB terisi penuh dengan sangat cepat.'),
 (3, 3, 2, '2013-11-17 16:15:11', 'Gadged satu ini tahan air loh,, sudah dibuktikan, kaca nya anti gores juga, jadi tak perlu membeli pelapis antigores dan case anti air,, hemat biaya, Gan,,,'),
 (4, 4, 5, '2013-11-17 16:17:29', 'Kaca anti gores dengan gorila glass itu keren.'),
-(6, 1, 3, '2013-11-24 06:28:51', 'Sudah tidak diragukan lagi untuk peforma gadget ini dengan prosesor generasi terbaru dari qualcomm dan RAM 3gb maka sudah dipastikan semua komputasi dapat berjalan dengan baik... :D');
+(5, 4, 3, '2013-11-24 05:52:57', 'manteb ni gadget dilihat secara keseluruhan gak habis pikir lah kalo punya ni gadget... :D'),
+(6, 1, 3, '2013-11-24 06:28:51', 'Sudah tidak diragukan lagi untuk peforma gadget ini dengan prosesor generasi terbaru dari qualcomm dan RAM 3gb maka sudah dipastikan semua komputasi dapat berjalan dengan baik... :D'),
+(7, 6, 3, '2013-11-24 17:04:55', 'Fitur Guest mode yang sangat inovativ dan juga tombol yang berada di belakang sangat nyaman digunakan'),
+(8, 3, 3, '2013-11-24 17:09:10', 'test review bisa?');
 
 -- --------------------------------------------------------
 
@@ -224,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `testimoni` (
   `waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `isi` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `testimoni`
@@ -234,7 +240,10 @@ INSERT INTO `testimoni` (`id`, `id_pengguna`, `waktu`, `isi`) VALUES
 (1, 2, '2013-11-17 15:00:19', 'pelayanannya super cepat dan tanggap, gak salah pilih toko online... :D'),
 (2, 3, '2013-11-17 15:00:38', 'mantab abiss, respon cepat dan kualitas barang juga tetap nomer 1.... :D\r\n'),
 (3, 5, '2013-11-17 15:10:35', 'responnya cepet abis, barang dikirim cepet dan barang nya juga bagus dan gak ngecewain... mantab...'),
-(4, 4, '2013-11-17 15:11:49', '\r\npelayanannya mantab dan tetep jaga kualitas barang tentunya... maju terus :)');
+(4, 4, '2013-11-17 15:11:49', '\r\npelayanannya mantab dan tetep jaga kualitas barang tentunya... maju terus :)'),
+(5, 4, '2013-11-17 15:13:35', 'jarang2 ni nemu toko online yang pelayanannya mantab abisss..'),
+(6, 3, '2013-11-24 17:09:32', 'ganteng'),
+(7, 3, '2013-11-24 17:09:57', 'aaaaa');
 
 -- --------------------------------------------------------
 
