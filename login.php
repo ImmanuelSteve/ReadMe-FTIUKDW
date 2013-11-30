@@ -1,17 +1,26 @@
 <?php
     require("koneksi.php");
     require("PasswordHash.php");
-    if (!empty($_SESSION['user'])) {
+    if(!empty($_SESSION['user'])) {
         echo "<div id='login' class='grid_20'>";
         echo "<form id='formlogin' class='right' action='logout.php' method='post'>";
         echo "<img class='ava left' src='images/avatar.jpg' width: '64px' height='64px'>";
-        $sql = "SELECT nama_pengguna FROM pengguna WHERE id ='".$_SESSION['user']."'";
+        $sql = "SELECT password,nama_pengguna FROM pengguna WHERE id ='".$_SESSION['user']."'";
         $result = mysqli_query($koneksi,$sql);
         $data = mysqli_fetch_assoc($result);
+        $t_hasher = new PasswordHash(8, FALSE);
+        $check=0;
+        if($_SESSION['user']==1){
+        $check = $t_hasher->CheckPassword($_SESSION['password'],$data['password']);
+        }
+        if($check==1){
+            echo "<span id='penyapa'>Selamat datang,<br><a href='editprodukadmin.php'>".$data['nama_pengguna']."</a></span></br>";
+        }else{
         echo "<span id='penyapa'>Selamat Datang, <br/><a href='profil.php'>".$data['nama_pengguna']."</a></span></br>";
+        }
         echo "<input class='right logout' id='buttonlogin' type='submit' value='Keluar'>";
         echo "</form></div>";
-        echo "<div class='clear'></div>";
+        echo "<div class='clear'><br><br></div>";
     }
     else if (isset($_POST['username']) && isset($_POST['password'])) {
         $email= $_POST['username'];
@@ -38,7 +47,11 @@
             //echo"$password"; echo"$namapengguna";
             if($check){
                 $_SESSION['user'] = $id_pengguna;
-                if($_SESSION['actionlogin'] == "daftar.php"){
+                if($_SESSION['user'] == 1){
+                    $_SESSION['password']= $correct;
+                    header("location:editprodukadmin.php");
+                }
+                else if($_SESSION['actionlogin'] == "daftar.php"){
                     header("location:index.php");
                 }
                 else{

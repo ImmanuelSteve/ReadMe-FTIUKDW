@@ -1,0 +1,45 @@
+#contentarea{
+    background-color: white;
+    width : 930px;
+    padding: 10px;
+    padding-bottom : 50px;
+}
+
+#table{
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 700px;
+    overflow-y :scroll;
+    overflow-x : hidden;
+}
+
+#thead{
+    font-weight: bold;
+}
+
+#header_nav ul li{
+    margin-right: 25px;
+}
+
+table {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+table th {
+	background:#b5cfd2 url('cell-blue.jpg');
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #999999;
+}
+table td {
+	background:#dcddc0 url('cell-grey.jpg');
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #999999;
+}
