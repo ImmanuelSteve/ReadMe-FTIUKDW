@@ -63,7 +63,7 @@
             </div>
             <div class="grid_24" id="copyright">
                 <p id="copyrighttext" class="center">
-                    @2013 <a href="http://www.readmeshop.revti.com">readmeshop.com</a>
+                    Copyright @2013 ReadMe Shop All Right Reserved
                 </p>
             </div>
             
