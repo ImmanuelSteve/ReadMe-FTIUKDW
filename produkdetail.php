@@ -16,7 +16,8 @@
             $query = "INSERT into review VALUES 
             (NULL,'".$_SESSION['idProduk']."','".$_SESSION['user']."',CURRENT_TIMESTAMP,'".$isireview."')";
             if(mysqli_query($koneksi,$query)){
-
+            }else{
+                header("location:default.html");
             }
         }
     }

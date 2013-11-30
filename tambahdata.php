@@ -25,6 +25,8 @@
                         if(mysqli_query($koneksi,$query)){
                             header("location:".$_SESSION['actionlogin']."");
                             $_SESSION['berhasil']="Berhasil di tambah ke database";
+                        }else{
+                            header("location:default.html");
                         }
                     }else{
                         header("location:".$_SESSION['actionlogin']."");
@@ -47,6 +49,8 @@
                     if(mysqli_query($koneksi,$query)){
                         header("location:".$_SESSION['actionlogin']."");
                         $_SESSION['berhasil']="Berhasil di tambah ke database";
+                    }else{
+                        header("location:default.html");
                     }
                 }else{
                     header("location:".$_SESSION['actionlogin']."");

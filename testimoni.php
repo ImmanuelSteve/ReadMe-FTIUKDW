@@ -17,6 +17,8 @@
             (NULL,'".$_SESSION['user']."',CURRENT_TIMESTAMP,'".$isitestimoni."')";
             if(mysqli_query($koneksi,$query)){
                 $_SESSION['berhasil']="Testimoni berhasil di tambahkan";
+            }else{
+                header("location:default.html");
             }
         }else{
             $_SESSION['gagal']="Testimoni gagal di tambahkan. Pastikan semua inputan terisi";

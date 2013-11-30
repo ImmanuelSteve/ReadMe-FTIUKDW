@@ -4,4 +4,7 @@
     $db_host = "localhost";
     $db_database = "readmesh_readmeshop";
     $koneksi = mysqli_connect($db_host,$db_user,$db_password,$db_database);
+    if(mysqli_connect_errno($koneksi)){
+        header("location:default.html");
+    }
 ?>
