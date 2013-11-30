@@ -116,17 +116,17 @@
                         if (isset($_GET['merk']) || isset($_GET['harga']) || isset($_GET['tipe'])) {
                             if(isset($_GET['merk'])){
                                 $merk = $_GET['merk'];
-                                $sql = "SELECT id,nama,hargaString,gambar,stok,nilai FROM produk WHERE merek = '$merk'";
+                                $sql = "SELECT id,nama,harga,gambar,stok,nilai FROM produk WHERE merek = '$merk'";
                             }
                             else if(isset($_GET['harga'])){
                                 $harga = $_GET['harga'];   
-                                $sql = "SELECT id,nama,hargaString,gambar,stok,nilai,harga 
+                                $sql = "SELECT id,nama,harga,gambar,stok,nilai,harga 
                                 FROM produk 
                                 WHERE harga<'$harga'";
                             }
                             else if(isset($_GET['tipe'])){
                                 $tipe = $_GET['tipe'];
-                                $sql = "SELECT produk.id, produk.nama, produk.hargaString, produk.gambar, produk.stok, produk.nilai, detail.id 
+                                $sql = "SELECT produk.id, produk.nama, produk.harga, produk.gambar, produk.stok, produk.nilai, detail.id 
                                 FROM produk, detail 
                                 WHERE produk.id=detail.id 
                                 AND detail.tipe_simcard='$tipe'";
@@ -145,7 +145,7 @@
                             }
                             echo "</div>";
                             echo "<div class='produk_keterangan'>";
-                            echo "<span id='harga'>Rp ".$data['hargaString']."</span>";
+                            echo "<span id='harga'>Rp ".number_format($data['harga'])."</span>";
                             if($data['stok'] > 0){
                                 echo "<span class='availability'>Tersedia</span>";    
                             }
@@ -163,7 +163,7 @@
                         }
                         
                         else{
-                            $sql = "SELECT id,nama,hargaString,gambar,stok,nilai FROM produk";
+                            $sql = "SELECT id,nama,harga,gambar,stok,nilai FROM produk";
                             $result = mysqli_query($koneksi,$sql);
                             echo "<div class='grid_18 right noright'><div id='produk'>";
                              while($data = mysqli_fetch_assoc($result)){
@@ -177,7 +177,7 @@
                                 }
                                 echo "</div>";
                                 echo "<div class='produk_keterangan'>";
-                                echo "<span id='harga'>Rp ".$data['hargaString']."</span>";
+                                echo "<span id='harga'>Rp ".number_format($data['harga'])."</span>";
                                 if($data['stok'] > 0){
                                     echo "<span class='availability'>Tersedia</span>";    
                                 }

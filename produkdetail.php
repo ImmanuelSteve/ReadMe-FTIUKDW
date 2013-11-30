@@ -161,7 +161,7 @@
                         }elseif(isset($_SESSION['idProduk'])){
                             $id = $_SESSION['idProduk'];
                         }
-                        $sql = "SELECT nama,hargaString,gambar,stok FROM produk WHERE id='".$id."'";
+                        $sql = "SELECT nama,harga,gambar,stok FROM produk WHERE id='".$id."'";
                         $result = mysqli_query($koneksi,$sql);
                         while($data = mysqli_fetch_assoc($result)){
                             echo"<div class='grid_17' id='detailproduk1'>";
@@ -173,7 +173,7 @@
                                 echo"</div>";
                                 echo"<div class='grid_7'>";
                                     echo"<div class='grid_6' id='detailproduk2'>";
-                                        echo"<div class='grid_6' id='hargaproduk'><p>Harga : Rp.".$data['hargaString']."</p></div>";
+                                        echo"<div class='grid_6' id='hargaproduk'><p>Harga : Rp.".number_format($data['harga'])."</p></div>";
                                         if($data['stok']>0){
                                             echo"<div class='grid_6' id='statusproduk'><p>Status : tersedia</p></div>";
                                         }else{

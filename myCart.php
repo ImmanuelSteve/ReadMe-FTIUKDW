@@ -27,7 +27,7 @@ $total = 0;
 				<?php if (!empty($_SESSION['cart'])) { 
 					// perulangan start
 					foreach ($_SESSION['cart'] as $product_id => $quantity) {
-						$sql = "SELECT id, gambar, nama, harga , hargaString FROM produk WHERE id = '".$product_id."'";
+						$sql = "SELECT id, gambar, nama, harga FROM produk WHERE id = '".$product_id."'";
 						$result = mysqli_query($koneksi,$sql) or die(mysql_error());
 
 						$data = mysqli_fetch_assoc($result) or die(mysql_error());

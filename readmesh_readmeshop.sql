@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2013 at 02:41 PM
+-- Generation Time: Nov 30, 2013 at 06:39 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -127,30 +127,28 @@ CREATE TABLE IF NOT EXISTS `produk` (
   `merek` varchar(50) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `harga` int(11) NOT NULL,
-  `hargaString` varchar(100) NOT NULL,
   `gambar` varchar(100) NOT NULL,
   `stok` int(11) NOT NULL,
   `nilai` int(11) NOT NULL,
   `waktu_peluncuran` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `terjual` int(11) NOT NULL,
   `status` varchar(10) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `hargaString` (`hargaString`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `produk`
 --
 
-INSERT INTO `produk` (`id`, `merek`, `nama`, `harga`, `hargaString`, `gambar`, `stok`, `nilai`, `waktu_peluncuran`, `terjual`, `status`) VALUES
-(1, 'Samsung', 'Samsung Galaxy Note 3', 8880000, '8.880.000', 'images/samsung-galaxy-note-3.jpg', 5, 4, '2013-10-27 14:23:52', 5, 'unggulan'),
-(2, 'Lenovo', 'Lenovo K900', 4499000, '4.449.000', 'images/lenovo-k900.jpg', 2, 4, '2013-10-29 10:21:33', 4, 'baru'),
-(3, 'Sony', 'Sony Xperia Z Ultra', 7499000, '7.499.000', 'images/sony-xperia-z-ultra.jpg', 1, 5, '2013-10-29 10:30:05', 2, 'unggulan'),
-(4, 'HTC', 'HTC One', 7300000, '7.300.000', 'images/htc-one.jpg', 3, 4, '2013-10-30 13:02:35', 2, 'baru'),
-(5, 'Apple', 'iPhone 5', 9000000, '9.000.000', 'images/apple-iphone-5.jpg', 2, 4, '2013-10-30 14:50:05', 5, 'baru'),
-(6, 'LG', 'Lg G2', 6799000, '6.799.000', 'images/lg-g2.jpg', 3, 5, '2013-11-02 03:00:00', 2, 'unggulan'),
-(7, 'Samsung', 'Samsung Galaxy Tab 3 8.0', 4499000, '4.499.000', 'images/samsung-galaxy-tab-3-80.jpg', 2, 3, '2013-11-02 05:00:00', 8, 'baru'),
-(8, 'Huawei', 'Huawei Ascend Mate', 3999000, '3.999.000', 'images/huawei-ascend-mate.jpg', 4, 2, '2013-11-09 08:00:00', 1, 'baru');
+INSERT INTO `produk` (`id`, `merek`, `nama`, `harga`, `gambar`, `stok`, `nilai`, `waktu_peluncuran`, `terjual`, `status`) VALUES
+(1, 'Samsung', 'Samsung Galaxy Note 3', 8880000, 'images/samsung-galaxy-note-3.jpg', 5, 4, '2013-10-27 14:23:52', 5, 'unggulan'),
+(2, 'Lenovo', 'Lenovo K900', 4499000, 'images/lenovo-k900.jpg', 2, 4, '2013-10-29 10:21:33', 4, 'baru'),
+(3, 'Sony', 'Sony Xperia Z Ultra', 7499000, 'images/sony-xperia-z-ultra.jpg', 1, 5, '2013-10-29 10:30:05', 2, 'unggulan'),
+(4, 'HTC', 'HTC One', 7300000, 'images/htc-one.jpg', 3, 4, '2013-10-30 13:02:35', 2, 'baru'),
+(5, 'Apple', 'iPhone 5', 9000000, 'images/apple-iphone-5.jpg', 2, 4, '2013-10-30 14:50:05', 5, 'baru'),
+(6, 'LG', 'Lg G2', 6799000, 'images/lg-g2.jpg', 3, 5, '2013-11-02 03:00:00', 2, 'unggulan'),
+(7, 'Samsung', 'Samsung Galaxy Tab 3 8.0', 4499000, 'images/samsung-galaxy-tab-3-80.jpg', 2, 3, '2013-11-02 05:00:00', 8, 'baru'),
+(8, 'Huawei', 'Huawei Ascend Mate', 3999000, 'images/huawei-ascend-mate.jpg', 4, 2, '2013-11-09 08:00:00', 1, 'baru');
 
 -- --------------------------------------------------------
 

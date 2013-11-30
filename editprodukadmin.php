@@ -80,11 +80,6 @@
 				<td><input type="text" name="harga"/></td>
 			    </tr>
 			    <tr>
-				<td>Harga String</td>
-				<td> : </td>
-				<td><input type="text" name="hargaString"/></td>
-			    </tr>
-			    <tr>
 				<td>Stok</td>
 				<td> : </td>
 				<td><input type="text" name="stok"/></td>
@@ -221,7 +216,7 @@
                             echo "<td><img src='".$data['gambar']."' width=150 height=170/></td>";
                             echo "<td>".$data['merek']."</td>";
                             echo "<td>".$data['nama']."</td>";
-                            echo "<td>".$data['hargaString']."</td>";
+                            echo "<td>".number_format($data['harga'])."</td>";
                             echo "<td>".$data['stok']."</td>";
                             echo "<td>".$data['nilai']."</td>";
                             echo "<td>".$data['waktu_peluncuran']."</td>";

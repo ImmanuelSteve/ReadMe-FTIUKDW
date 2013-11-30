@@ -93,14 +93,14 @@
                 <div class="grid_23 kumpulanproduk">
                     <?php
                         require("koneksi.php");
-                        $sql = "SELECT id,nama,hargaString,gambar FROM produk WHERE status='unggulan'";
+                        $sql = "SELECT id,nama,harga,gambar FROM produk WHERE status='unggulan'";
                         $result = mysqli_query($koneksi,$sql);
                          while($data = mysqli_fetch_assoc($result)){
                             $gambar = $data['gambar'];
                             echo"<div class='grid_5 produk'>";
                             echo"<div class='grid_5 divgambarproduk'><a href=produkdetail.php?id=".$data['id']."><img class='gambarproduk' src='$gambar'/></a></div>";
                             echo"<div class='grid_5'><p class='textnamaproduk center'>".$data['nama']."</p>";
-                            echo"<p class='texthargaproduk center'>Rp. ".$data['hargaString'].",00</p></div>";
+                            echo"<p class='texthargaproduk center'>Rp. ".number_format($data['harga'])."</p></div>";
                             echo"</div>";
                         }
                         mysqli_close($koneksi);
@@ -114,14 +114,14 @@
                 <div class="grid_23 kumpulanproduk">
                     <?php
                         require("koneksi.php");
-                        $sql = "SELECT id,nama,hargaString,gambar FROM produk WHERE status='baru'";
+                        $sql = "SELECT id,nama,harga,gambar FROM produk WHERE status='baru'";
                         $result = mysqli_query($koneksi,$sql);
                          while($data = mysqli_fetch_assoc($result)){
                             $gambar = $data['gambar'];
                             echo"<div class='grid_5 produk'>";
                             echo"<div class='grid_5 divgambarproduk'><a href=produkdetail.php?id=".$data['id']."><img class='gambarproduk' src='$gambar'/></a></div>";
                             echo"<div class='grid_5'><p class='textnamaproduk center'>".$data['nama']."</p>";
-                            echo"<p class='texthargaproduk center'>Rp. ".$data['hargaString'].",00</p></div>";
+                            echo"<p class='texthargaproduk center'>Rp. ".number_format($data['harga'])."</p></div>";
                             echo"</div>";
                         }
                         mysqli_close($koneksi);

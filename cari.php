@@ -142,7 +142,7 @@
                             }
                             echo "</div>";
                             echo "<div class='produk_keterangan'>";
-                            echo "<span id='harga'>Rp ".$data['hargaString']."</span>";
+                            echo "<span id='harga'>Rp ".number_format($data['harga'])."</span>";
                             if($data['stok'] > 0){
                                 echo "<span class='availability'>Tersedia</span>";    
                             }
