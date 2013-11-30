@@ -12,15 +12,31 @@
         }
         if($check==1){
             if($_SESSION['actionlogin']=="editprodukadmin.php"){
-                $query = "DELETE FROM readmesh_readmeshop.produk where id = ".$_GET['id'];
+                $query = "DELETE FROM produk WHERE id = ".$_GET['id'];
+                $query2 = "DELETE FROM detail WHERE id = ".$_GET['id'];
+                $query3 = "DELETE FROM review WHERE id_produk = ".$_GET['id'];
+                if(mysqli_query($koneksi,$query) && mysqli_query($koneksi,$query2) && mysqli_query($koneksi,$query3)){
+                    header("location:".$_SESSION['actionlogin']."");
+                    $_SESSION['berhasil']="Berhasil di hapus dari database";
+                }else{
+                    header("location:default.html");
+                }
             }else if($_SESSION['actionlogin']=="edittestimoniadmin.php"){
-                $query = "DELETE FROM testimoni where id = ".$_GET['id'];
+                $query = "DELETE FROM testimoni WHERE id = ".$_GET['id'];
+                if(mysqli_query($koneksi,$query)){
+                    header("location:".$_SESSION['actionlogin']."");
+                    $_SESSION['berhasil']="Berhasil di hapus dari database";
+                }else{
+                    header("location:default.html");
+                }
             }else if($_SESSION['actionlogin']=="editulasanadmin.php"){
-                $query = "DELETE FROM review where id = ".$_GET['id'];
-            }
-            if(mysqli_query($koneksi,$query)){
-		header("location:".$_SESSION['actionlogin']."");
-                $_SESSION['berhasil']="Berhasil di hapus dari database";
+                $query = "DELETE FROM review WHERE id = ".$_GET['id'];
+                if(mysqli_query($koneksi,$query)){
+                    header("location:".$_SESSION['actionlogin']."");
+                    $_SESSION['berhasil']="Berhasil di hapus dari database";
+                }else{
+                    header("location:default.html");
+                }
             }
         }else{
             header("location:".$_SESSION['actionlogin']."");
