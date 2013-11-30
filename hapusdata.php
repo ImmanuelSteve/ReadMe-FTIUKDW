@@ -18,10 +18,13 @@
             }else if($_SESSION['actionlogin']=="editulasanadmin.php"){
                 $query = "DELETE FROM review where id = ".$_GET['id'];
             }
-            if(mysqli_query($koneksi,$query))
+            if(mysqli_query($koneksi,$query)){
 		header("location:".$_SESSION['actionlogin']."");
+                $_SESSION['berhasil']="Berhasil di hapus dari database";
+            }
         }else{
             header("location:".$_SESSION['actionlogin']."");
+            $_SESSION['gagal']="Anda bukan Admin. Anda tidak bisa menghapus data yang ada database";
         }
         mysqli_close($koneksi);
 ?>

@@ -14,10 +14,11 @@
     <link rel="stylesheet" href="css/960_24_col.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/admin.css" />
-    <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
+    <script type="text/javascript" src="js/jquery-1.2.3.min.js"></script>
     <script type="text/javascript" src="js/jquery.easing.min.js"></script>
     <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
     <script type="text/javascript" src="js/lamp.js"></script>
+    <script type="text/javascript" src="js/admin.js"></script>
 </head>
 
 <body>
@@ -49,8 +50,53 @@
     <div id="content">
         <div class="container_24">
             <div id="contentarea" class="grid_24">
+		<?php require("notifikasi.php"); ?>
                 <h1>Ulasan Produk ReadMe Shop</h1>
-                <button class="buttonadmin"><a class="nodecor white" href="tambah_data.php">Tambah Ulasan</a></button><br><br>
+                <input type="submit" class="buttonadmin" value="Tambah Ulasan"/><br><br>
+                <div class="tambahadmin">
+		    <form method="post" action="tambahdata.php">
+			<table>
+                            <tr>
+                                <td>Produk</td>
+                                <td>: </td>
+                                <td>
+                                    <select name='produk'>
+                                    <?php
+                                        require("koneksi.php");
+                                        $sql = "SELECT id,nama FROM produk where id = '".$_POST['produk1']."'";
+                                        $result = mysqli_query($koneksi,$sql)or die(mysqli_error($koneksi));
+                                        $found = mysqli_num_rows($result);
+                                        $data = mysqli_fetch_assoc($result);
+                                        if($found == 1){
+                                            echo"<option value='".$data['id']."'>".$data['nama']."</option>";
+                                        }else{
+                                            echo"<option value=''></option>";
+                                        }
+                                        $sql = "SELECT id,nama FROM produk";
+                                        $result = mysqli_query($koneksi,$sql)or die(mysqli_error($koneksi));
+                                        while($data = mysqli_fetch_assoc($result)){
+                                            if($data['id'] === $_POST['produk1']){
+                                                continue;
+                                            }else{
+                                                echo"<option value='".$data['id']."'>".$data['nama']."</option>";
+                                            }
+                                        }
+                                        mysqli_close($koneksi);
+                                    ?>
+                                </select>
+                                </td>
+                            </tr>
+			    <tr>
+				<td valign="top">Isi Ulasan</td>
+				<td valign="top">:</td>
+				<td>
+				<textarea name="isi" rows="5" cols="45"></textarea>
+				</td>
+			    </tr>
+			</table><br>
+			<input class="buttonTambahOk" type="submit" name="tambah" value="OK" />
+		    </form><br>
+		</div>
                 <div id="table">
                 <table class="center" border="1">
                     <tr id="thead">
@@ -59,11 +105,11 @@
                         <td>Id Pengguna</td>
                         <td>Waktu</td>
                         <td>Isi</td>
-                        <td colspan=2>Pilihan</td>
+                        <td>Pilihan</td>
 		    </tr>
 		    <?php
                         require("koneksi.php");
-                        $sql = "Select * from review";
+                        $sql = "SELECT * FROM review";
                         $result = mysqli_query($koneksi,$sql);
                         $counter=0;
                         while($data = mysqli_fetch_assoc($result))
@@ -74,7 +120,6 @@
                             echo "<td>".$data['id_pengguna']."</td>";
                             echo "<td>".$data['waktu']."</td>";
                             echo "<td class='justify'>".$data['isi']."</td>";
-                            echo "<td><a href=edit_data.php?id=".$data['id'].">Edit</a></td>";
                             echo "<td><a href=hapusdata.php?id=".$data['id']." onClick=\"return confirm('Yakin Mau dihapus datanya ?')\">Hapus</a></td>";
                             echo "</tr>";
                         }

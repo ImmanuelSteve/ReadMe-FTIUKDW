@@ -5,16 +5,16 @@
     padding-bottom : 50px;
 }
 
+#contentarea h1 {
+	color: rgb(3,77,164);
+}
+
 #table{
     padding-left: 10px;
     padding-right: 10px;
     height: 700px;
     overflow-y :scroll;
     overflow-x : hidden;
-}
-
-#thead{
-    font-weight: bold;
 }
 
 #header_nav ul li{
@@ -30,16 +30,20 @@ table {
 	border-collapse: collapse;
 }
 table th {
-	background:#b5cfd2 url('cell-blue.jpg');
+	background:#b5cfd2;
 	border-width: 1px;
 	padding: 8px;
 	border-style: solid;
 	border-color: #999999;
 }
 table td {
-	background:#dcddc0 url('cell-grey.jpg');
+	background:#dcddc0;
 	border-width: 1px;
 	padding: 8px;
 	border-style: solid;
 	border-color: #999999;
+}
+
+#thead{
+    font-weight: bold;
 }

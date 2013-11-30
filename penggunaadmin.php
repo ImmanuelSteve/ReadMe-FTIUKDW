@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/960_24_col.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/admin.css" />
-    <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
+    <script type="text/javascript" src="js/jquery-1.2.3.min.js"></script>
     <script type="text/javascript" src="js/jquery.easing.min.js"></script>
     <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
     <script type="text/javascript" src="js/lamp.js"></script>
@@ -54,6 +54,7 @@
                 <table class="center" border="1">
                     <tr id="thead">
 			<td>No</td>
+                        <td>Id Pengguna</td>
                         <td>Nama Pengguna</td>
                         <td>Email</td>
                         <td>Alamat</td>
@@ -62,13 +63,14 @@
 		    </tr>
 		    <?php
                         require("koneksi.php");
-                        $sql = "Select nama_pengguna,email,alamat,kota,telepon from pengguna";
+                        $sql = "Select id,nama_pengguna,email,alamat,kota,telepon from pengguna";
                         $result = mysqli_query($koneksi,$sql);
                         $counter=0;
                         while($data = mysqli_fetch_assoc($result))
                         {
                             echo "<tr>";
                             echo "<td>".++$counter."</td>";
+                            echo "<td>".$data['id']."</td>";
                             echo "<td>".$data['nama_pengguna']."</td>";
                             echo "<td>".$data['email']."</td>";
                             echo "<td class='justify'>".$data['alamat']."</td>";

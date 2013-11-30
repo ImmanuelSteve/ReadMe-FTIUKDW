@@ -14,10 +14,11 @@
     <link rel="stylesheet" href="css/960_24_col.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/admin.css" />
-    <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
+    <script type="text/javascript" src="js/jquery-1.2.3.min.js"></script>
     <script type="text/javascript" src="js/jquery.easing.min.js"></script>
     <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
     <script type="text/javascript" src="js/lamp.js"></script>
+    <script type="text/javascript" src="js/admin.js"></script>
 </head>
 
 <body>
@@ -49,16 +50,31 @@
     <div id="content">
         <div class="container_24">
             <div id="contentarea" class="grid_24">
+		<?php require("notifikasi.php"); ?>
                 <h1>Testimoni ReadMe Shop</h1>
-                <button class="buttonadmin"><a class="nodecor white" href="tambah_data.php">Tambah Testimoni</a></button><br><br>
-                <div id="table">
+                <input type="submit" class="buttonadmin" value="Tambah Testimoni"/><br><br>
+                <div class="tambahadmin">
+		    <form method="post" action="tambahdata.php">
+			<table>
+			    <tr>
+				<td valign="top">Isi Testimoni</td>
+				<td valign="top">:</td>
+				<td>
+				<textarea name="isi" rows="5" cols="45"></textarea>
+				</td>
+			    </tr>
+			</table><br>
+			<input class="buttonTambahOk" type="submit" name="tambah" value="OK" />
+		    </form><br>
+		</div>
+		<div id="table">
 		<table class="center">
                     <tr id="thead">
 			<td>No</td>
                         <td>Id Pengguna</td>
                         <td>Waktu</td>
                         <td>Isi</td>
-                        <td colspan=2>Pilihan</td>
+                        <td>Pilihan</td>
 		    </tr>
 		    <?php
                         require("koneksi.php");
@@ -72,7 +88,6 @@
                             echo "<td>".$data['id_pengguna']."</td>";
                             echo "<td>".$data['waktu']."</td>";
                             echo "<td class='justify'>".$data['isi']."</td>";
-                            echo "<td><a href=edit_data.php?id=".$data['id'].">Edit</a></td>";
                             echo "<td><a href=hapusdata.php?id=".$data['id']." onClick=\"return confirm('Yakin Mau dihapus datanya ?')\">Hapus</a></td>";
                             echo "</tr>";
                         }

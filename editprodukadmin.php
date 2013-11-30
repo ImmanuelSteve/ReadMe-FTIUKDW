@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/960_24_col.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/admin.css" />
-    <script type="text/javascript" src="js/jquery-2.0.3.js"></script>
+    <script type="text/javascript" src="js/jquery-1.2.3.min.js"></script>
     <script type="text/javascript" src="js/jquery.easing.min.js"></script>
     <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
     <script type="text/javascript" src="js/lamp.js"></script>
@@ -49,17 +49,18 @@
     <div id="content">
         <div class="container_24">
             <div id="contentarea" class="grid_24">
+		<?php require("notifikasi.php"); ?>
                 <h1>Produk ReadMe Shop</h1>
-                <button class="buttonadmin"><a class="nodecor white" href="tambah_data.php">Tambah Produk</a></button><br><br>
+                <input type="submit" class="buttonadmin" value="Tambah Produk"/><br><br>
                 <div id="table">
 		<table class="center">
                     <tr id="thead">
 			<td>No</td>
+			<td>Id Produk</td>
                         <td>Gambar</td>
                         <td>Merek</td>
                         <td>Nama</td>
                         <td>Harga</td>
-                        <td>HargaString</td>
                         <td>Stok</td>
                         <td>Nilai</td>
                         <td>Waktu</td>
@@ -76,10 +77,10 @@
                         {
                             echo "<tr>";
                             echo "<td>".++$counter."</td>";
+			    echo "<td>".$data['id']."</td>";
                             echo "<td><img src='".$data['gambar']."' width=150 height=170/></td>";
                             echo "<td>".$data['merek']."</td>";
                             echo "<td>".$data['nama']."</td>";
-                            echo "<td>".$data['harga']."</td>";
                             echo "<td>".$data['hargaString']."</td>";
                             echo "<td>".$data['stok']."</td>";
                             echo "<td>".$data['nilai']."</td>";
