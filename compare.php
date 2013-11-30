@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/960_24_col.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/compare.css" />
-    <script language="JavaScript" type="text/javascript" src="js/jquery-1.2.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.2.3.min.js"></script>
     <script type="text/javascript" src="js/jquery.easing.min.js"></script>
     <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
     <script type="text/javascript" src="js/lamp.js"></script>
@@ -67,7 +67,7 @@
         <div class="container_24">
             <div id="contentarea" class="grid_24">
                 <h1>Bandingkan Produk</h1>
-                <form action="#contentarea" method="post">
+                <form action="#" method="post">
                     <div class="grid_11 dropdown">
                         <label>Produk 1 : </label>
                         <select name='produk1'>
@@ -80,7 +80,7 @@
                                 if($found == 1){
                                     echo"<option value='".$data['id']."'>".$data['nama']."</option>";
                                 }else{
-                                    echo"<option value=''></option>";
+                                    echo"<option value=''>Pilih Produk</option>";
                                 }
                                 $sql = "SELECT id,nama FROM produk";
                                 $result = mysqli_query($koneksi,$sql)or die(mysqli_error($koneksi));
@@ -107,7 +107,7 @@
                                 if($found == 1){
                                     echo"<option value='".$data['id']."'>".$data['nama']."</option>";
                                 }else{
-                                    echo"<option value=''></option>";
+                                    echo"<option value=''>Pilih Produk</option>";
                                 }
                                 $sql = "SELECT id,nama FROM produk";
                                 $result = mysqli_query($koneksi,$sql)or die(mysqli_error($koneksi));
