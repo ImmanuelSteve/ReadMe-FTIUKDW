@@ -1,16 +1,14 @@
 <?php
     session_start();
     require("koneksi.php");
+    if($_SESSION['user']!=1){
+        header("location:index.php");
+    }
     if(isset($_GET['id'])){
-        if($_SESSION['user']!=1){
-            header("location:index.php");
-        }else{
-                $id_produk = $_GET['id'];
-                $sql = "SELECT * FROM produk,detail WHERE produk.id = '".$id_produk."'AND detail.id = '".$id_produk."'";
-                $result = mysqli_query($koneksi,$sql);
-                $edit = mysqli_fetch_assoc($result);
-                //print_r($data);
-        }
+        $id_produk = $_GET['id'];
+        $sql = "SELECT * FROM produk,detail WHERE produk.id = '".$id_produk."'AND detail.id = '".$id_produk."'";
+        $result = mysqli_query($koneksi,$sql);
+        $edit = mysqli_fetch_assoc($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">

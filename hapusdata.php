@@ -1,5 +1,8 @@
 <?php
 	session_start();
+        if($_SESSION['user']!=1){
+            header("location:index.php");
+        }
 	require("koneksi.php");
         require("PasswordHash.php");
         $sql = "SELECT password FROM pengguna WHERE id ='".$_SESSION['user']."'";

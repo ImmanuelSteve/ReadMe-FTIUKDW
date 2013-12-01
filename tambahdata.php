@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if($_SESSION['user']!=1){
+	header("location:index.php");
+    }
     if(isset($_POST['tambah']) || isset($_POST['edit'])){
         require("koneksi.php");
         require("PasswordHash.php");
