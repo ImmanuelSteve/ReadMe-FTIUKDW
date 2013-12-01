@@ -168,7 +168,7 @@
                                 echo"<div class='grid_17' id='namaproduk'><p>".$data['nama']."</p></div>";
                                 echo"<div class='grid_7'>";
                                     echo"<div class='grid_6 center' id='gambarproduk'>";
-                                        echo"<img src='".$data['gambar']."' width='220px'/>";
+                                        echo"<img src='".$data['gambar']."' width=220 height=250'/>";
                                     echo"</div>";
                                 echo"</div>";
                                 echo"<div class='grid_7'>";

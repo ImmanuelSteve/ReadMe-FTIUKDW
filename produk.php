@@ -137,7 +137,7 @@
                             while($data = mysqli_fetch_assoc($result)){
                             $gambar = $data['gambar'];
                             echo "<div id='produk_item'>";
-                            echo "<div class='produk_image center'><a href=produkdetail.php?id=".$data['id']."><img src='$gambar'/></a></div>";
+                            echo "<div class='produk_image center'><a href=produkdetail.php?id=".$data['id']."><img src='$gambar' width=140 height = 170/></a></div>";
                             echo "<h3 class='center'>".$data['nama']."</h3>";
                             echo "<div class='ratting '>";
                             for($i=0; $i<$data['nilai'] ; $i++){
@@ -169,7 +169,7 @@
                              while($data = mysqli_fetch_assoc($result)){
                                 $gambar = $data['gambar'];
                                 echo "<div id='produk_item'>";
-                                echo "<div class='produk_image center'><a href=produkdetail.php?id=".$data['id']."><img src='$gambar'/></a></div>";
+                                echo "<div class='produk_image center'><a href=produkdetail.php?id=".$data['id']."><img src='$gambar' width=140 height = 170/></a></div>";
                                 echo "<h3 class='center'>".$data['nama']."</h3>";
                                 echo "<div class='ratting '>";
                                 for($i=0; $i<$data['nilai'] ; $i++){

@@ -132,7 +132,7 @@
                                 $result = mysqli_query($koneksi,$sql);
                                 while($data = mysqli_fetch_assoc($result)){
                                     $gambar = $data['gambar'];
-                                    echo "<div class='grid_5 foto center'><a href=produkdetail.php?id=".$data['id']."><img src='$gambar'/></a></div>";
+                                    echo "<div class='grid_5 foto center'><a href=produkdetail.php?id=".$data['id']."><img src='$gambar' width=140 height = 170/></a></div>";
                                 }
                                 echo"<div class='clear'></div>";
                                 $sql = "SELECT * FROM detail WHERE id='".$_POST['produk1']."'";
@@ -183,7 +183,7 @@
                                 $result = mysqli_query($koneksi,$sql);
                                 while($data = mysqli_fetch_assoc($result)){
                                     $gambar = $data['gambar'];
-                                    echo "<div class='grid_5 foto center'><a href=produkdetail.php?id=".$data['id']."><img src='$gambar'/></a></div>";
+                                    echo "<div class='grid_5 foto center'><a href=produkdetail.php?id=".$data['id']."><img src='$gambar' width=140 height = 170/></a></div>";
                                 }
                                 echo"<div class='clear'></div>";
                                 $sql = "SELECT * FROM detail WHERE id='".$_POST['produk2']."'";

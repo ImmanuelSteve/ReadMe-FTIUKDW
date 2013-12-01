@@ -98,7 +98,7 @@
                          while($data = mysqli_fetch_assoc($result)){
                             $gambar = $data['gambar'];
                             echo"<div class='grid_5 produk'>";
-                            echo"<div class='grid_5 divgambarproduk'><a href=produkdetail.php?id=".$data['id']."><img class='gambarproduk' src='$gambar'/></a></div>";
+                            echo"<div class='grid_5 divgambarproduk'><a href=produkdetail.php?id=".$data['id']."><img class='gambarproduk' src='$gambar' width=140 height = 170/></a></div>";
                             echo"<div class='grid_5'><p class='textnamaproduk center'>".$data['nama']."</p>";
                             echo"<p class='texthargaproduk center'>Rp. ".number_format($data['harga'])."</p></div>";
                             echo"</div>";
@@ -119,7 +119,7 @@
                          while($data = mysqli_fetch_assoc($result)){
                             $gambar = $data['gambar'];
                             echo"<div class='grid_5 produk'>";
-                            echo"<div class='grid_5 divgambarproduk'><a href=produkdetail.php?id=".$data['id']."><img class='gambarproduk' src='$gambar'/></a></div>";
+                            echo"<div class='grid_5 divgambarproduk'><a href=produkdetail.php?id=".$data['id']."><img class='gambarproduk' src='$gambar' width=140 height = 170/></a></div>";
                             echo"<div class='grid_5'><p class='textnamaproduk center'>".$data['nama']."</p>";
                             echo"<p class='texthargaproduk center'>Rp. ".number_format($data['harga'])."</p></div>";
                             echo"</div>";
