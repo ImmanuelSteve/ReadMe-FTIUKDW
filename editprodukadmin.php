@@ -86,8 +86,17 @@
 			    </tr>
 			    <tr>
 				<td>Nilai / Ratting</td>
-				<td> : </td>
-				<td><input type="text" name="merek"/></td>
+                                <td>: </td>
+                                <td>
+                                    <select name='nilai'>
+                                    echo"<option value=''>Pilih Nilai</option>";
+				    echo"<option value='1'>1</option>";
+				    echo"<option value='2'>2</option>";
+				    echo"<option value='3'>3</option>";
+				    echo"<option value='4'>4</option>";
+				    echo"<option value='5'>5</option>";
+				    </select>
+                                </td>
 			    </tr>
 			    <tr>
 				<td>Produk</td>
@@ -97,6 +106,7 @@
                                     echo"<option value=''>Pilih Status</option>";
 				    echo"<option value='unggulan'>Produk Unggulan</option>";
 				    echo"<option value='baru'>Produk Baru</option>";
+				    echo"<option value='standar'>Produk Standar</option>";
 				    </select>
                                 </td>
 			    </tr>
