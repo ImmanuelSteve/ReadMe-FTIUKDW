@@ -1,8 +1,16 @@
 <?php
     session_start();
-    if($_SESSION['user']!=1){
-	header("location:index.php");
-    }
+    require("koneksi.php");
+    if(isset($_GET['id'])){
+        if($_SESSION['user']!=1){
+            header("location:index.php");
+        }else{
+                $id_produk = $_GET['id'];
+                $sql = "SELECT * FROM produk,detail WHERE produk.id = '".$id_produk."'AND detail.id = '".$id_produk."'";
+                $result = mysqli_query($koneksi,$sql);
+                $edit = mysqli_fetch_assoc($result);
+                //print_r($data);
+        }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +26,6 @@
     <script type="text/javascript" src="js/jquery.easing.min.js"></script>
     <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
     <script type="text/javascript" src="js/lamp.js"></script>
-    <script type="text/javascript" src="js/admin.js"></script>
 </head>
 
 <body>
@@ -30,7 +37,7 @@
             </div>
             <!--login-->
             <?php
-                $_SESSION['actionlogin'] = "editprodukadmin.php";
+                $_SESSION['actionlogin'] = "editdata.php";
                 include("login.php");
             ?>
             <div class="grid_24" id="header_nav">
@@ -51,50 +58,56 @@
         <div class="container_24">
             <div id="contentarea" class="grid_24">
 		<?php require("notifikasi.php"); ?>
-                <h1>Produk ReadMe Shop</h1>
-                <input type="submit" class="buttonadmin" value="Tambah Produk"/><br><br>
+                <h1>Ubah Produk ReadMe Shop</h1>
                 <div class="tambahadmin">
 		    <form method="post" action="tambahdata.php" enctype="multipart/form-data">
-			<table>
+			<input type="hidden" name="id" value=<?php echo $edit['id']; ?>>
+                        <input type="hidden" name="gambaredit" value=<?php echo $edit['gambar']; ?>>
+                        <table>
 			    <tr>
 				<td colspan=3 class="bold">Informasi Produk</td>
 			    </tr>
 			    <tr>
 				<td>Nama</td>
 				<td> : </td>
-				<td><input type="text" name="nama"/></td>
+				<td><input type="text" name="nama" value=<?php echo "'" .$edit['nama']. "'"; ?>/></td>
 			    </tr>
 			    <tr>
 				<td>Merek</td>
 				<td> : </td>
-				<td><input type="text" name="merek"/></td>
+				<td><input type="text" name="merek" value=<?php echo "'" .$edit['merek']. "'"; ?>/></td>
 			    </tr>
 			     <tr>
 				<td>Gambar (JPG)</td>
 				<td> : </td>
-				<td><input type="file" name="upload" size="60"></td>
+				<td><?php echo"<img src='".$edit['gambar']."' width=150 height=170/>"?><br><input type="file" name="upload" size="60"></td>
 			    </tr>
 			    <tr>
 				<td>Harga</td>
 				<td> : </td>
-				<td><input type="text" name="harga"/></td>
+				<td><input type="text" name="harga" value=<?php echo "'" .$edit['harga']. "'"; ?>/></td>
 			    </tr>
 			    <tr>
 				<td>Stok</td>
 				<td> : </td>
-				<td><input type="text" name="stok"/></td>
+				<td><input type="text" name="stok" value=<?php echo "'" .$edit['stok']. "'"; ?>/></td>
+			    </tr>
+                            <tr>
+				<td>Terjual</td>
+				<td> : </td>
+				<td><input type="text" name="terjual" value=<?php echo "'" .$edit['terjual']. "'"; ?>/></td>
 			    </tr>
 			    <tr>
 				<td>Nilai / Ratting</td>
                                 <td>: </td>
                                 <td>
                                     <select name='nilai'>
-                                    echo"<option value=''>Pilih Nilai</option>";
-				    echo"<option value='1'>1</option>";
-				    echo"<option value='2'>2</option>";
-				    echo"<option value='3'>3</option>";
-				    echo"<option value='4'>4</option>";
-				    echo"<option value='5'>5</option>";
+                                        <!--<option value=<?php echo "'" .$edit['nilai']. "'"; ?>><?php echo "" .$edit['nilai']. ""; ?></option>;-->
+                                        <option value='1'>1</option>;
+                                        <option value='2'>2</option>;
+                                        <option value='3'>3</option>;
+                                        <option value='4'>4</option>;
+                                        <option value='5'>5</option>;
 				    </select>
                                 </td>
 			    </tr>
@@ -103,10 +116,10 @@
                                 <td>: </td>
                                 <td>
                                     <select name='produk'>
-                                    echo"<option value=''>Pilih Status</option>";
-				    echo"<option value='unggulan'>Produk Unggulan</option>";
-				    echo"<option value='baru'>Produk Baru</option>";
-				    echo"<option value='standar'>Produk Standar</option>";
+                                   <!-- <option value=<?php echo "'" .$edit['status']. "'"; ?>><?php echo "Produk " .$edit['status']. ""; ?></option>;-->
+				    <option value='unggulan'>Produk Unggulan</option>;
+				    <option value='baru'>Produk Baru</option>;
+                                    <option value='standar'>Produk Standar</option>;
 				    </select>
                                 </td>
 			    </tr>
@@ -120,125 +133,82 @@
 				<td valign="top">Tipe Sim Card</td>
 				<td valign="top">:</td>
 				<td>
-				<textarea name="tipesim" rows="1" cols="50"></textarea>
+				<textarea name="tipesim" rows="1" cols="50"><?php echo $edit['Tipe_SimCard']; ?></textarea>
 				</td>
 			    </tr>
 			    <tr>
 				<td valign="top">Jaringan Data</td>
 				<td valign="top">:</td>
 				<td>
-				<textarea name="jaringandata" rows="1" cols="50"></textarea>
+				<textarea name="jaringandata" rows="1" cols="50"><?php echo $edit['Jaringan_Data']; ?></textarea>
 				</td>
 			    </tr>
 			    <tr>
 				<td valign="top">Jaringan Telepon</td>
 				<td valign="top">:</td>
 				<td>
-				<textarea name="jaringantelepon" rows="1" cols="50"></textarea>
+				<textarea name="jaringantelepon" rows="1" cols="50"><?php echo $edit['Jaringan_Telepon']; ?></textarea>
 				</td>
 			    </tr>
 			    <tr>
 				<td valign="top">Prosesor</td>
 				<td valign="top">:</td>
 				<td>
-				<textarea name="prosesor" rows="1" cols="50"></textarea>
+				<textarea name="prosesor" rows="1" cols="50"><?php echo $edit['Prosesor']; ?></textarea>
 				</td>
 			    </tr>
 			    <tr>
 				<td valign="top">RAM</td>
 				<td valign="top">:</td>
 				<td>
-				<textarea name="ram" rows="1" cols="50"></textarea>
+				<textarea name="ram" rows="1" cols="50"><?php echo $edit['RAM']; ?></textarea>
 				</td>
 			    </tr>
 			    <tr>
 				<td valign="top">Memori</td>
 				<td valign="top">:</td>
 				<td>
-				<textarea name="memori" rows="1" cols="50"></textarea>
+				<textarea name="memori" rows="1" cols="50"><?php echo $edit['Media_Penyimpanan']; ?></textarea>
 				</td>
 			    </tr>
 			    <tr>
 				<td valign="top">GPU</td>
 				<td valign="top">:</td>
 				<td>
-				<textarea name="gpu" rows="1" cols="50"></textarea>
+				<textarea name="gpu" rows="1" cols="50"><?php echo $edit['GPU']; ?></textarea>
 				</td>
 			    </tr>
 			    <tr>
 				<td valign="top">Layar</td>
 				<td valign="top">:</td>
 				<td>
-				<textarea name="layar" rows="1" cols="50"></textarea>
+				<textarea name="layar" rows="1" cols="50"><?php echo $edit['Layar']; ?></textarea>
 				</td>
 			    </tr>
 			    <tr>
 				<td valign="top">Kamera</td>
 				<td valign="top">:</td>
 				<td>
-				<textarea name="kamera" rows="1" cols="50"></textarea>
+				<textarea name="kamera" rows="1" cols="50"><?php echo $edit['Kamera']; ?></textarea>
 				</td>
 			    </tr>
 			    <tr>
 				<td valign="top">Baterai</td>
 				<td valign="top">:</td>
 				<td>
-				<textarea name="baterai" rows="1" cols="50"></textarea>
+				<textarea name="baterai" rows="1" cols="50"><?php echo $edit['Baterai']; ?></textarea>
 				</td>
 			    </tr>
 			    <tr>
 				<td valign="top">Fitur Tambahan</td>
 				<td valign="top">:</td>
 				<td>
-				<textarea name="fiturtambahan" rows="2" cols="50"></textarea>
+				<textarea name="fiturtambahan" rows="2" cols="50"><?php echo $edit['Fitur_Tambahan']; ?></textarea>
 				</td>
 			    </tr>
 			</table><br>
-			<input class="buttonTambahOk" type="submit" name="tambah" value="OK" />
+			<input class="buttonTambahOk" type="submit" name="edit" value="OK" />
 		    </form><br>
-		</div>
-		<div id="table">
-		<table class="center">
-                    <tr id="thead">
-			<td>No</td>
-			<td>Id Produk</td>
-                        <td>Gambar</td>
-                        <td>Merek</td>
-                        <td>Nama</td>
-                        <td>Harga</td>
-                        <td>Stok</td>
-                        <td>Nilai</td>
-                        <td>Waktu</td>
-                        <td>Terjual</td>
-                        <td>Status</td>
-                        <td colspan=2>Pilihan</td>
-		    </tr>
-		    <?php
-                        require("koneksi.php");
-                        $sql = "Select * from produk";
-                        $result = mysqli_query($koneksi,$sql);
-			$counter=0;
-                        while($data = mysqli_fetch_assoc($result))
-                        {
-                            echo "<tr>";
-                            echo "<td>".++$counter."</td>";
-			    echo "<td>".$data['id']."</td>";
-                            echo "<td><img src='".$data['gambar']."' width=150 height=170/></td>";
-                            echo "<td>".$data['merek']."</td>";
-                            echo "<td>".$data['nama']."</td>";
-                            echo "<td>".number_format($data['harga'])."</td>";
-                            echo "<td>".$data['stok']."</td>";
-                            echo "<td>".$data['nilai']."</td>";
-                            echo "<td>".$data['waktu_peluncuran']."</td>";
-                            echo "<td>".$data['terjual']."</td>";
-                            echo "<td>".$data['status']."</td>";
-                            echo "<td><a href=editdata.php?id=".$data['id'].">Ubah</a></td>";
-                            echo "<td><a href=hapusdata.php?id=".$data['id']." onClick=\"return confirm('Yakin Mau dihapus datanya ?')\">Hapus</a></td>";
-                            echo "</tr>";
-                        }
-                        mysqli_close($koneksi);
-		    ?>
-		</table>
 		</div>
             </div>
         </div>
@@ -248,6 +218,8 @@
     <!-- footer begin -->
     <?php
         require("footer.php");
+        }
+        mysqli_close($koneksi);
     ?>
     <!-- footer end -->
 </body>

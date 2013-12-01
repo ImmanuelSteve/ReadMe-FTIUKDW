@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(isset($_POST['tambah'])){
+    if(isset($_POST['tambah']) || isset($_POST['edit'])){
         require("koneksi.php");
         require("PasswordHash.php");
         $sql = "SELECT password FROM pengguna WHERE id ='".$_SESSION['user']."'";
@@ -13,8 +13,8 @@
         }
         if($check){
             $valid = TRUE;
-            if($_SESSION['actionlogin']=="editprodukadmin.php"){
-                if(!empty($_POST['tambah'])){
+            if($_SESSION['actionlogin']=="editprodukadmin.php" || $_SESSION['actionlogin']=="editdata.php"){
+                if(!empty($_POST['tambah']) || !empty($_POST['edit'])){
                     //informasi produk
                     if(trim($_POST['nama'])==""){
                        $valid = FALSE;
@@ -31,9 +31,12 @@
                         }else{
                             $valid = FALSE;
                         }
-                    }
-                    else{
-                        $valid = FALSE;
+                    }else{
+                        if( $_SESSION['actionlogin']=="editdata.php"){
+                            $uploadfile = $_POST['gambaredit'];
+                        }else{
+                            $valid = FALSE;
+                        }
                     }
                     if(trim($_POST['harga'] =="") || (strlen($_POST['harga'])>0 && !is_numeric($_POST['harga']))){
                        $valid = FALSE;
@@ -43,6 +46,13 @@
                     }
                     if(trim($_POST['nilai'] =="") || (strlen($_POST['nilai'])>0 && !is_numeric($_POST['nilai']))){
                        $valid = FALSE;
+                    }
+                    if( $_SESSION['actionlogin']=="editdata.php"){
+                        if(trim($_POST['terjual'] =="") || (strlen($_POST['terjual'])>0 && !is_numeric($_POST['terjual']))){
+                           $valid = FALSE;
+                        }else{
+                           $terjual = $_POST['terjual'];
+                        }
                     }
                     if(trim($_POST['produk'])==""){
                        $valid = FALSE;
@@ -80,12 +90,14 @@
                        $valid = FALSE;
                     }
                     if($valid){
-                        if(move_uploaded_file($_FILES['upload']['tmp_name'], $uploadfile)){
-                            //header("location:".$_SESSION['actionlogin']."");
-                            //$_SESSION['berhasil']="".$uploadfile."";
-                        }else{
-                            header("location:".$_SESSION['actionlogin']."");
-                            $_SESSION['gagal']="Upload gambar gagal !";
+                        if($_FILES['upload']['size'] != 0){
+                            if(move_uploaded_file($_FILES['upload']['tmp_name'], $uploadfile)){
+                                //header("location:".$_SESSION['actionlogin']."");
+                                //$_SESSION['berhasil']="".$uploadfile."";
+                            }else{
+                                header("location:".$_SESSION['actionlogin']."");
+                                $_SESSION['gagal']="Upload gambar gagal !";
+                            }
                         }
                         //informasi produk
                         $nama = $_POST['nama'];
@@ -95,8 +107,13 @@
                         $stok = $_POST['stok'];
                         $nilai = $_POST['nilai'];
                         $status = $_POST['produk'];
-                        $query = "INSERT into produk VALUES 
-                        (NULL,'".$merek."','".$nama."','".$harga."','".$gambar."','".$stok."','".$nilai."',CURRENT_TIMESTAMP,0,'".$status."')";
+                        if($_SESSION['actionlogin']=="editprodukadmin.php"){
+                            $query = "INSERT into produk VALUES 
+                            (NULL,'".$merek."','".$nama."','".$harga."','".$gambar."','".$stok."','".$nilai."',CURRENT_TIMESTAMP,0,'".$status."')";
+                        }else if($_SESSION['actionlogin']=="editdata.php"){
+                            $id = $_POST['id'];
+                            $query = "UPDATE produk SET merek = '".$merek."', nama = '".$nama."',harga = '".$harga."',gambar = '".$gambar."',stok = '".$stok."',nilai = '".$nilai."',terjual = '".$terjual."',status = '".$status."' WHERE id = " .$id;
+                        }
                         //spesifikasi produk
                         $tipesim = $_POST['tipesim'];
                         $jaringandata = $_POST['jaringandata'];
@@ -109,17 +126,32 @@
                         $kamera = $_POST['kamera'];
                         $baterai = $_POST['baterai'];
                         $fiturtambahan = $_POST['fiturtambahan'];
-                        $query2 = "INSERT into detail VALUES 
-                        (NULL,'".$tipesim."','".$jaringandata."','".$jaringantelepon."','".$prosesor."','".$ram."','".$memori."','".$gpu."','".$layar."','".$kamera."','".$baterai."','".$fiturtambahan."')";
+                        if($_SESSION['actionlogin']=="editprodukadmin.php"){
+                            $query2 = "INSERT into detail VALUES 
+                            (NULL,'".$tipesim."','".$jaringandata."','".$jaringantelepon."','".$prosesor."','".$ram."','".$memori."','".$gpu."','".$layar."','".$kamera."','".$baterai."','".$fiturtambahan."')";
+                        }else if($_SESSION['actionlogin']=="editdata.php"){
+                            $id = $_POST['id'];
+                            $query2 = "UPDATE detail SET Tipe_SimCard = '".$tipesim."', Jaringan_Data = '".$jaringandata."',Jaringan_Telepon = '".$jaringantelepon."',Prosesor = '".$prosesor."',RAM = '".$ram."',Media_Penyimpanan = '".$memori."',GPU = '".$gpu."',Layar = '".$layar."',Kamera = '".$kamera."',Baterai = '".$baterai."',Fitur_Tambahan = '".$fiturtambahan."' WHERE id = " .$id;
+                        }
                         if(mysqli_query($koneksi,$query) && mysqli_query($koneksi,$query2)){
-                            header("location:".$_SESSION['actionlogin']."");
-                            $_SESSION['berhasil']="Berhasil di tambah ke database";
+                            if($_SESSION['actionlogin']=="editdata.php"){
+                                header("location:editprodukadmin.php");
+                                $_SESSION['berhasil']="Berhasil di perbaharui ke database";
+                            }else{
+                                header("location:".$_SESSION['actionlogin']."");
+                                $_SESSION['berhasil']="Berhasil di tambah ke database";
+                            }
                         }else{
                             header("location:default.html");
                         }
                     }else{
-                        header("location:".$_SESSION['actionlogin']."");
-                        $_SESSION['gagal']="Gagal di tambah ke database. Pastikan semua inputan terisi";
+                        if($_SESSION['actionlogin']=="editdata.php"){
+                                header("location:editprodukadmin.php");
+                                 $_SESSION['gagal']="Gagal di perbaharui ke database. Pastikan semua inputan terisi";
+                        }else{
+                            header("location:".$_SESSION['actionlogin']."");
+                            $_SESSION['gagal']="Gagal di tambah ke database. Pastikan semua inputan terisi";
+                        }
                     } 
                 }
             }else if($_SESSION['actionlogin']=="edittestimoniadmin.php"){
