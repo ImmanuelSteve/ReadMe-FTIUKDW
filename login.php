@@ -1,6 +1,6 @@
 <?php
     require("koneksi.php");
-    require("PasswordHash.php");
+    require_once("PasswordHash.php");
     if(!empty($_SESSION['user'])) {
         echo "<div id='login' class='grid_20'>";
         echo "<form id='formlogin' class='right' action='logout.php' method='post'>";
@@ -49,20 +49,32 @@
                 $_SESSION['user'] = $id_pengguna;
                 if($_SESSION['user'] == 1){
                     $_SESSION['password']= $correct;
-                    header("location:http://".$_SERVER['HTTP_HOST']."". rtrim(dirname($_SERVER['PHP_SELF']), '/\\')."/penggunaadmin.php");
+                    //header("location:penggunaadmin.php");
+                    //header("location:http://readmeshop.revti.com/penggunaadmin.php");
                 }
                 else if($_SESSION['actionlogin'] == "daftar.php"){
-                    header("location:http://".$_SERVER['HTTP_HOST']."". rtrim(dirname($_SERVER['PHP_SELF']), '/\\')."/index.php");
+                    //header("location:index.php");
+                    //header("location:http://readmeshop.revti.com/index.php");
                 }
-                else{
-                    echo "<div id='login' class='grid_20'>";
-                    echo "<form id='formlogin' class='right' action='logout.php' method='post'>";
-                    echo "<img class='ava left' src='images/avatar.jpg' width: '64px' height='64px'>";
-                    echo "<span id='penyapa'>Selamat Datang, <br/><a href='profil.php'>".$nama_pengguna."</a></span></br>";
-                    echo "<input class='right logout' id='buttonlogin' type='submit' value='Keluar'>";
-                    echo "</form></div>";
-                    echo "<div class='clear'></div>";
+                echo "<div id='login' class='grid_20'>";
+                echo "<form id='formlogin' class='right' action='logout.php' method='post'>";
+                echo "<img class='ava left' src='images/avatar.jpg' width: '64px' height='64px'>";
+                $sql = "SELECT password,nama_pengguna FROM pengguna WHERE id ='".$_SESSION['user']."'";
+                $result = mysqli_query($koneksi,$sql);
+                $data = mysqli_fetch_assoc($result);
+                $t_hasher = new PasswordHash(8, FALSE);
+                $check=0;
+                if($_SESSION['user']==1){
+                $check = $t_hasher->CheckPassword($_SESSION['password'],$data['password']);
                 }
+                if($check==1){
+                   echo "<span id='penyapa'>Selamat datang,<br><a href='penggunaadmin.php'>".$data['nama_pengguna']."</a></span></br>";
+                }else{
+                echo "<span id='penyapa'>Selamat Datang, <br/><a href='profil.php'>".$data['nama_pengguna']."</a></span></br>";
+                }
+                echo "<input class='right logout' id='buttonlogin' type='submit' value='Keluar'>";
+                echo "</form></div>";
+                echo "<div class='clear'></div>";
             }
             else {
                 echo "<div id='login' class='grid_20'>";

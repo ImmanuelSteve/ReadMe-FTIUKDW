@@ -53,7 +53,7 @@
 	{
 	    $namapengguna = $_POST['namapengguna'];
 	    $email = $_POST['email'];
-            require("PasswordHash.php");
+            require_once("PasswordHash.php");
             $t_hasher = new PasswordHash(8, FALSE);
             $katasandi = $_POST['katasandi'];
             $hash = $t_hasher->HashPassword($katasandi);
@@ -65,7 +65,8 @@
 	
 	    if(mysqli_query($koneksi,$query)){
                 echo "<script type='text/javascript'>alert('Daftar berhasil!');</script>";
-                header("location:http://".$_SERVER['HTTP_HOST']."". rtrim(dirname($_SERVER['PHP_SELF']), '/\\')."/index.php");
+                //header("location:index.php");
+                //header("location:http://readmeshop.revti.com/index.php");
             }
         }
     }
