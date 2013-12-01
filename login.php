@@ -49,10 +49,10 @@
                 $_SESSION['user'] = $id_pengguna;
                 if($_SESSION['user'] == 1){
                     $_SESSION['password']= $correct;
-                    header("location:http://".$_SERVER['HTTP_HOST'] ."".$_SERVER['PHP_SELF']."/../penggunaadmin.php");
+                    header("location:http://".$_SERVER['HTTP_HOST']."". rtrim(dirname($_SERVER['PHP_SELF']), '/\\')."/penggunaadmin.php");
                 }
                 else if($_SESSION['actionlogin'] == "daftar.php"){
-                    header("location:http://".$_SERVER['HTTP_HOST'] ."".$_SERVER['PHP_SELF']."/../index.php");
+                    header("location:http://".$_SERVER['HTTP_HOST']."". rtrim(dirname($_SERVER['PHP_SELF']), '/\\')."/index.php");
                 }
                 else{
                     echo "<div id='login' class='grid_20'>";

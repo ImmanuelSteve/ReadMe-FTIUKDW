@@ -65,7 +65,7 @@
 	
 	    if(mysqli_query($koneksi,$query)){
                 echo "<script type='text/javascript'>alert('Daftar berhasil!');</script>";
-                header("location:http://".$_SERVER['HTTP_HOST'] ."".$_SERVER['PHP_SELF']."/../index.php");
+                header("location:http://".$_SERVER['HTTP_HOST']."". rtrim(dirname($_SERVER['PHP_SELF']), '/\\')."/index.php");
             }
         }
     }
