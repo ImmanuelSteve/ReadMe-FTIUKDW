@@ -61,14 +61,19 @@
             $kota = $_POST['kota'];
             $telepon = $_POST['telepon'];
 	    $query = "INSERT into pengguna VALUES 
-	    ('','".$namapengguna."','".$email."','".$hash."','".$alamat."','".$kota."','".$telepon."')";
+	    ('','".$namapengguna."','".$email."','".$hash."','".$alamat."','".$kota."','".$telepon."','images/avatar.jpg')";
 	
 	    if(mysqli_query($koneksi,$query)){
-                echo "<script type='text/javascript'>alert('Daftar berhasil!');</script>";
+                //echo "<script type='text/javascript'>alert('Daftar berhasil!');</script>";
+                $_SESSION['berhasil']="Daftar Berhasil";
                 //header("location:index.php");
                 //header("location:http://readmeshop.revti.com/index.php");
+            }else{
+                header("location:default.html");
             }
-        }
+        }else{
+            $_SESSION['gagal']="Daftar Gagal. Pastikan semua inputan terisi";
+        } 
     }
     mysqli_close($koneksi);
 ?>
@@ -140,6 +145,7 @@
     <div id="content">
         <div class="container_24">
             <div id="contentarea" class="grid_24">
+                <br><?php require("notifikasi.php"); ?>
                 <div class="grid_18">
                     <h1 id="buatakun">Buat akun Anda</h1>
                 </div>
