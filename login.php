@@ -8,15 +8,11 @@
         $sql = "SELECT gambar FROM pengguna WHERE id='".$id."'";
         $result = mysqli_query($koneksi,$sql);
         $data = mysqli_fetch_assoc($result);
-        
+                
         if($data['gambar'] === ""){
             $data['gambar'] = "images/avatar.jpg";
         }
-        ?>
-
-        <img class="left" src="<?php echo $data['gambar']; ?>" width="64px" height="64px">
-
-        <?php
+        echo "<img class='ava left' src='".$data['gambar']."' width: '64px' height='64px'>";
         $sql = "SELECT password,nama_pengguna FROM pengguna WHERE id ='".$_SESSION['user']."'";
         $result = mysqli_query($koneksi,$sql);
         $data = mysqli_fetch_assoc($result);
@@ -70,7 +66,15 @@
                 }
                 echo "<div id='login' class='grid_20'>";
                 echo "<form id='formlogin' class='right' action='logout.php' method='post'>";
-                echo "<img class='ava left' src='images/avatar.jpg' width: '64px' height='64px'>";
+                $id = $_SESSION['user'];
+                $sql = "SELECT gambar FROM pengguna WHERE id='".$id."'";
+                $result = mysqli_query($koneksi,$sql);
+                $data = mysqli_fetch_assoc($result);
+                
+                if($data['gambar'] === ""){
+                    $data['gambar'] = "images/avatar.jpg";
+                }
+                echo "<img class='ava left' src='".$data['gambar']."' width: '64px' height='64px'>";
                 $sql = "SELECT password,nama_pengguna FROM pengguna WHERE id ='".$_SESSION['user']."'";
                 $result = mysqli_query($koneksi,$sql);
                 $data = mysqli_fetch_assoc($result);
