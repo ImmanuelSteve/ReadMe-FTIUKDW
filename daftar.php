@@ -64,8 +64,8 @@
 	    ('','".$namapengguna."','".$email."','".$hash."','".$alamat."','".$kota."','".$telepon."','images/avatar.jpg')";
 	
 	    if(mysqli_query($koneksi,$query)){
-                //echo "<script type='text/javascript'>alert('Daftar berhasil!');</script>";
-                $_SESSION['berhasil']="Daftar Berhasil";
+                echo "<script type='text/javascript'>alert('Daftar berhasil!');window.location='index.php';</script>";
+                //$_SESSION['berhasil']="Daftar Berhasil";
                 //header("location:index.php");
                 //header("location:http://readmeshop.revti.com/index.php");
             }else{

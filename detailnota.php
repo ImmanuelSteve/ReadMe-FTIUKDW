@@ -140,44 +140,40 @@ require("koneksi.php"); ?>
 
                 <div class="clear"></div>
                 <br/><br/>
-                    <h1 class="grid_18 infoakun">Riwayat Pembelian</h1>
+                    <h1 class="grid_18 infoakun">Detail Nota</h1>
                     <div class= "grid_18" id="riwayat_pembelian">
                     <div id="table">
                     <table class="center" border="1">
                         <tr id="thead" class="bold">
                                 <td>No</td>
-                                <td>No. Nota</td>
-                                <td>Tanggal Transaksi</td>
-                                <td>Pengirim</td>
-                                <td>Tujuan</td>
-                                <td>Kota</td>
-                                <td>Total Harga</td>
-                                <td>Jasa Pengiriman</td>
-                                <td>Detail</td>
+                                <td>Nama Produk</td>
+                                <td>Jumlah</td>
+                                <td>Harga</td>
                         </tr>
                         <?php
                         require("koneksi.php");
                             $id = $_SESSION['user'];
-                            $sql = "SELECT nota.id_nota, nota.id_pengguna, nota.tanggal_transaksi, nota.pengirim, nota.tujuan, nota.kota, nota.telepon, nota.total_harga, nota.id_pengiriman, pengiriman.nama FROM nota, pengiriman WHERE pengiriman.id=nota.id_pengiriman AND nota.id_pengguna='".$id."'";
+                            $sql = "SELECT nota.total_harga,barang.*,produk.nama,produk.harga FROM barang, produk,nota WHERE barang.id_nota='".$_GET['id']."' AND barang.id_produk = produk.id AND nota.id_nota = barang.id_nota";
                             $result = mysqli_query($koneksi,$sql);
                             $counter=0;
                             while($data = mysqli_fetch_assoc($result))
                             {
                                 echo "<tr>";
                                 echo "<td>".++$counter."</td>";
-                                echo "<td>".$data['id_nota']."</td>";
-                                echo "<td>".$data['tanggal_transaksi']."</td>";
-                                echo "<td>".$data['pengirim']."</td>";
-                                echo "<td>".$data['tujuan']."</td>";
-                                echo "<td>".$data['kota']."</td>";
-                                echo "<td>Rp. ".number_format($data['total_harga'])."</td>";
                                 echo "<td>".$data['nama']."</td>";
-                                echo "<td><a href=detailnota.php?id=".$data['id_nota'].">".'Lihat'."</a></td>";
+                                echo "<td>".$data['jumlah']."</td>";
+                                echo "<td>".number_format($data['harga']*$data['jumlah'])."</td>";
                                 echo "</tr>";
                             }
+                            $sql = "SELECT total_harga FROM nota WHERE id_nota = ".$_GET['id'];
+                            $result = mysqli_query($koneksi,$sql);
+                            $data = mysqli_fetch_assoc($result);
+                            echo "<tr><td colspan='4' class='textright'><strong>Total :</strong> ".number_format($data['total_harga'])."</td></tr>";
                             mysqli_close($koneksi);
                         ?>
                     </table>
+                    <br>
+                    <span id="buttonkembali"><a href="profil.php">Kembali</a></span>
                 </div>
             </div>
         </div>

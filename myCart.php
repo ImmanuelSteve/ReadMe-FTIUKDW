@@ -9,7 +9,11 @@ $total = 0;
         <span class="cart_icon left"></span> 
         <span class="left"><?php 
 	        	if (!empty($_SESSION['cart'])) {
-	        		echo count($_SESSION['cart']);
+			    $jumlah = 0;
+	        	    foreach ($_SESSION['cart'] as $product_id => $quantity) {
+				$jumlah = $jumlah + $quantity;
+			    }
+			    echo"".$jumlah."";
 	        	}
 	        	else
 	        	{

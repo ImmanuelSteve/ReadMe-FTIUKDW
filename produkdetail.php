@@ -183,9 +183,9 @@
                                     echo"<form method='GET' action='produk.php' id='formbeli'>";
                                     echo"<input type='hidden' name ='id' value='".$id."'>";
                                     echo"<br/><br/>";
-                                    echo"<label>Jumlah : </label>
-                                    <input type='text' name='jumlah' value='1'/>
-                                    <br/><br/>";
+                                    //echo"<label>Jumlah : </label>
+                                    //<input type='text' name='jumlah' value='1'/>
+                                    //<br/><br/>";
                                     echo"<input id='buttonbeli' type='submit' value='Beli'/>";
                                     echo "<input type='hidden' value='add' name='action'>";
                                     echo"</form>";

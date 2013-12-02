@@ -1,0 +1,10 @@
+$(document).ready(function(){
+    $("#norekening").hide();
+    $("#norekening").slideUp();
+    $("#transfer").click(function(){
+        $("#norekening").slideDown("slow");
+    })
+    $("#cod").click(function(){
+        $("#norekening").slideUp();
+    })
+});

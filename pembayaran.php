@@ -5,45 +5,72 @@
     
     if(!empty($_SESSION['user']) && isset($_POST['confirm'])) {
         if(trim($_POST['pangirim'])=="")
-    {
+        {
         $valid = FALSE;
-    }
+        }
         if(trim($_POST['alamat'])=="")
-    {
+        {
         $valid = FALSE;
-    }
+        }
         if(trim($_POST['kota'])=="")
-    {
+        {
         $valid = FALSE;
-    }
+        }
         if(trim($_POST['telepon'])=="")
-    {
+        {
         $valid = FALSE;
-    }
+        }
         if(strlen($_POST['telepon'])>0 && !is_numeric($_POST['telepon']))
-    {
+        {
         $valid = FALSE;
-    }
+        }
         if($valid)
-    {
-        $pengirim = $_POST['pangirim'];
-        $alamat = $_POST['alamat'];
-        $kota_id = $_POST['kota'];
-        $telepon = $_POST['telepon'];
-        $jasa = $_POST['kota'];
-        $query_harga = "SELECT kota_tujuan, harga FROM pengiriman WHERE id = ".$kota_id."";
-        $result_harga = mysqli_query($koneksi, $query_harga) or die(mysql_error());
-        $data_pengiriman = mysqli_fetch_assoc($result_harga) or die(mysql_error());
-        $kota = $data_pengiriman['kota_tujuan'];
-        $total_harga = $_SESSION['total'] + $data_pengiriman['harga'];
-        $query = "INSERT INTO `nota`(`id_nota`, `id_pengguna`, `tanggal_transaksi`, `pengirim`, `tujuan`, `kota`, `telepon`, `total_harga`, `id_pengiriman`)
-        VALUES (NULL,'".$_SESSION['user']."',CURRENT_TIMESTAMP,'".$pengirim."','".$alamat."','".$kota."','".$telepon."','".$total_harga."','".$kota_id."')";
-        if(mysqli_query($koneksi,$query)){
-                echo "<script>alert('Terima Kasih sudah berbelanja di ReadMe Shop!');</script>";
-                header("location:index.php");
+        {
+            $pengirim = $_POST['pangirim'];
+            $alamat = $_POST['alamat'];
+            $kota_id = $_POST['kota'];
+            $telepon = $_POST['telepon'];
+            $jasa = $_POST['kota'];
+            $query_harga = "SELECT kota_tujuan, harga FROM pengiriman WHERE id = ".$kota_id."";
+            $result_harga = mysqli_query($koneksi, $query_harga);
+            $data_pengiriman = mysqli_fetch_assoc($result_harga);
+            $kota = $data_pengiriman['kota_tujuan'];
+            $total_harga = $_SESSION['total'] + $data_pengiriman['harga'];
+            $query = "INSERT INTO `nota`(`id_nota`, `id_pengguna`, `tanggal_transaksi`, `pengirim`, `tujuan`, `kota`, `telepon`, `total_harga`, `id_pengiriman`)
+            VALUES (NULL,'".$_SESSION['user']."',CURRENT_TIMESTAMP,'".$pengirim."','".$alamat."','".$kota."','".$telepon."','".$total_harga."','".$kota_id."')";
+            if(mysqli_query($koneksi,$query)){
+                $query_nota = "SELECT id_nota FROM nota ORDER BY id_nota DESC LIMIT 0,1";
+                $result_nota = mysqli_query($koneksi, $query_nota);
+                $data_nota = mysqli_fetch_assoc($result_nota);
+                $query_barang = "INSERT into barang VALUES";
+                $jumlah = 0;
+                foreach ($_SESSION['cart'] as $product_id => $quantity) {
+                    if ($jumlah >= 1) $query_barang .= ", ";
+                    ++$jumlah;
+                    $query_barang .= "(NULL,'".$data_nota['id_nota']."','".$product_id."','".$quantity."')";
+                }
+                //echo"".$query_barang."";
+                if(mysqli_query($koneksi,$query_barang)){
+                        //$_SESSION['berhasil']="Transaksi Berhasil. Terima Kasih sudah berbelanja di ReadMe Shop!";
+                        //$query_updatebarang = "SELECT id_produk,jumlah WHERE id_nota = ".$data_nota['id_nota']."";
+                        //$result_updatebarang = mysqli_query($koneksi,$query_updatebarang);
+                        //while($barang=mysqli_fetch_assoc($result_updatebarang)){
+                        //    $query_update = "UPDATE produk SET terjual=terjual+".$barang['jumlah'].",stok=stok-".$barang['stok']."where id=2";
+                        //    if(mysqli_query($koneksi,$query_update)){
+                        //        echo"jalan";
+                        //    }
+                        //}
+                        $_SESSION['cart']="";
+                        echo "<script>alert('Terima Kasih sudah berbelanja di ReadMe Shop!');
+                        window.location='index.php';</script>";
+                }
+                //$_SESSION['berhasil']="Transaksi Berhasil. Terima Kasih sudah berbelanja di ReadMe Shop!";
+                //header("location:index.php");
                 //header("location:http://readmeshop.revti.com/index.php");
             }
-    }
+        }else{
+            $_SESSION['gagal']="Transaksi Gagal. Pastikan semua inputan terisi";
+        } 
     }
     mysqli_close($koneksi);
 ?>
@@ -62,6 +89,7 @@
     <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
     <script type="text/javascript" src="js/lamp.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
+    <script type="text/javascript" src="js/pembayaran.js"></script>
 </head>
 
 <body>
@@ -115,7 +143,7 @@
     <div id="content">
         <div class="container_24">
             <div id="contentarea" class="grid_24">
-                
+                <br><?php require("notifikasi.php"); ?>
                 <!-- cek sudah login belom -->
                 <?php if(!empty($_SESSION['user'])) { ?>
                 <div class="grid_18">
@@ -257,13 +285,18 @@
                     <div class="clear"></div>
                     <!-- payment method -->
                     <div class="grid_18" id="method">
-                        <h1 id="buatakun">Metode Pembayaran</h1>
-                        <input type="radio" name="method" value="1"><img src="images/cash_on_delivery.png" width="180px" height="90px" title="Cash on Delivery"></input>
-                        <input type="radio" name="method" value="2"><img src="images/credit-cards-icon.png" width="180px" height="90px" title="Transfer melalui Bank"></input>
+                        <h1 id="buatakun">Metode Pembayaran*</h1>
+                        <input id="cod" type="radio" name="method" value="1"><img src="images/cash_on_delivery.png" width="180px" height="90px" title="Cash on Delivery"></input>
+                        <input id="transfer" type="radio" name="method" value="2"><img src="images/credit-cards-icon.png" width="180px" height="90px" title="Transfer melalui Bank"></input>
+                    </div>
+                    <div class="grid_18" id="norekening">
+                        <label class="grid_3">No Rekening*</label>
+                        <input type = "text" name="rekening"></input>
+                        <br><br><br>
                     </div>
                     <div class="clear"></div>
                     <div class="grid_18">
-                        <input type="checkbox" name="syarat" value=""><a href="kondisi.php" target="blank">Syarat dan Kondisi</a><br>
+                        <input type="checkbox" name="syarat" value=""><a href="syarat&kondisi.php" target="blank"> Syarat dan Kondisi*</a><br><br>
                     </div>
                     <div class="clear"></div>
                     <div class="grid_18">

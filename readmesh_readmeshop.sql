@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2013 at 12:50 PM
+-- Generation Time: Dec 02, 2013 at 07:15 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -33,16 +33,18 @@ CREATE TABLE IF NOT EXISTS `barang` (
   `id_nota` int(11) NOT NULL,
   `id_produk` int(11) NOT NULL,
   `jumlah` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `Id_Barang` (`id_produk`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `barang`
 --
 
 INSERT INTO `barang` (`id`, `id_nota`, `id_produk`, `jumlah`) VALUES
-(1, 1, 1, 1);
+(1, 1, 2, 2),
+(2, 2, 2, 1),
+(3, 2, 3, 1),
+(4, 2, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -97,14 +99,15 @@ CREATE TABLE IF NOT EXISTS `nota` (
   `total_harga` int(11) NOT NULL,
   `id_pengiriman` int(11) NOT NULL,
   PRIMARY KEY (`id_nota`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `nota`
 --
 
 INSERT INTO `nota` (`id_nota`, `id_pengguna`, `tanggal_transaksi`, `pengirim`, `tujuan`, `kota`, `telepon`, `total_harga`, `id_pengiriman`) VALUES
-(1, 4, '2013-12-02', 'Steve', 'jl raya banjar', 'Yogyakarta', '082242434332', 20887000, 5);
+(1, 4, '2013-12-02', 'Steve', 'jl raya banjar', 'Yogyakarta', '082242434332', 8998000, 5),
+(2, 4, '2013-12-02', 'Steve', 'jl raya banjar', 'Kebumen', '082242434332', 18816900, 3);
 
 -- --------------------------------------------------------
 
@@ -190,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `produk` (
 
 INSERT INTO `produk` (`id`, `merek`, `nama`, `harga`, `gambar`, `stok`, `nilai`, `waktu_peluncuran`, `terjual`, `status`) VALUES
 (1, 'Samsung', 'Samsung Galaxy Note 3', 8880000, 'images/samsung-galaxy-note-3.jpg', 5, 4, '2013-10-27 14:23:52', 5, 'unggulan'),
-(2, 'Lenovo', 'Lenovo K900', 4499000, 'images/lenovo-k900.jpg', 2, 1, '2013-10-29 10:21:33', 4, 'unggulan'),
+(2, 'Lenovo', 'Lenovo K900', 4499000, 'images/lenovo-k900.jpg', 2, 1, '2013-10-29 10:21:33', 4, 'baru'),
 (3, 'Sony', 'Sony Xperia Z Ultra', 7499000, 'images/sony-xperia-z-ultra.jpg', 1, 5, '2013-10-29 10:30:05', 2, 'unggulan'),
 (4, 'HTC', 'HTC One', 7300000, 'images/htc-one.jpg', 3, 4, '2013-10-30 13:02:35', 2, 'baru'),
 (5, 'Apple', 'iPhone 5', 9000000, 'images/apple-iphone-5.jpg', 2, 4, '2013-10-30 14:50:05', 5, 'baru'),
