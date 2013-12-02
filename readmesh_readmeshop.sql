@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2013 at 05:25 AM
+-- Generation Time: Dec 02, 2013 at 07:29 AM
 -- Server version: 5.5.32
--- PHP Version: 5.4.16
+-- PHP Version: 5.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -21,6 +21,20 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `readmesh_readmeshop` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `readmesh_readmeshop`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `barang`
+--
+
+CREATE TABLE IF NOT EXISTS `barang` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_produk` int(11) NOT NULL,
+  `id_nota` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `Id_Barang` (`id_produk`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -65,10 +79,16 @@ INSERT INTO `detail` (`Id`, `Tipe_SimCard`, `Jaringan_Data`, `Jaringan_Telepon`,
 --
 
 CREATE TABLE IF NOT EXISTS `nota` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_nota` int(11) NOT NULL,
+  `id_nota` int(11) NOT NULL AUTO_INCREMENT,
   `id_pengguna` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  `tanggal_transaksi` date NOT NULL,
+  `pengirim` varchar(255) NOT NULL,
+  `tujuan` varchar(255) NOT NULL,
+  `kota` varchar(255) NOT NULL,
+  `telepon` varchar(16) NOT NULL,
+  `total_harga` int(11) NOT NULL,
+  `id_pengiriman` int(11) NOT NULL,
+  PRIMARY KEY (`id_nota`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -107,18 +127,18 @@ INSERT INTO `pengguna` (`id`, `nama_pengguna`, `email`, `password`, `alamat`, `k
 --
 
 CREATE TABLE IF NOT EXISTS `pengiriman` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Nama` varchar(100) NOT NULL,
-  `Kota_Tujuan` varchar(100) NOT NULL,
-  `Harga` int(11) NOT NULL,
-  PRIMARY KEY (`Id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(100) NOT NULL,
+  `kota_tujuan` varchar(100) NOT NULL,
+  `harga` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `pengiriman`
 --
 
-INSERT INTO `pengiriman` (`Id`, `Nama`, `Kota_Tujuan`, `Harga`) VALUES
+INSERT INTO `pengiriman` (`id`, `nama`, `kota_tujuan`, `harga`) VALUES
 (1, 'JNE', 'Kebumen', 19000),
 (2, 'Tiki', 'Kebumen', 28000),
 (3, 'Pos Indonesia', 'Kebumen', 19900),
@@ -255,26 +275,6 @@ INSERT INTO `testimoni` (`id`, `id_pengguna`, `waktu`, `isi`) VALUES
 (5, 4, '2013-11-17 15:13:35', 'jarang2 ni nemu toko online yang pelayanannya mantab abisss..'),
 (6, 3, '2013-11-24 17:09:32', 'ganteng'),
 (7, 3, '2013-11-24 17:09:57', 'aaaaa');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `transaksi`
---
-
-CREATE TABLE IF NOT EXISTS `transaksi` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_produk` int(11) NOT NULL,
-  `id_pengiriman` int(11) NOT NULL,
-  `total_harga_barang` int(11) NOT NULL,
-  `biaya_kirim` int(11) NOT NULL,
-  `potongan_harga` int(11) NOT NULL,
-  `total_harga_dibayarkan` int(11) NOT NULL,
-  `tanggal_transaksi` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `Id_Barang` (`id_produk`),
-  UNIQUE KEY `Id_Pengiriman` (`id_pengiriman`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Constraints for dumped tables
