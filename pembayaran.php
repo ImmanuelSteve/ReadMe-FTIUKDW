@@ -39,7 +39,7 @@
         $query = "INSERT INTO `nota`(`id_nota`, `id_pengguna`, `tanggal_transaksi`, `pengirim`, `tujuan`, `kota`, `telepon`, `total_harga`, `id_pengiriman`)
         VALUES (NULL,'".$_SESSION['user']."',CURRENT_TIMESTAMP,'".$pengirim."','".$alamat."','".$kota."','".$telepon."','".$total_harga."','".$kota_id."')";
         if(mysqli_query($koneksi,$query)){
-                //echo "<script type='text/javascript'>alert('Daftar berhasil!');</script>";
+                echo "<script type='text/javascript'>alert('Daftar berhasil!');</script>";
                 header("location:index.php");
                 //header("location:http://readmeshop.revti.com/index.php");
             }
@@ -257,8 +257,13 @@
                     <div class="clear"></div>
                     <!-- payment method -->
                     <div class="grid_18" id="method">
+                        <h1 id="buatakun">Metode Pembayaran</h1>
                         <input type="radio" name="method" value="1"><img src="images/cash_on_delivery.png" width="180px" height="90px" title="Cash on Delivery"></input>
                         <input type="radio" name="method" value="2"><img src="images/credit-cards-icon.png" width="180px" height="90px" title="Transfer melalui Bank"></input>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="grid_18">
+                        <input type="checkbox" name="syarat" value=""><a href="kondisi.php" target="blank">Syarat dan Kondisi</a><br>
                     </div>
                     <div class="clear"></div>
                     <div class="grid_18">
@@ -272,7 +277,7 @@
                 <div class="grid_18">
                     <h1 id="gagal">Silahkan masuk ke akun Anda terlebih dahulu.</h1>
                 </div>
-                
+
                 <?php }?>
                 
             </div>
