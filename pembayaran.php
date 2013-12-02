@@ -39,7 +39,7 @@
         $query = "INSERT INTO `nota`(`id_nota`, `id_pengguna`, `tanggal_transaksi`, `pengirim`, `tujuan`, `kota`, `telepon`, `total_harga`, `id_pengiriman`)
         VALUES (NULL,'".$_SESSION['user']."',CURRENT_TIMESTAMP,'".$pengirim."','".$alamat."','".$kota."','".$telepon."','".$total_harga."','".$kota_id."')";
         if(mysqli_query($koneksi,$query)){
-                echo "<script type='text/javascript'>alert('Daftar berhasil!');</script>";
+                echo "<script>alert('Terima Kasih sudah berbelanja di ReadMe Shop!');</script>";
                 header("location:index.php");
                 //header("location:http://readmeshop.revti.com/index.php");
             }
