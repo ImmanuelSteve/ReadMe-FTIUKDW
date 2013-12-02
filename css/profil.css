@@ -1,0 +1,59 @@
+#contentarea{
+    height : 900px;
+    background-color: white;
+    padding-bottom : 10px;
+}
+
+#contentarea .grid_18{
+    margin-left: 110px;
+}
+
+#contentarea .grid_9{
+    margin-left: 40px;
+}
+
+.infoakun{
+    color: rgb(3,77,164);  
+}
+
+ul{
+    list-style-type: none;
+}
+
+#informasiumum{
+    background-color: rgb(3,77,164);
+    color: rgb(218,218,218);
+    padding-left : 20px;
+}
+
+#informasi_user{
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    background-color: rgb(238,238,238);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width : 730px; 
+    margin-left: 40px;
+}
+
+h3,#buttonsimpan{
+    margin-top: 10px;
+}
+
+#buttonsimpan{
+    cursor: pointer;
+}
+
+.boxImg{
+
+    width : 150px;
+    height : 150px;
+    margin-left: 100px;
+
+}
+
+.tombol{
+    margin-left: 20px;
+}
+
