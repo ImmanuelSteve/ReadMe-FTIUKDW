@@ -152,7 +152,7 @@
                             echo "<div class='clear'></div>";
                             echo "<div class='command'>
                                 <a class='detail nodecor produk_menu' href=produkdetail.php?id=".$data['id'].">Detail</a>
-                                <a class='beli nodecor produk_menu' href='#'>Beli</a>
+                                <a class='beli nodecor produk_menu' href='produk.php?action=add&id=".$data['id']."'>Beli</a>
                                 </div>";
                             echo "</div><hr/></div>";
                         }

@@ -1,6 +1,7 @@
 #contentarea{
     min-height: 600px;
     background-color: white;
+    padding-bottom: 40px;
 }
 
 #contentarea .grid_18{

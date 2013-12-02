@@ -182,13 +182,7 @@
                                     echo"</div>";
                                     echo"<form method='GET' action='produk.php' id='formbeli'>";
                                     echo"<input type='hidden' name ='id' value='".$id."'>";
-                                    echo"<label>Warna : </label>
-                                    <select name='warna'>
-                                        <option value='putih'>Putih</option>
-                                        <option value='hitam'>Hitam</option>
-                                        <option value='biru'>Biru</option>
-                                    </select>
-                                    <br/><br/>";
+                                    echo"<br/><br/>";
                                     echo"<label>Jumlah : </label>
                                     <input type='text' name='jumlah' value='1'/>
                                     <br/><br/>";
