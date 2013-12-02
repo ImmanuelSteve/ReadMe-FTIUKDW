@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2013 at 06:39 PM
+-- Generation Time: Dec 02, 2013 at 05:25 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -61,6 +61,19 @@ INSERT INTO `detail` (`Id`, `Tipe_SimCard`, `Jaringan_Data`, `Jaringan_Telepon`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `nota`
+--
+
+CREATE TABLE IF NOT EXISTS `nota` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_nota` int(11) NOT NULL,
+  `id_pengguna` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pengguna`
 --
 
@@ -72,6 +85,7 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
   `alamat` varchar(100) NOT NULL,
   `kota` varchar(50) NOT NULL,
   `telepon` varchar(25) NOT NULL,
+  `gambar` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
@@ -79,12 +93,12 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
 -- Dumping data for table `pengguna`
 --
 
-INSERT INTO `pengguna` (`id`, `nama_pengguna`, `email`, `password`, `alamat`, `kota`, `telepon`) VALUES
-(1, 'Admin', 'admin@gmail.com', '$2a$08$mrMbM.Pkt2/rX1QOalsgf.YwtQ26f12ewXn6UIBwWPOx4nUykqLwe', 'DutaWacana', 'Jogjakarta', '08123456789'),
-(2, 'Fandi', 'fandi.wirawan@gmail.com', '$2a$08$7RDbHoWFfQuOubgaUHTn/.xI3rvr42hNESfgBrII7R7hEroPnbiBq', 'Jl. Revolusi, Kebumen', 'Kebumen', '081999999999'),
-(3, 'Danny', 'danny@yahoo.com', '$2a$08$H8B9WJLoi.GAF/yN7l9q7eRHUzFYARL1MWxULeMAw5Vbyu4DhKMI.', 'gang nanas, Yogyakarta', 'Yogyakarta', '0821234243243'),
-(4, 'Steve', 'steve@gmail.com', '$2a$08$t9Ts1Jk.INeRjaq9.U7Mg.eP/AboFCn6UE2DdkIUo7E8SQTjaG2bS', 'jl raya banjar', 'Banjar', '082242434332'),
-(5, 'Progweb', 'progweb@gmail.com', '$2a$08$Nlx2eGtOkz35d7e38QPqk.l8ZwRFYwT4WmcpBXw/.hXcJCfRujlU6', 'jogja', 'jogja', '0821313322322');
+INSERT INTO `pengguna` (`id`, `nama_pengguna`, `email`, `password`, `alamat`, `kota`, `telepon`, `gambar`) VALUES
+(1, 'Admin', 'admin@gmail.com', '$2a$08$mrMbM.Pkt2/rX1QOalsgf.YwtQ26f12ewXn6UIBwWPOx4nUykqLwe', 'DutaWacana', 'Jogjakarta', '08123456789', 'images/avatar.jpg'),
+(2, 'Fandi', 'fandi.wirawan@gmail.com', '$2a$08$7RDbHoWFfQuOubgaUHTn/.xI3rvr42hNESfgBrII7R7hEroPnbiBq', 'Jl. Revolusi, Kebumen', 'Kebumen', '081999999999', 'images/avatar.jpg'),
+(3, 'Danny', 'danny@yahoo.com', '$2a$08$H8B9WJLoi.GAF/yN7l9q7eRHUzFYARL1MWxULeMAw5Vbyu4DhKMI.', 'gang nanas, Yogyakarta', 'Yogyakarta', '0821234243243', 'images/avatar.jpg'),
+(4, 'Steve', 'steve@gmail.com', '$2a$08$t9Ts1Jk.INeRjaq9.U7Mg.eP/AboFCn6UE2DdkIUo7E8SQTjaG2bS', 'jl raya banjar', 'Banjar', '082242434332', 'images/avatar.jpg'),
+(5, 'Progweb', 'progweb@gmail.com', '$2a$08$Nlx2eGtOkz35d7e38QPqk.l8ZwRFYwT4WmcpBXw/.hXcJCfRujlU6', 'jogja', 'jogja', '0821313322322', 'images/avatar.jpg');
 
 -- --------------------------------------------------------
 
@@ -97,7 +111,6 @@ CREATE TABLE IF NOT EXISTS `pengiriman` (
   `Nama` varchar(100) NOT NULL,
   `Kota_Tujuan` varchar(100) NOT NULL,
   `Harga` int(11) NOT NULL,
-  `Harga_String` varchar(50) NOT NULL,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
@@ -105,16 +118,16 @@ CREATE TABLE IF NOT EXISTS `pengiriman` (
 -- Dumping data for table `pengiriman`
 --
 
-INSERT INTO `pengiriman` (`Id`, `Nama`, `Kota_Tujuan`, `Harga`, `Harga_String`) VALUES
-(1, 'JNE', 'Kebumen', 19000, '19.000'),
-(2, 'Tiki', 'Kebumen', 28000, '28.000'),
-(3, 'Pos Indonesia', 'Kebumen', 19900, '19.900'),
-(4, 'JNE', 'Yogyakarta', 7000, '7.000'),
-(5, 'Tiki', 'Yogyakarta', 9000, '9.000'),
-(6, 'Pos Indonesia', 'Yogyakarta', 16500, '16.500'),
-(7, 'JNE', 'Cilacap', 20000, '20.000'),
-(8, 'Tiki', 'Cilacap', 12000, '12.000'),
-(9, 'Pos Indonesia', 'Cilacap', 19800, '19.800');
+INSERT INTO `pengiriman` (`Id`, `Nama`, `Kota_Tujuan`, `Harga`) VALUES
+(1, 'JNE', 'Kebumen', 19000),
+(2, 'Tiki', 'Kebumen', 28000),
+(3, 'Pos Indonesia', 'Kebumen', 19900),
+(4, 'JNE', 'Yogyakarta', 7000),
+(5, 'Tiki', 'Yogyakarta', 9000),
+(6, 'Pos Indonesia', 'Yogyakarta', 16500),
+(7, 'JNE', 'Cilacap', 20000),
+(8, 'Tiki', 'Cilacap', 12000),
+(9, 'Pos Indonesia', 'Cilacap', 19800);
 
 -- --------------------------------------------------------
 
@@ -251,7 +264,6 @@ INSERT INTO `testimoni` (`id`, `id_pengguna`, `waktu`, `isi`) VALUES
 
 CREATE TABLE IF NOT EXISTS `transaksi` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_pengguna` int(11) NOT NULL,
   `id_produk` int(11) NOT NULL,
   `id_pengiriman` int(11) NOT NULL,
   `total_harga_barang` int(11) NOT NULL,
@@ -260,7 +272,6 @@ CREATE TABLE IF NOT EXISTS `transaksi` (
   `total_harga_dibayarkan` int(11) NOT NULL,
   `tanggal_transaksi` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `Id_Customer` (`id_pengguna`),
   UNIQUE KEY `Id_Barang` (`id_produk`),
   UNIQUE KEY `Id_Pengiriman` (`id_pengiriman`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -275,14 +286,6 @@ CREATE TABLE IF NOT EXISTS `transaksi` (
 ALTER TABLE `produk_promo`
   ADD CONSTRAINT `produk_promo_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id`),
   ADD CONSTRAINT `produk_promo_ibfk_2` FOREIGN KEY (`id_promo`) REFERENCES `promo` (`id`);
-
---
--- Constraints for table `transaksi`
---
-ALTER TABLE `transaksi`
-  ADD CONSTRAINT `transaksi_ibfk_3` FOREIGN KEY (`id_pengiriman`) REFERENCES `pengiriman` (`Id`),
-  ADD CONSTRAINT `transaksi_ibfk_4` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id`),
-  ADD CONSTRAINT `transaksi_ibfk_5` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
