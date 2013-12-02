@@ -69,7 +69,7 @@
                         $sql = "SELECT nota.*,pengiriman.nama FROM nota,pengiriman WHERE nota.id_pengiriman=pengiriman.id";
                         $result = mysqli_query($koneksi,$sql);
                         $counter=0;
-                        while($data = mysqli_fetch_assoc($result))
+                        while( $data = mysqli_fetch_assoc($result))
                         {
                             echo "<tr>";
                             echo "<td>".++$counter."</td>";
@@ -83,6 +83,10 @@
                             echo "<td>Rp. ".number_format($data['total_harga'])."</td>";
                             echo "</tr>";
                         }
+                        $sql = "SELECT SUM(nota.total_harga) AS total_harga_transaksi FROM nota";
+                        $result = mysqli_query($koneksi,$sql);
+                        $data2 = mysqli_fetch_assoc($result);
+                        echo"<tr><td class='textright' colspan='9'><strong>Total</strong> : Rp. ".number_format($data2['total_harga_transaksi'])."</td></tr>";
                         mysqli_close($koneksi);
 		    ?>
 		</table>

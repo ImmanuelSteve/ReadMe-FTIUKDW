@@ -101,11 +101,11 @@
                                 <td>
                                     <select name='nilai'>
                                         <!--<option value=<?php echo "'" .$edit['nilai']. "'"; ?>><?php echo "" .$edit['nilai']. ""; ?></option>;-->
-                                        <option value='1'>1</option>;
-                                        <option value='2'>2</option>;
-                                        <option value='3'>3</option>;
-                                        <option value='4'>4</option>;
-                                        <option value='5'>5</option>;
+                                        <option value='1'>1</option>
+                                        <option value='2'>2</option>
+                                        <option value='3'>3</option>
+                                        <option value='4'>4</option>
+                                        <option value='5'>5</option>
 				    </select>
                                 </td>
 			    </tr>
@@ -115,9 +115,9 @@
                                 <td>
                                     <select name='produk'>
                                    <!-- <option value=<?php echo "'" .$edit['status']. "'"; ?>><?php echo "Produk " .$edit['status']. ""; ?></option>;-->
-				    <option value='unggulan'>Produk Unggulan</option>;
-				    <option value='baru'>Produk Baru</option>;
-                                    <option value='standar'>Produk Standar</option>;
+				    <option value='unggulan'>Produk Unggulan</option>
+				    <option value='baru'>Produk Baru</option>
+                                    <option value='standar'>Produk Standar</option>
 				    </select>
                                 </td>
 			    </tr>
@@ -130,9 +130,14 @@
 			    <tr>
 				<td valign="top">Tipe Sim Card</td>
 				<td valign="top">:</td>
-				<td>
-				<textarea name="tipesim" rows="1" cols="50"><?php echo $edit['Tipe_SimCard']; ?></textarea>
-				</td>
+                                <td>
+				<select name='tipesim'>
+				    <!-- <option value=<?php echo "'" .$edit['Tipe_SimCard']. "'"; ?>><?php echo "Produk " .$edit['Tipe_SimCard']. ""; ?></option>;-->
+				    <option value='GSM'>GSM</option>
+				    <option value='CDMA'>CDMA</option>
+				    <option value='Dual'>DUAL SIM CARD</option>
+				</select>
+                                </td>
 			    </tr>
 			    <tr>
 				<td valign="top">Jaringan Data</td>

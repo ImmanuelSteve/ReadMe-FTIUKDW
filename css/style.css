@@ -13,6 +13,11 @@ ul{
     text-align: center;
 }
 
+.textright{
+    text-align: right;
+}
+
+
 .justify{
     text-align: justify;   
 }
