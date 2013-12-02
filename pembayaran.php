@@ -272,6 +272,7 @@
                 <div class="grid_18">
                     <h1 id="gagal">Silahkan masuk ke akun Anda terlebih dahulu.</h1>
                 </div>
+                
                 <?php }?>
                 
             </div>
