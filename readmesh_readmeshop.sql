@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2013 at 07:41 AM
+-- Generation Time: Dec 02, 2013 at 12:50 PM
 -- Server version: 5.5.32
--- PHP Version: 5.4.19
+-- PHP Version: 5.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -30,11 +30,19 @@ USE `readmesh_readmeshop`;
 
 CREATE TABLE IF NOT EXISTS `barang` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_produk` int(11) NOT NULL,
   `id_nota` int(11) NOT NULL,
+  `id_produk` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `Id_Barang` (`id_produk`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `barang`
+--
+
+INSERT INTO `barang` (`id`, `id_nota`, `id_produk`, `jumlah`) VALUES
+(1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -64,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `detail` (
 
 INSERT INTO `detail` (`Id`, `Tipe_SimCard`, `Jaringan_Data`, `Jaringan_Telepon`, `Prosesor`, `RAM`, `Media_Penyimpanan`, `GPU`, `Layar`, `Kamera`, `Baterai`, `Fitur_Tambahan`) VALUES
 (1, 'GSM', '4G(LTE Cat 4 150/50Mbps)', 'Quad band(850/900/1800/1900 MHz)', 'LTE(2.3 GHz Quad-Core Processor), 3G(1.9GHz Octa Core Processor(A15 1.9GHz+A7 1.3GHz)', '3 GB', '32/64 GB memori internal + slot microSD(hingga 64GB)', 'Mali-400MP4', '5.7 inch(144.3mm) Full HD Super AMOLED (1920 x 1080 piksel)', 'Kamera utama/belakang(13 Mpx), kamera depan(2 Mpx), dual kamera/dual rekaman/dual panggilan video', 'Li-ion 3.200 mAh', 'S Pen dengan fitur yang dioptimalisasi, Bluetooth v4.0(LE), Gesture, Accelerometer, Geo-magnetic, Gyroscope, RGB'),
-(2, 'GSM', 'WCDMA850/900/1700/1900/ 2100MHz, HSPA + 42Mbps(DL) / 5.76Mbps(UL), GPRS/EDGE Class 12', 'GSM 850/900/1800/1900MHz,  GPRS/EDGE Class 12', 'Intel Atom Z2580, Dual-core 2 GHz', '1GB', 'Internal : 16GB\r\nExternal : tidak ada', 'PowerVR SGX544', '5.5" Full HD (1920x1080) IPS', 'Utama : 13 Mpx AF(F1.8 Lens), Depan : 2M FF', '2800mAh (Li-polymer)', 'OS      : Android v4.2 (Jelly Bean)\r\nSIM     : Single (Micro SIM card)\r\nDimensi : 78x157x6.9 mm'),
+(2, 'Dual', 'WCDMA850/900/1700/1900/ 2100MHz, HSPA + 42Mbps(DL) / 5.76Mbps(UL), GPRS/EDGE Class 12', 'GSM 850/900/1800/1900MHz,  GPRS/EDGE Class 12', 'Intel Atom Z2580, Dual-core 2 GHz', '1GB', 'Internal : 16GB\r\nExternal : tidak ada', 'PowerVR SGX544', '5.5" Full HD (1920x1080) IPS', 'Utama : 13 Mpx AF(F1.8 Lens), Depan : 2M FF', '2800mAh (Li-polymer)', 'OS      : Android v4.2 (Jelly Bean)\r\nSIM     : Single (Micro SIM card)\r\nDimensi : 78x157x6.9 mm'),
 (3, 'GSM', 'HSDPA 850 / 900 / 1700 / 1900 / 2100,\r\nLTE 700 / 850 / 900/ 1700 / 1900 / 2100 / 2600 - C6806, \r\nLTE 800 / 850 / 900 / 1700 / 1800 / 1900 / 2100 / 2600 - C6833', 'GSM 850 / 900 / 1800 / 1900', 'Qualcomm MSM8974 2.2 GHz, Quadcore', '2 GB', 'Internal : 16 GB, slot microSD hingga 64 GB(didukung SDXC)', 'Adreno 330', '16 juta warna, 1920 x 1080 px, 6,4" tahan terhadap goresan', 'Kamera Utama : 8 Mpx, 16 digital zoom dengan AF, Kamera depan :  2 Mpx, 1080p@30fps', 'Non-removable Li-Ion 3050 mAh', 'Berat : 212 g,\r\nDimensi : 179x92x6,6 mm,\r\nOS : Android 4.2 (Jelly Bean)\r\nTahan debu dan tahan air'),
 (4, 'GSM', 'HSDPA 850 / 900 / 1900 / 2100, \r\nLTE 800 / 1800 / 2600, \r\nLTE 1800 / 2600\r\n', 'GSM 850 / 900 / 1800 / 1900', 'Quad-core 1.7 GHz Krait 300', '2 GB', 'Internal 32 / 64 GB, tanpa media penyimpanan external.', 'Adreno 320', '16 juta warna, 1080 x 1920 px, 4.7"(~469 ppi pixel density), Corning Gorilla Glass 2', 'Kamera utama : 4 Mpx, autofocus, optical image stabilization, LED flash. Kamera depan  :  2.1 Mpx, 1080p@30fps, HDR', 'Non-removable Li-Po 2300 mAh', 'Ukuran Simcard : Micro-Sim\r\nDimensi : 137.4 x 68.2 x 9.3 mm\r\nBerat   : 143 g\r\nOS      : Android OS, v4.1.2 (Jelly Bean)\r\n'),
 (5, 'CDMA', 'CDMA2000 1xEV-DO - CDMA A1429,\r\nLTE 700 / 850 / 1800 / 1900 / 2100 - CDMA A1429', 'CDMA 800 / 1900 / 2100 - CDMA A1429', 'Dual-core 1.3 GHz Swift (berbasis ARM v7)', '1 GB DDR2', 'Internal : 16/32/64 GB.\r\nTidak ada memori external.', 'PowerVR SGX 543MP3 (grafik tiga inti)', '16 juta warna, 640 x 1136 pixels, 4.0", Corning Gorilla Glass, Oleophobic Coating', 'Kamera Utama : 8 Mpx, 3264x2448 pixels, autofocus, LED flash. Kamera depan : 1.2 Mpx, 720p@30fps', 'Non-removable Li-Po 1440 mAh', 'Ukuran simcard : Nano-SIM\r\nBerat  : 112 g\r\nOS  : iOS 6, dapat di-upgrade hingga iOS 7.0.3\r\n\r\n'),
@@ -89,7 +97,14 @@ CREATE TABLE IF NOT EXISTS `nota` (
   `total_harga` int(11) NOT NULL,
   `id_pengiriman` int(11) NOT NULL,
   PRIMARY KEY (`id_nota`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `nota`
+--
+
+INSERT INTO `nota` (`id_nota`, `id_pengguna`, `tanggal_transaksi`, `pengirim`, `tujuan`, `kota`, `telepon`, `total_harga`, `id_pengiriman`) VALUES
+(1, 4, '2013-12-02', 'Steve', 'jl raya banjar', 'Yogyakarta', '082242434332', 20887000, 5);
 
 -- --------------------------------------------------------
 
@@ -117,7 +132,7 @@ INSERT INTO `pengguna` (`id`, `nama_pengguna`, `email`, `password`, `alamat`, `k
 (1, 'Admin', 'admin@gmail.com', '$2a$08$mrMbM.Pkt2/rX1QOalsgf.YwtQ26f12ewXn6UIBwWPOx4nUykqLwe', 'DutaWacana', 'Jogjakarta', '08123456789', 'images/avatar.jpg'),
 (2, 'Fandi', 'fandi.wirawan@gmail.com', '$2a$08$7RDbHoWFfQuOubgaUHTn/.xI3rvr42hNESfgBrII7R7hEroPnbiBq', 'Jl. Revolusi, Kebumen', 'Kebumen', '081999999999', 'images/avatar.jpg'),
 (3, 'Danny', 'danny@yahoo.com', '$2a$08$H8B9WJLoi.GAF/yN7l9q7eRHUzFYARL1MWxULeMAw5Vbyu4DhKMI.', 'gang nanas, Yogyakarta', 'Yogyakarta', '0821234243243', 'images/avatar.jpg'),
-(4, 'Steve', 'steve@gmail.com', '$2a$08$t9Ts1Jk.INeRjaq9.U7Mg.eP/AboFCn6UE2DdkIUo7E8SQTjaG2bS', 'jl raya banjar', 'Banjar', '082242434332', 'images/avatar.jpg'),
+(4, 'Steve', 'steve@gmail.com', '$2a$08$t9Ts1Jk.INeRjaq9.U7Mg.eP/AboFCn6UE2DdkIUo7E8SQTjaG2bS', 'jl raya banjar', 'Banjar', '082242434332', 'images/user/Penguins.jpg'),
 (5, 'Progweb', 'progweb@gmail.com', '$2a$08$Nlx2eGtOkz35d7e38QPqk.l8ZwRFYwT4WmcpBXw/.hXcJCfRujlU6', 'jogja', 'jogja', '0821313322322', 'images/avatar.jpg');
 
 -- --------------------------------------------------------
@@ -175,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `produk` (
 
 INSERT INTO `produk` (`id`, `merek`, `nama`, `harga`, `gambar`, `stok`, `nilai`, `waktu_peluncuran`, `terjual`, `status`) VALUES
 (1, 'Samsung', 'Samsung Galaxy Note 3', 8880000, 'images/samsung-galaxy-note-3.jpg', 5, 4, '2013-10-27 14:23:52', 5, 'unggulan'),
-(2, 'Lenovo', 'Lenovo K900', 4499000, 'images/lenovo-k900.jpg', 2, 4, '2013-10-29 10:21:33', 4, 'baru'),
+(2, 'Lenovo', 'Lenovo K900', 4499000, 'images/lenovo-k900.jpg', 2, 1, '2013-10-29 10:21:33', 4, 'unggulan'),
 (3, 'Sony', 'Sony Xperia Z Ultra', 7499000, 'images/sony-xperia-z-ultra.jpg', 1, 5, '2013-10-29 10:30:05', 2, 'unggulan'),
 (4, 'HTC', 'HTC One', 7300000, 'images/htc-one.jpg', 3, 4, '2013-10-30 13:02:35', 2, 'baru'),
 (5, 'Apple', 'iPhone 5', 9000000, 'images/apple-iphone-5.jpg', 2, 4, '2013-10-30 14:50:05', 5, 'baru'),
