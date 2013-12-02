@@ -64,7 +64,7 @@ require("koneksi.php"); ?>
     <!-- content begin -->
     <div id="content">
         <div class="container_24">
-            <div id="contentarea" class="grid_24">
+            <div id="contentarea_pe" class="grid_24">
                 <div class="grid_18">
                     <h1 class="infoakun">Akun Anda</h1>
                 </div>
@@ -73,7 +73,7 @@ require("koneksi.php"); ?>
                     <h3>INFORMASI UMUM</h3>
                 </div>
                 <div class="grid_18" id="informasi_user">
-                    <div class="grid_9">
+                    <div class="grid_18">
                         <?php
                         $id = $_SESSION['user'];
                         $sql = "SELECT nama_pengguna, alamat,email,kota,telepon,gambar FROM pengguna WHERE id='".$id."'";
@@ -83,106 +83,63 @@ require("koneksi.php"); ?>
                         $stmt->bind_result($nama,$alamat,$email,$kota,$telepon,$gambar);
                         
                         ?>
-                        <form action="profil-edit.php" method="post"> 
+                        <form action="updateProfile.php" method="post" enctype="multipart/form-data"> 
 
                         <?php
                         while($stmt->fetch()){
                             ?>
-                           <table>
+
+                            <table>
                                 <tr>
                                     <td>Nama</td>
                                     <td> : </td>
-                                    <td><?php echo $nama;?></td>
-                                    <td rowspan=6><?php
+                                    <td><input type="text" name="nama" value="<?php echo$nama; ?>" ></input></td>
+                                    <td class="center" rowspan=6><?php
                                                     if($gambar === ""){
                                                         $gambar = "images/avatar.jpg";
                                                     }
                                                     ?>
-                                                    <img class="boxImg center " src="<?php echo $gambar; ?>" width="150px" height="150px"></td>
-                                </tr>
-                                <tr>
-                                    <td>Alamat</td>
-                                    <td> : </td>
-                                    <td><?php echo $alamat;?></td>
+                                                    <img class="boxImg center " src="<?php echo $gambar; ?>" width="150px" height="150px">
+                                                    <br/><input type="file" name="upload" size="60"></input>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
                                     <td> : </td>
-                                    <td><?php echo $email;?></td>
+                                    <td> <input type="text" name="email" value="<?php echo$email; ?>" ></input></td>
+                                </tr>
+                                 <tr>
+                                    <td>Alamat</td>
+                                    <td> : </td>
+                                    <td><input type="text" name="alamat" value="<?php echo$alamat; ?>" ></input></td>
                                 </tr>
                                 <tr>
                                     <td>Kota</td>
                                     <td> : </td>
-                                    <td><?php echo $kota;?></td>
+                                    <td><input type="text" name="kota" value="<?php echo$kota; ?>" ></input></td>
                                 </tr>
                                 <tr>
                                     <td>Telepon</td>
                                     <td> : </td>
-                                    <td><?php echo $telepon;?></td>
+                                    <td><input type="text" name="telepon" value="<?php echo$telepon; ?>" ></input></td>
                                 </tr>
-                                <tr>
-                                </tr>
-                                <tr>
-                                    <td><input type="submit" class="right" name="save" id="buttonsimpan" value="Ganti"/></td>
-                                </tr>
+                                                                                         
                             </table>
-
 
                             <?php
                         }
                         ?>
-                        </form>
-                        <?php
-                    ?>
-                    </div>
-                    
+                        <br/>
+                        <span id="buttonkembali"><a href="profil.php">Kembali</a></span>
+                        <input type="submit" name="save" id="buttonsimpan" value="Simpan"/>
+                    </form>
+                        </div>
                 </div>
-
                 <div class="clear"></div>
-                    <div class= "grid_18" id="riwayat_pembelian">
-                    <h1 class="infoakun">Riwayat Pembelian</h1>
-                    <div id="table">
-                    <table class="center" border="1">
-                        <tr id="thead">
-                                <td>No</td>
-                                <td>No. Nota</td>
-                                <td>Tanggal</td>
-                                <td>Id Pengguna</td>
-                                <td>Nama Pengguna</td>
-                                <td>Alamat Tujuan</td>
-                                <td>Jasa Pengiriman</td>
-                                <td>Total Harga</td>
-                        </tr>
-                        <?php
-                            $sql = "SELECT transaksi.id, transaksi.tanggal_transaksi, pengguna.id, pengguna.nama_pengguna, transaksi.alamat_tujuan, pengiriman.nama, transaksi.total_harga_dibayarkan  
-                                FROM pengguna, transaksi, pengiriman
-                                WHERE pengguna.id=transaksi.id_pengguna
-                                AND pengiriman.id=transaksi.pengiriman
-                                AND transaksi.id_pengguna='".$id."'";
-                            $mysqli = new mysqli("localhost", "readmesh_readsh", "5hAHfL6GFwzKqymu", "readmesh_readmeshop");
-                            $stmt = $mysqli->prepare($sql);
-                            $stmt->bind_result($nota,$tanggal,$pengguna,$nama,$alamat,$jasa,$total);
-                                $result = mysqli_query($koneksi,$sql);
-                                $counter=0;
-                                print_r($no_nota);
-                                while($stmt->fetch())
-                                {
-                                    echo "<tr>";
-                                    echo "<td>".++$counter."</td>";
-                                    echo "<td>".$nota."</td>";
-                                    echo "<td>".$tanggal."</td>";
-                                    echo "<td>".$pengguna."</td>";
-                                    echo "<td class='justify'>".$alamat."</td>";
-                                    echo "<td>".$jasa."</td>";
-                                    echo "<td>".$total."</td>";
-                                    echo "</tr>";
-                                }
-                                mysqli_close($koneksi);
-                        ?>
-                    </table>
-                </div>
+                    
             </div>
         </div>
+    </div>
     <!-- content end -->
 
   <!-- footer begin -->
