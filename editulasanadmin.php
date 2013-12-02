@@ -35,11 +35,12 @@
             ?>
             <div class="grid_24" id="header_nav">
                 <ul class="lavaLamp">
+                    <li><a href="laporantransaksiadmin.php">Laporan Transaksi</a> </li>
                     <li><a href="penggunaadmin.php">Pengguna</a> </li>
                     <li><a href="editprodukadmin.php">Produk</a> </li>
                     <li><a href="edittestimoniadmin.php">Testimoni</a></li>
                     <li class="current"><a href="editulasanadmin.php">Ulasan</a></li>
-                     <li><a href="index.php">Lihat Halaman Web</a></li>
+                    <li><a href="index.php">Lihat Halaman Web</a></li>
                 </ul>
             <div class="clear"></div>
         </div>

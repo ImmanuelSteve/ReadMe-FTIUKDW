@@ -35,6 +35,7 @@
             ?>
             <div class="grid_24" id="header_nav">
                 <ul class="lavaLamp">
+		    <li><a href="laporantransaksiadmin.php">Laporan Transaksi</a> </li>
 		    <li><a href="penggunaadmin.php">Pengguna</a> </li>
                     <li><a href="editprodukadmin.php">Produk</a> </li>
                     <li class="current"><a href="edittestimoniadmin.php">Testimoni</a></li>

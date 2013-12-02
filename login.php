@@ -26,7 +26,7 @@
         $check = $t_hasher->CheckPassword($_SESSION['password'],$data['password']);
         }
         if($check==1){
-            echo "<span id='penyapa'>Selamat datang,<br><a href='penggunaadmin.php'>".$data['nama_pengguna']."</a></span></br>";
+            echo "<span id='penyapa'>Selamat datang,<br><a href='laporantransaksiadmin.php'>".$data['nama_pengguna']."</a></span></br>";
         }else{
         echo "<span id='penyapa'>Selamat Datang, <br/><a href='profil.php'>".$data['nama_pengguna']."</a></span></br>";
         }
@@ -80,7 +80,7 @@
                 $check = $t_hasher->CheckPassword($_SESSION['password'],$data['password']);
                 }
                 if($check==1){
-                   echo "<span id='penyapa'>Selamat datang,<br><a href='penggunaadmin.php'>".$data['nama_pengguna']."</a></span></br>";
+                   echo "<span id='penyapa'>Selamat datang,<br><a href='laporantransaksiadmin.php'>".$data['nama_pengguna']."</a></span></br>";
                 }else{
                 echo "<span id='penyapa'>Selamat Datang, <br/><a href='profil.php'>".$data['nama_pengguna']."</a></span></br>";
                 }

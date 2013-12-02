@@ -34,8 +34,8 @@
             ?>
             <div class="grid_24" id="header_nav">
                 <ul class="lavaLamp">
-                    <li><a href="laporantransaksiadmin.php">Laporan Transaksi</a> </li>
-                    <li class="current"><a href="penggunaadmin.php">Pengguna</a> </li>
+                    <li class="current"><a href="laporantransaksiadmin.php">Laporan Transaksi</a> </li>
+                    <li><a href="penggunaadmin.php">Pengguna</a> </li>
                     <li><a href="editprodukadmin.php">Produk</a> </li>
                     <li><a href="edittestimoniadmin.php">Testimoni</a></li>
                     <li><a href="editulasanadmin.php">Ulasan</a></li>
@@ -50,33 +50,37 @@
     <div id="content">
         <div class="container_24">
             <div id="contentarea" class="grid_24">
-                <h1>Pengguna ReadMe Shop</h1>
+                <h1>Laporan Transaksi ReadMe Shop</h1>
                 <div id="table">
                 <table class="center" border="1">
                     <tr id="thead">
 			<td>No</td>
+                        <td>Tanggal Transaksi</td>
                         <td>Id Pengguna</td>
-                        <td>Nama Pengguna</td>
-                        <td>Email</td>
-                        <td>Alamat</td>
+                        <td>Pengirim</td>
+                        <td>Tujuan</td>
                         <td>Kota</td>
                         <td>Telepon</td>
+                        <td>Jasa Pengiriman</td>
+                        <td>Total Harga</td>
 		    </tr>
 		    <?php
                         require("koneksi.php");
-                        $sql = "Select id,nama_pengguna,email,alamat,kota,telepon from pengguna";
+                        $sql = "SELECT nota.*,pengiriman.nama FROM nota,pengiriman WHERE nota.id_pengiriman=pengiriman.id";
                         $result = mysqli_query($koneksi,$sql);
                         $counter=0;
                         while($data = mysqli_fetch_assoc($result))
                         {
                             echo "<tr>";
                             echo "<td>".++$counter."</td>";
-                            echo "<td>".$data['id']."</td>";
-                            echo "<td>".$data['nama_pengguna']."</td>";
-                            echo "<td>".$data['email']."</td>";
-                            echo "<td class='justify'>".$data['alamat']."</td>";
+                            echo "<td>".$data['tanggal_transaksi']."</td>";
+                            echo "<td>".$data['id_pengguna']."</td>";
+                            echo "<td>".$data['pengirim']."</td>";
+                            echo "<td class='tujuan'>".$data['tujuan']."</td>";
                             echo "<td>".$data['kota']."</td>";
                             echo "<td>".$data['telepon']."</td>";
+                            echo "<td>".$data['nama']."</td>";
+                            echo "<td>Rp. ".number_format($data['total_harga'])."</td>";
                             echo "</tr>";
                         }
                         mysqli_close($koneksi);

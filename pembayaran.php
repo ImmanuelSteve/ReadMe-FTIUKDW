@@ -39,22 +39,23 @@
         $kota_id = $_POST['kota'];
         $telepon = $_POST['telepon'];
         $jasa = $_POST['kota'];
-        $query_harga = "SELECT kota, harga FROM pengiriman WHERE id = ".$kota_id."";
-
+          echo "ini dah bisa";
+        $query_harga = "SELECT kota_tujuan, harga FROM pengiriman WHERE id = ".$kota_id."";
+          echo "ini dah bisa";
         $result_harga = mysqli_query($koneksi, $query_harga) or die(mysql_error());
         $data_pengiriman = mysqli_fetch_assoc($result_harga) or die(mysql_error());
-
-        $kota = $data_pengiriman['kota'];
-        $total_harga = $total + $data_pengiriman['harga'];
-
-        $query = "INSERT INTO `nota`(`id_nota`, `id_pengguna`, `tanggal_transaksi`, `pengirim`, `tujuan`, `kota`, `telepon`, `total_harga`, `id_pengiriman`) VALUES (NULL,".$_SESSION['user'].",CURRENT_TIMESTAMP,".$pengirim.",".$alamat.",".$kota.",".$telepon.",".$total_harga.",".$kota_id.")";
+        $kota = $data_pengiriman['kota_tujuan'];
+        $total_harga = $_SESSION['total'] + $data_pengiriman['harga'];
+        echo "".$total_harga."";
+        $query = "INSERT INTO `nota`(`id_nota`, `id_pengguna`, `tanggal_transaksi`, `pengirim`, `tujuan`, `kota`, `telepon`, `total_harga`, `id_pengiriman`)
+        VALUES (NULL,'".$_SESSION['user']."',CURRENT_TIMESTAMP,'".$pengirim."','".$alamat."','".$kota."','".$telepon."','".$total_harga."','".$kota_id."')";
         if(mysqli_query($koneksi,$query)){
                 //echo "<script type='text/javascript'>alert('Daftar berhasil!');</script>";
                 header("location:index.php");
                 echo"berhasil";
                 //header("location:http://readmeshop.revti.com/index.php");
             }else{
-                echo"jancok";
+                echo"".mysql_error()."";
             }
     }
     }
@@ -154,6 +155,7 @@
                                     if ( $found > 0) {
                                         $line_cost = $data['harga'] * $quantity; //harga perline
                                         $total = $total + $line_cost; //total cost
+                                        $_SESSION['total'] = $total;
                                     }
                             ?>
 
@@ -246,12 +248,8 @@
                                                 $result2 = mysqli_query($koneksi,$sql2);
                                              
                                                 while($data2 = mysqli_fetch_assoc($result2)) { 
-                                                    echo "steve";
-                                            ?>
-                                                <option value="<?php echo"".$data2['id'].""; ?>"><?php echo "".$data2['kota_tujuan']." - ".$data2['nama']." - Rp ".number_format($data2['harga'])."";?></option>";                                       
-                                            
-                                            <?php  }
-                                                mysqli_close($koneksi);
+                                                    echo"<option value='".$data2['id']."'>".$data2['kota_tujuan']." - ".$data2['nama']." - Rp ".number_format($data2['harga'])."</option>";                                       
+                                                }
                                             ?>
                                         </select>
                                     </div>
@@ -282,7 +280,7 @@
                 <div class="grid_18">
                     <h1 id="gagal">Silahkan masuk ke akun Anda terlebih dahulu.</h1>
                 </div>
-                <?php } ?>
+                <?php }  mysqli_close($koneksi);?>
                 
             </div>
         </div>
