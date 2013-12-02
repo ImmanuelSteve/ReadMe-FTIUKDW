@@ -94,11 +94,11 @@ require("koneksi.php"); ?>
                                     <td> : </td>
                                     <td><?php echo $nama;?></td>
                                     <td rowspan=6><?php
-                                                    if($gambar === ""){
-                                                        $gambar = "images/avatar.jpg";
-                                                    }
-                                                    ?>
-                                                    <img class="boxImg center " src="<?php echo $gambar; ?>" width="150px" height="150px"></td>
+                                            if($gambar === ""){
+                                                $gambar = "images/avatar.jpg";
+                                            }
+                                            ?>
+                                            <img class="boxImg center " src="<?php echo $gambar; ?>" width="150px" height="150px"></td>
                                 </tr>
                                 <tr>
                                     <td>Alamat</td>
