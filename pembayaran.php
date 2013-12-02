@@ -3,59 +3,45 @@
     require("koneksi.php");
     $valid = TRUE;
     
-    echo "testistostus";
     if(!empty($_SESSION['user']) && isset($_POST['confirm'])) {
-        echo "masuk confirm";
         if(trim($_POST['pangirim'])=="")
     {
         $valid = FALSE;
-        echo "pengirim cek";
     }
         if(trim($_POST['alamat'])=="")
     {
         $valid = FALSE;
-        echo "alamat cek";
     }
         if(trim($_POST['kota'])=="")
     {
         $valid = FALSE;
-        echo "kota cek";
     }
         if(trim($_POST['telepon'])=="")
     {
         $valid = FALSE;
-        echo "telepon cek 1";
     }
         if(strlen($_POST['telepon'])>0 && !is_numeric($_POST['telepon']))
     {
         $valid = FALSE;
-        echo "telepon 2 cek";
     }
         if($valid)
     {
-        echo "ini dah bisa";
         $pengirim = $_POST['pangirim'];
         $alamat = $_POST['alamat'];
         $kota_id = $_POST['kota'];
         $telepon = $_POST['telepon'];
         $jasa = $_POST['kota'];
-          echo "ini dah bisa";
         $query_harga = "SELECT kota_tujuan, harga FROM pengiriman WHERE id = ".$kota_id."";
-          echo "ini dah bisa";
         $result_harga = mysqli_query($koneksi, $query_harga) or die(mysql_error());
         $data_pengiriman = mysqli_fetch_assoc($result_harga) or die(mysql_error());
         $kota = $data_pengiriman['kota_tujuan'];
         $total_harga = $_SESSION['total'] + $data_pengiriman['harga'];
-        echo "".$total_harga."";
         $query = "INSERT INTO `nota`(`id_nota`, `id_pengguna`, `tanggal_transaksi`, `pengirim`, `tujuan`, `kota`, `telepon`, `total_harga`, `id_pengiriman`)
         VALUES (NULL,'".$_SESSION['user']."',CURRENT_TIMESTAMP,'".$pengirim."','".$alamat."','".$kota."','".$telepon."','".$total_harga."','".$kota_id."')";
         if(mysqli_query($koneksi,$query)){
                 //echo "<script type='text/javascript'>alert('Daftar berhasil!');</script>";
                 header("location:index.php");
-                echo"berhasil";
                 //header("location:http://readmeshop.revti.com/index.php");
-            }else{
-                echo"".mysql_error()."";
             }
     }
     }
@@ -269,18 +255,24 @@
                         </ul>
                     </div>
                     <div class="clear"></div>
+                    <!-- payment method -->
+                    <div class="grid_18" id="method">
+                        <input type="radio" name="method" value="1"><img src="images/cash_on_delivery.png" width="180px" height="90px" title="Cash on Delivery"></input>
+                        <input type="radio" name="method" value="2"><img src="images/credit-cards-icon.png" width="180px" height="90px" title="Transfer melalui Bank"></input>
+                    </div>
+                    <div class="clear"></div>
                     <div class="grid_18">
                         <input type="submit" name="confirm" id="buttondaftar" value="Oke!"></input>
                         *Harus diisi
                     </div>
                 </form>
                 
-                <?php } else { ?> <!-- session login cek end --> 
+                <?php   mysqli_close($koneksi); } else { ?> <!-- session login cek end --> 
                 <!-- else session login cek -->
                 <div class="grid_18">
                     <h1 id="gagal">Silahkan masuk ke akun Anda terlebih dahulu.</h1>
                 </div>
-                <?php }  mysqli_close($koneksi);?>
+                <?php }?>
                 
             </div>
         </div>
