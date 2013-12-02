@@ -61,6 +61,7 @@
                         <td>Alamat</td>
                         <td>Kota</td>
                         <td>Telepon</td>
+                        <td>Pilihan</td>
 		    </tr>
 		    <?php
                         require("koneksi.php");
@@ -77,6 +78,7 @@
                             echo "<td class='justify'>".$data['alamat']."</td>";
                             echo "<td>".$data['kota']."</td>";
                             echo "<td>".$data['telepon']."</td>";
+                            echo "<td><a href=hapusdata.php?id=".$data['id']." onClick=\"return confirm('Yakin Mau dihapus datanya ?')\">Hapus</a></td>";
                             echo "</tr>";
                         }
                         mysqli_close($koneksi);

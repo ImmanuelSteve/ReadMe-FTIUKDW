@@ -90,12 +90,12 @@
                                 <td>: </td>
                                 <td>
                                     <select name='nilai'>
-                                    echo"<option value=''>Pilih Nilai</option>";
-				    echo"<option value='1'>1</option>";
-				    echo"<option value='2'>2</option>";
-				    echo"<option value='3'>3</option>";
-				    echo"<option value='4'>4</option>";
-				    echo"<option value='5'>5</option>";
+					<option value=''>Pilih Nilai</option>;
+					<option value='1'>1</option>;
+					<option value='2'>2</option>;
+					<option value='3'>3</option>;
+					<option value='4'>4</option>;
+					<option value='5'>5</option>;
 				    </select>
                                 </td>
 			    </tr>
@@ -104,10 +104,10 @@
                                 <td>: </td>
                                 <td>
                                     <select name='produk'>
-                                    echo"<option value=''>Pilih Status</option>";
-				    echo"<option value='unggulan'>Produk Unggulan</option>";
-				    echo"<option value='baru'>Produk Baru</option>";
-				    echo"<option value='standar'>Produk Standar</option>";
+					<option value=''>Pilih Status</option>;
+					<option value='unggulan'>Produk Unggulan</option>;
+					<option value='baru'>Produk Baru</option>;
+					<option value='standar'>Produk Standar</option>;
 				    </select>
                                 </td>
 			    </tr>
@@ -121,7 +121,12 @@
 				<td valign="top">Tipe Sim Card</td>
 				<td valign="top">:</td>
 				<td>
-				<textarea name="tipesim" rows="1" cols="50"></textarea>
+				<select name='tipesim'>
+					<option value=''>Pilih Tipe Sim</option>;
+					<option value='GSM'>GSM</option>;
+					<option value='CDMA'>CDMA</option>;
+					<option value='Dual'>DUAL SIM CARD</option>;
+				</select>
 				</td>
 			    </tr>
 			    <tr>
