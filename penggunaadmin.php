@@ -29,7 +29,7 @@
             </div>
             <!--login-->
             <?php
-                $_SESSION['actionlogin'] = "editulasanadmin.php";
+                $_SESSION['actionlogin'] = "penggunaadmin.php";
                 include("login.php");
             ?>
             <div class="grid_24" id="header_nav">

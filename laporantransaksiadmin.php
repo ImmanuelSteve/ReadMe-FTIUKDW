@@ -55,6 +55,7 @@
                 <table class="center" border="1">
                     <tr id="thead">
 			<td>No</td>
+                        <td>No. Nota</td>
                         <td>Tanggal Transaksi</td>
                         <td>Id Pengguna</td>
                         <td>Pengirim</td>
@@ -73,6 +74,7 @@
                         {
                             echo "<tr>";
                             echo "<td>".++$counter."</td>";
+                            echo "<td>".$data['id_nota']."</td>";
                             echo "<td>".$data['tanggal_transaksi']."</td>";
                             echo "<td>".$data['id_pengguna']."</td>";
                             echo "<td>".$data['pengirim']."</td>";
@@ -86,7 +88,7 @@
                         $sql = "SELECT SUM(nota.total_harga) AS total_harga_transaksi FROM nota";
                         $result = mysqli_query($koneksi,$sql);
                         $data2 = mysqli_fetch_assoc($result);
-                        echo"<tr><td class='textright' colspan='9'><strong>Total</strong> : Rp. ".number_format($data2['total_harga_transaksi'])."</td></tr>";
+                        echo"<tr><td class='textright' colspan='10'><strong>Total</strong> : Rp. ".number_format($data2['total_harga_transaksi'])."</td></tr>";
                         mysqli_close($koneksi);
 		    ?>
 		</table>

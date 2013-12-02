@@ -40,6 +40,14 @@
                 }else{
                     header("location:default.html");
                 }
+            }else if($_SESSION['actionlogin']=="penggunaadmin.php"){
+                $query = "DELETE FROM pengguna WHERE id = ".$_GET['id'];
+                if(mysqli_query($koneksi,$query)){
+                    header("location:".$_SESSION['actionlogin']."");
+                    $_SESSION['berhasil']="Berhasil di hapus dari database";
+                }else{
+                    header("location:default.html");
+                }
             }
         }else{
             header("location:".$_SESSION['actionlogin']."");
