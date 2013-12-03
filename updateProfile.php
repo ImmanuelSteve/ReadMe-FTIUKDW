@@ -1,8 +1,6 @@
 <?php
 session_start();
 require('koneksi.php');
-	print_r($_POST);
-  print_r($_FILES['upload']);
 	$nama = $_POST['nama'];
 	$email = $_POST['email'];	
   $alamat = $_POST['alamat'];
